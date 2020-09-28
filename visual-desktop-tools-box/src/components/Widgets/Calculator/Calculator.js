@@ -9,30 +9,37 @@ import * as math from 'mathjs';
 
 export default function Calculator(props) {
  
-  const [input, setInput] = useState("");
+   const [input, setInput] = useState("");
 
-  // flag that user enter value again when they have the result already
-//   const [reStartChecker, setReStartChecker] = useState(false);
-
-   // detect any input
-  const handleInput = props =>{
-    setInput(input + props)
-      // if(reStartChecker) {
-      //   setInput(props)
-      //   setReStartChecker(false)
-      // }
-      
-  }
-   // detect equal
-  const handleEqual = () =>{
-     try{
-    setInput(math.evaluate(input))
-     }
-     catch(error){
-      
-     }
-   //  setReStartChecker(true)
-  }
+   // flag that user enter value again when they have the result already
+   const [reStartChecker, setReStartChecker] = useState(false);
+ 
+    // detect any input
+   const handleInput = props =>{
+    // console.log(props);
+     setInput(input +props)
+     console.log(input);
+       if(reStartChecker && isNaN(props)){
+          setReStartChecker(false)
+       }
+      else if(reStartChecker && !isNaN(parseInt(props, 10))) {
+         setInput(props)
+         setReStartChecker(false)
+        
+       }
+       
+   }
+    // detect equal
+   const handleEqual = () =>{
+      try{
+     setInput(math.evaluate(input))
+      }
+      catch(error){
+       
+      }
+     setReStartChecker(true)
+   }
+   
    // clear screen
   const handleClear = props =>{
     setInput("")
