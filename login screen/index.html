@@ -1,5 +1,8 @@
+<head>
+  <meta charset="UTF-8">
+</head>
+
 <body>
-  ...
   <!-- Should be a direct child of BODY -->
   <div class="login-screen">
       <!-- Default view-page layout -->
@@ -9,7 +12,8 @@
           <div class="page-content login-screen-content">
             <div class="login-screen-title">Browser Desktop</div>
             <!-- Login form -->
-            <form>
+            <form action="login.php" method="post">
+              <div class="list-block-label">Please enter your login</div>
               <div class="list-block">
                 <ul>
                   <li class="item-content">
@@ -36,10 +40,9 @@
               <div class="list-block">
                 <ul>
                   <li>
-                    <a href="#" class="item-link list-button">Sign In</a>
+                    <input type="submit">
                   </li>
                 </ul>
-                <div class="list-block-label">Please enter your login</div>
               </div>
             </form>
           </div>
