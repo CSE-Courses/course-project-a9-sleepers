@@ -2,13 +2,19 @@
 const {MongoClient} = require('mongodb');
 
 
-
 // Adds a new entry for login. Listings are objects.
-async function addLogin(client, newListing){
-  const result = await client.db("login_db").collection("login_collection").insertOne(newListing);
-  console.log(`New listing created with the following id: ${result.insertedId}`);
+async function addLogin(client, input){
+  const res = await client.db("login_db").collection("login_collection").insertOne(input);
 }
 
+// Looks for possible database entry for given user + pass combination
+async function findID(client, user, pass) {
+  input = {"username": user, "password": pass};
+  const res = await client.db("login_db").collection("login_collection").findOne(input);
+  if(res == null) {console.log('Document not found. Returning null.')}
+  console.log(res);
+  return res;
+}
 
 // Retrieves a list of databases in the cluster and prints the results.
 async function listDatabases(client){
@@ -17,7 +23,6 @@ async function listDatabases(client){
   console.log("Databases:");
   databasesList.databases.forEach(db => console.log(` - ${db.name}`));
 };
-
 
 async function main(){
   /**
@@ -32,9 +37,10 @@ async function main(){
 
   try {
       await client.connect(); // Connect to MongoDB cluster
+      await findID(client, 'test_username', 'test_password');
       await listDatabases(client); // Make DB calls
       // await addLogin(client, { username: "test_username", password: "test_password"}) // Create test login
-
+      // await findID(client, 'username', 'password');
   } catch (e) {
       console.error(e);
   } finally {

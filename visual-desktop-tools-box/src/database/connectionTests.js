@@ -40,6 +40,9 @@ async function runDBTests(client){
   assert.deepEqual(await testDBRetrieval(client, inputRet1), inputRetComp1);
   assert.deepEqual(await testDBRetrieval(client, inputRet2), inputRetComp2);
   assert.deepEqual(await testDBRetrieval(client, inputRet3), inputRetComp3);
+
+  // THIS LINE DELETES ALL ENTRIES IN THE COLLECTION
+  // await client.db("login_db").collection("login_collection").deleteMany({});
 }
 
 async function main(){
