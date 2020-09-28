@@ -1,5 +1,6 @@
-
-import React from 'react';
+import React, {useState} from 'react';
+import Modal from 'react-bootstrap/Modal'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
 import {Container,Row,Col,Badge} from 'react-bootstrap';
@@ -15,6 +16,12 @@ import   './VisualTools.css';
 
 
 export default function VisualTools (){
+
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  
   return(
     <div>
         <h1 class="text-center fontSize1" ><Badge variant="secondary">ToolBox</Badge></h1>
@@ -58,9 +65,15 @@ export default function VisualTools (){
                    </Col>
 
                    <Col sm={5} md = {5}>
-                     <Link to ="/Clock">
-                       <Image src ={SubClock} className={" img-fluid SubClock"}  />
-                     </Link>
+                   <div>
+                       <Image src ={SubClock} className={" img-fluid SubClock"} onClick={handleShow} />
+                       <Modal show={show} centered size="lg" onHide={handleClose}>
+                          <Modal.Header closeButton>
+                            <Modal.Title>Time</Modal.Title>
+                          </Modal.Header>
+                          <h1>It is currently {new Date().toLocaleTimeString()}.</h1>
+                        </Modal>
+                     </div>
                      <h3 class="text-center fontSize3">Clock</h3>
                      <hr className={"HonzontalLine"}/>
                     </Col>

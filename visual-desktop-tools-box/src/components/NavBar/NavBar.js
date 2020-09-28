@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Modal from 'react-bootstrap/Modal'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import './NavBar.css';
 
 export default function NavBar (){
+
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
     return(
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
          <Navbar.Brand as={NavLink} to= '/' className={"px-3"}>
@@ -22,8 +30,14 @@ export default function NavBar (){
                 <NavDropdown.Item as={NavLink} to= '/Notepad'>
                   <h3 className={"fontSize3"}>Notepad</h3>
                 </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to= '/Clock'>
-                  <h3 className={"fontSize3"}>Clock</h3> 
+                <NavDropdown.Item>
+                  <h3 className={"fontSize3"} onClick={handleShow}>Clock</h3>
+                    <Modal show={show} centered size="lg" onHide={handleClose}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Time</Modal.Title>
+                      </Modal.Header>
+                    <h1>It is currently {new Date().toLocaleTimeString()}.</h1>
+                  </Modal>
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Calendar'>
                   <h3 className={"fontSize3"}>Calendar</h3>
