@@ -3,8 +3,14 @@ const assert = require('assert').strict;
 
 
 async function testDBInsertion(client, input) {
-  const result = await client.db("login_db").collection("login_collection").insertOne(input);
-  return result.ops[0]; // Return first and only operation
+  const res = await client.db("login_db").collection("login_collection").insertOne(input);
+  return res.ops[0]; // Return first and only operation
+}
+
+async function testDBRetrieval(client, input) {
+  await client.db("login_db").collection("login_collection").insertOne(input); // Insert input
+  const res = await client.db("login_db").collection("login_collection").findOne({}, {sort:{$natural:-1}}); // Retrieve Input
+  return {username: res.username, password: res.password};
 }
 
 async function runDBTests(client){
@@ -12,15 +18,28 @@ async function runDBTests(client){
   assert.equal(1,1);
 
   // Database Insertion Tests
-  input1 = {username: "test_username", password: "test_password"};
-  assert.deepEqual(await testDBInsertion(client, input1), input1);
-  input2 = {username: "", password: ""};
-  assert.equal(await testDBInsertion(client, input2), input2);
-  input3 = {username: "ltkicQ7PHo", password: "bjV1FdpeY7"};
-  assert.equal(await testDBInsertion(client, input3), input3);
+  inputInsert1 = {username: "test_username", password: "test_password"};
+  inputInsert2 = {username: "", password: ""};
+  inputInsert3 = {username: "ltkicQ7PHo", password: "bjV1FdpeY7"};
+
+  assert.deepEqual(await testDBInsertion(client, inputInsert1), inputInsert1);
+  assert.deepEqual(await testDBInsertion(client, inputInsert2), inputInsert2);
+  assert.deepEqual(await testDBInsertion(client, inputInsert3), inputInsert3);
+
 
   // Database Retrieval Tests
+  // Comparator var is needed as input gets modified by MongoDB
+  inputRet1 = {username: "test_username", password: "test_password"};
+  inputRet2 = {username: "", password: ""};
+  inputRet3 = {username: "ltkicQ7PHo", password: "bjV1FdpeY7"};
 
+  inputRetComp1 = Object.assign({}, inputRet1);
+  inputRetComp2 = Object.assign({}, inputRet2);
+  inputRetComp3 = Object.assign({}, inputRet3);
+
+  assert.deepEqual(await testDBRetrieval(client, inputRet1), inputRetComp1);
+  assert.deepEqual(await testDBRetrieval(client, inputRet2), inputRetComp2);
+  assert.deepEqual(await testDBRetrieval(client, inputRet3), inputRetComp3);
 }
 
 async function main(){
