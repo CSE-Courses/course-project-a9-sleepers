@@ -6,7 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 import MainPage from './components/MainPage/MainPage';
-// import Calculator from './components/Calculator/Calculator';
+import Calculator from './components/Widgets/Calculator/Calculator';
 
 
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
 
           <Route path = "/" exact component = {MainPage}/>
 
-         
+
 
 
 
