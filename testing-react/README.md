@@ -1,4 +1,4 @@
-My Article code example on "Practical Guide to testing React Applications with Jest"
+React Testing Suite
 
 Clone this repo
 
