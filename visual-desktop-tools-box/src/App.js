@@ -6,7 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 import MainPage from './components/MainPage/MainPage';
-import Calculator from './components/Calculator/Calculator';
+// import Calculator from './components/Calculator/Calculator';
 
 
 class App extends Component {
@@ -16,12 +16,12 @@ class App extends Component {
      <BrowserRouter>
        <Switch>
 
-          <Route path = "/" exact component = {MainPage}/> 
+          <Route path = "/" exact component = {MainPage}/>
 
-          <Route path = "/Calculator" exact component = {Calculator}/> 
-        
-      
          
+
+
+
 
        </Switch>
      </BrowserRouter>
