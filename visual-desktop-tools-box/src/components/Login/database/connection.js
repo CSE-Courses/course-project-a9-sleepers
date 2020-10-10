@@ -10,7 +10,7 @@ async function addLogin(client, input){
 
 // Looks for possible database entry for given user + pass combination and console.logs the ID
 async function findID(client, user, pass) {
-  input = {"username": user, "password": pass};
+  const input = {"username": user, "password": pass};
   const res = await client.db("login_db").collection("login_collection").findOne(input);
   if(res == null) {
     console.log('Document not found. Returning null.')
@@ -23,7 +23,7 @@ async function findID(client, user, pass) {
 
 // Retrieves a list of databases in the cluster and prints the results.
 async function listDatabases(client){
-  databasesList = await client.db().admin().listDatabases();
+  const databasesList = await client.db().admin().listDatabases();
 
   console.log("Databases:");
   databasesList.databases.forEach(db => console.log(` - ${db.name}`));
@@ -41,17 +41,30 @@ async function main(){
   try {
       await client.connect(); // Connect to MongoDB cluster
       // The following functions inserts the username and password to the database and retrieves it
-      const user = "test_username";
-      const pass = "test_password";
+      const user = "test_username1";
+      const pass = "test_password1";
       await addLogin(client, { username: user, password: pass}) // Create test login
       await findID(client, user, pass);
-      // await listDatabases(client); // Make DB calls
+      // await listDatabases(client);
 
   } catch (e) {
       console.error(e);
   } finally {
       await client.close();
   }
+}
+
+// Handling frontend
+function getFormData(){
+  // Grab name and password from fields
+  var name=document.getElementById('username').value;
+  var email=document.getElementById('password').value;
+
+  console.log(name);
+  console.log(email);
+
+
+  alert("Form submitted!!!\n Username is: " + name + "\nEmail is: " + email);
 }
 
 main().catch(console.error);
