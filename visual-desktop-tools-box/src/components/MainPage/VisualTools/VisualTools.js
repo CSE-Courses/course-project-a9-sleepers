@@ -1,5 +1,6 @@
-
-import React from 'react';
+import React, {useState} from 'react';
+import Modal from 'react-bootstrap/Modal'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
 import {Container,Row,Col,Badge} from 'react-bootstrap';
@@ -8,13 +9,21 @@ import SubCalculator from '../images/Sub-Calculator.png';
 import SubNotepad from '../images/Sub-Notepad.png';
 import SubClock from '../images/Sub-Clock.png';
 import SubCalendar from '../images/Sub-Calendar.png';
-import SubScheduled from '../images/Sub-Scheduled.png'
+import SubScheduled from '../images/Sub-Scheduled.png';
+import SubTimer from '../images/Sub-Timer.png';
+import SubStopwatch from '../images/Sub-Stopwatch.png';
 import   './VisualTools.css';
 
 
 
 
 export default function VisualTools (){
+
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  
   return(
     <div>
         <h1 class="text-center fontSize1" ><Badge variant="secondary">ToolBox</Badge></h1>
@@ -58,9 +67,15 @@ export default function VisualTools (){
                    </Col>
 
                    <Col sm={5} md = {5}>
-                     <Link to ="/Clock">
-                       <Image src ={SubClock} className={" img-fluid SubClock"}  />
-                     </Link>
+                   <div>
+                       <Image src ={SubClock} className={" img-fluid SubClock"} onClick={handleShow} />
+                       <Modal show={show} centered size="lg" onHide={handleClose}>
+                          <Modal.Header closeButton>
+                            <Modal.Title>Time</Modal.Title>
+                          </Modal.Header>
+                          <h1>It is currently {new Date().toLocaleTimeString()}.</h1>
+                        </Modal>
+                     </div>
                      <h3 class="text-center fontSize3">Clock</h3>
                      <hr className={"HonzontalLine"}/>
                     </Col>
@@ -88,9 +103,29 @@ export default function VisualTools (){
                      <hr className={"HonzontalLine"}/>
                   </Col>
               </Row>
-              
-    
-              
+
+              <Row>
+                  <Col sm={5} md = {5}>
+                     <Link to ="/Timer">
+                       <Image src ={SubTimer} className={" img-fluid SubTimer"} />
+                     </Link>
+                         <h3 class="text-center fontSize3" >Timer</h3>
+                         <hr className={"HonzontalLine"}/>  
+                   </Col> 
+
+                   <Col sm={2}  md = {2}>
+                     <div className={"VeriticalLine"}/>
+                   </Col>
+                   <Col sm={5}  md = {5 }>
+                     <Link to ="/Stopwatch">
+                       <Image src ={SubStopwatch} className={" img-fluid SubStopwatch"} 
+                         alt="CheckListIcon"  /> 
+                     </Link>
+                        <h3 class="text-center fontSize3">Stopwatch</h3>
+                        <hr className={"HonzontalLine"}/>
+                   </Col>
+              </Row>
+
               {/* spaces will be replace by footer in the future */}
                 <br/>
                   <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
