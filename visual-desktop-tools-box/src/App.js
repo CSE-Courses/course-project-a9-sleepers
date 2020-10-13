@@ -9,6 +9,7 @@ import MainPage from './components/MainPage/MainPage';
 import Calculator from './components/Widgets/Calculator/Calculator';
 import Countdown from './components/Widgets/Countdown';
 import Stopwatch from './components/Widgets/Stopwatch';
+import ToDoList from './components/Widgets/ToDoList/ToDoList';
 
 
 class App extends Component {
@@ -25,6 +26,8 @@ class App extends Component {
           <Route path = "/Timer" exact component = {Countdown}/>
 
           <Route path = "/Stopwatch" exact component = {Stopwatch}/>
+
+          <Route path = "/ToDoList" exact component = {ToDoList}/>
          
 
        </Switch>
