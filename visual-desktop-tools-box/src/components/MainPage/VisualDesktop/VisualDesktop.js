@@ -47,6 +47,7 @@ export default function VisualDesktop (){
       { name: "Google", shape: "poly", coords: [640,350,1290,350,1290,810 ,640,810],  href : '/Google' , strokeColor:"blue",},
       { name: "Timer", shape: "poly", coords: [1425,800,1570,800,1563,890,1433,890],  href:'/Timer' ,strokeColor:"purpule",   },
       { name: "Calculator", shape: "poly", coords: [1520,900,1595,885,1720,960,1630,1000], strokeColor:"yellow", href:'/Calculator'  },
+      { name: "Radio", shape: "rect", coords: [1781,2488,2435,2766], strokeColor:"brown", href:'/Radio'  },
 
       // more to be add: checklist.. calender... ...etc
     ]
