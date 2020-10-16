@@ -7,7 +7,6 @@ import VisualTools from './VisualTools/VisualTools';
 
 
 export default function MainPage (){
-
   return(
     <div>
       <NavBar/>
@@ -15,5 +14,4 @@ export default function MainPage (){
       <VisualTools/>
    </div>
   );
-
 }
