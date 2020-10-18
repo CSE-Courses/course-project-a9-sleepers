@@ -94,7 +94,7 @@ export default function ToDoList() {
                         toDoList.map((toDo, index) => (
                             <div key={index}>
                                 <span className="task" style={{ background: backgroundColor[index] }}>{toDo.text}</span>
-                                <Button onClick={() => deleteToDo(toDo)} variant="danger" size="sm">Delete</Button>
+                                <Button onClick={() => { deleteToDo(toDo); addBackgroundColor(index, "#FDFDFD")  }} variant="danger" size="sm">Delete</Button>
                                 <Button onClick={() => combineHandler(index)}  variant="info" size="sm">Change Status</Button>
                                 <Modal show={show} animation={false} centered size="lg" onHide={handleClose}>
                                 <Modal.Header closeButton>
@@ -118,6 +118,7 @@ export default function ToDoList() {
                                             </Container>
                                         </Modal.Body>
                                         </Modal.Header>        
+
                                 </Modal>
                             </div>
                         ))
