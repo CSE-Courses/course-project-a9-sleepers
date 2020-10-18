@@ -9,7 +9,7 @@ import MainPage from './components/MainPage/MainPage';
 import Calculator from './components/Widgets/Calculator/Calculator';
 import Countdown from './components/Widgets/Countdown';
 import Stopwatch from './components/Widgets/Stopwatch';
-import Cat from './components/Widgets/Cat/Cat';
+import Cat from './components/Widgets/Cat/Quote';
 
 
 class App extends Component {
