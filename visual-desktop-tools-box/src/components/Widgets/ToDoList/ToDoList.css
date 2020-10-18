@@ -1,20 +1,28 @@
 .Interface{
     background-color: gray;
     min-height: 500px;
-    width: 10000px;
+    width: 800px;
     margin: 20px;
     border-radius: 10px;
     padding-bottom: 20px;
 }
 
+.modal + .modal-backdrop ~ .modal-backdrop {display:none}
+
 .task{
-    background-color: whitesmoke;
+    background: whitesmoke;
     border-radius: 5px;
     margin: 4px auto;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     
+}
+.downloadButton{
+    margin-top: 15px;
+    margin-right: 10px;
+    position: absolute;
+    right:0;
 }
 
 .title{
