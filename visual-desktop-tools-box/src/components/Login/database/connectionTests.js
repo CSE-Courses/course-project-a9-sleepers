@@ -1,5 +1,6 @@
 const {MongoClient} = require('mongodb');
 const assert = require('assert').strict;
+require('dotenv').config();
 
 
 async function testDBInsertion(client, input) {
@@ -46,7 +47,7 @@ async function runDBTests(client){
 }
 
 async function main(){
-  const uri = "mongodb+srv://cse442:a9-sleeper@cluster0.s9pn2.mongodb.net/login_db?retryWrites=true&w=majority";
+  const uri = process.env.ATLAS_URI;
   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
   try {

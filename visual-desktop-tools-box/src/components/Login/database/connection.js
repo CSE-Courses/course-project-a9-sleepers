@@ -1,5 +1,6 @@
 // Following code adapted from: https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database
 const {MongoClient} = require('mongodb');
+require('dotenv').config();
 
 
 // Adds a new entry for login and console.logs the ID. Listings are objects.
@@ -34,7 +35,7 @@ async function main(){
    * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
    * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
    */
-  const uri = "mongodb+srv://cse442:a9-sleeper@cluster0.s9pn2.mongodb.net/login_db?retryWrites=true&w=majority";
+  const uri = process.env.ATLAS_URI;
   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true }); // No warnings
 
 

@@ -1,5 +1,6 @@
 const {MongoClient} = require('mongodb');
 const assert = require('assert').strict;
+require('dotenv').config();
 
 async function testRegistration(client, input) {
   var notTaken = true;
@@ -65,7 +66,7 @@ async function runLoginRegisterTests(client){
   // Login Tests
   console.log("REGISTER TESTS");
   console.log("----------------------------");
-  
+
   inputLogin1 = {username: "test_username", password: "test_password"};
   inputLogin2 = {username: "123", password: "456"};
   inputLogin3 = {username: "ltkicQ7PHo", password: "bjV1FdpeY7"};
@@ -81,7 +82,7 @@ async function runLoginRegisterTests(client){
 }
 
 async function main(){
-  const uri = "mongodb+srv://cse442:a9-sleeper@cluster0.s9pn2.mongodb.net/login_db?retryWrites=true&w=majority";
+  const uri = process.env.ATLAS_URI;
   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
   try {
