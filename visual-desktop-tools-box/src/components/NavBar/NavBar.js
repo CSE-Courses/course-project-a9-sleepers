@@ -21,8 +21,8 @@ export default function NavBar (){
          <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <NavDropdown title= "Tools" className={"px-3 h3"} id="collasible-nav-dropdown">
-                <NavDropdown.Item as={NavLink} to= '/CheckList'> 
-                   <h3 className={"fontSize3"}>CheckList</h3>
+                <NavDropdown.Item as={NavLink} to= '/ToDoList'> 
+                   <h3 className={"fontSize3"}>To-Do List</h3>
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Calculator'>
                   < h3 className={"fontSize3"}>Calculator</h3>

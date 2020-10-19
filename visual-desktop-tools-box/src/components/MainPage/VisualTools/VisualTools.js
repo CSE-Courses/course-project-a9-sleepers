@@ -31,12 +31,12 @@ export default function VisualTools (){
             <Container >
                 <Row>
                   <Col sm={5} md = {5}>
-                     <Link to ="/CheckList">
+                     <Link to ="/ToDoList">
                        <Image src ={SubCheckList} 
                          className={"img-fluid SubCheckList"} 
                          alt="CheckListIcon"/>
                      </Link>
-                         <h3 class="text-center fontSize3" >Check List</h3>
+                         <h3 class="text-center fontSize3" >To-Do List</h3>
                          <hr className={"HonzontalLine"}/>  
                    </Col> 
 
