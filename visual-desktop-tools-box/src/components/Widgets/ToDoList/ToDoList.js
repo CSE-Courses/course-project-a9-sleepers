@@ -56,11 +56,19 @@ export default function ToDoList() {
         colors[index] = color;
         setBackgroundColor(colors);
 
-        //    console.log("index 0= " + backgroundColor[0]);
-        //    console.log("index 1= " + backgroundColor[1]);
-        //    console.log("index 2= " + backgroundColor[2]);
-        //    console.log("index 3= " + backgroundColor[3]);
+        //    console.log("index 0 = " + backgroundColor[0]);
+        //    console.log("index 1 = " + backgroundColor[1]);
+        //    console.log("index 2 = " + backgroundColor[2]);
+        //    console.log("index 3 = " + backgroundColor[3]);
     }
+    const updateBackgroundColor = (index) =>{
+        console.log(index);   
+     
+    let colors = [...backgroundColor];
+        colors.splice(index, 1)
+        setBackgroundColor(colors);
+    }
+
     const [currentIndex, setCurrentIndex] = useState();
 
     const editColorHandler = (props) =>{
@@ -76,9 +84,7 @@ export default function ToDoList() {
     return (
         <div>
             <NavBar/>
-                <Pdf targetRef={ref} filename="to_do_list.pdf">
-                    {({ toPdf }) => <Button className="downloadButton" variant="outline-dark" size="lg" onClick={toPdf}>Convert to PDF</Button>}
-                </Pdf>
+                
 
                 <Container className="Interface">
                         <h1 className="title">To-Do List</h1>
@@ -86,7 +92,12 @@ export default function ToDoList() {
                         <form id="todo-form" onSubmit={handleSubmit}>
                             <input value={input} onChange={textHandler => setInput(textHandler.target.value)} type="text" placeholder="Enter Task" ref={inputRef}/>
                             <Button type="submit" variant="dark">Add</Button>
+                            <Pdf targetRef={ref} filename="to_do_list.pdf">
+                    {({ toPdf }) => <Button className="downloadButton" variant="outline-dark" size="sm" onClick={toPdf}>Convert to PDF</Button>}
+                </Pdf>
+
                         </form>
+                        
                     </header>
                         
                     <Container ref={ref}>
@@ -94,7 +105,7 @@ export default function ToDoList() {
                         toDoList.map((toDo, index) => (
                             <div key={index}>
                                 <span className="task" style={{ background: backgroundColor[index] }}>{toDo.text}</span>
-                                <Button onClick={() => { deleteToDo(toDo); addBackgroundColor(index, "#FDFDFD")  }} variant="danger" size="sm">Delete</Button>
+                                <Button onClick={() => { deleteToDo(toDo); addBackgroundColor(index, "#FDFDFD"); updateBackgroundColor(index)}} variant="danger" size="sm">Delete</Button>
                                 <Button onClick={() => combineHandler(index)}  variant="info" size="sm">Change Status</Button>
                                 <Modal show={show} animation={false} centered size="lg" onHide={handleClose}>
                                 <Modal.Header closeButton>
