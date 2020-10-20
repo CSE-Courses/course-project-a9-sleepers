@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactPlayer from 'react-player/youtube'
 import "./Radio.css"
- 
+
 // Only loads the YouTube player
 class Radio extends React.Component {
   render () {

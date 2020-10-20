@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 
 require('dotenv').config();
 
@@ -18,6 +19,16 @@ const connection = mongoose.connection;connection.once('open', () => {
 
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
+
+console.log(path.resolve(__dirname, 'visual-desktop-tools-box', 'build', 'index.html'));
+
+// Deploying static files
+app.use(express.static('visual-desktop-tools-box/build'));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'visual-desktop-tools-box', 'build', 'index.html'));
+})
+//
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

@@ -23,7 +23,7 @@ export default class NotePad extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/users')
+    axios.get('/users')
       .then(response => {
         if(response.data.length > 0){
           this.setState({
@@ -67,7 +67,7 @@ export default class NotePad extends Component {
 
     const user = { username: this.state.newUser }
 
-    axios.post('http://localhost:4000/users/add', user)
+    axios.post('/users/add', user)
       .then(res => console.log(res.data));
 
     window.location = '/Notepad';
@@ -75,14 +75,14 @@ export default class NotePad extends Component {
 
   onSubmitNote(e) {
     e.preventDefault();
-    if(this.state.username != '[None]') {
+    if(this.state.username !== '[None]') {
       const user = {
         text: this.state.text
       }
       const idIdx = this.state.users.indexOf(this.state.username);
       const id = this.state.ids[idIdx];
 
-      axios.post('http://localhost:4000/users/update/' + id, user)
+      axios.post('/users/update/' + id, user)
         .then(res => console.log(res.data));
     }
 
