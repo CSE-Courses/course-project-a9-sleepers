@@ -27,11 +27,7 @@ export default function NavBar (){
                 <NavDropdown.Item as={NavLink} to= '/Calculator'>
                   < h3 className={"fontSize3"}>Calculator</h3>
                 </NavDropdown.Item>
-<<<<<<< HEAD
                 <NavDropdown.Item as={NavLink} to= '/Countdown'>
-=======
-                <NavDropdown.Item as={NavLink} to= '/Timer'>
->>>>>>> #43-Create-Cat-Facts
                   < h3 className={"fontSize3"}>Countdown</h3>
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Stopwatch'>
