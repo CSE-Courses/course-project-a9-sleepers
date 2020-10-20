@@ -106,10 +106,10 @@ export default function VisualTools (){
 
               <Row>
                   <Col sm={5} md = {5}>
-                     <Link to ="/Timer">
+                     <Link to ="/Countdown">
                        <Image src ={SubTimer} className={" img-fluid SubTimer"} />
                      </Link>
-                         <h3 class="text-center fontSize3" >Timer</h3>
+                         <h3 class="text-center fontSize3" >Countdown</h3>
                          <hr className={"HonzontalLine"}/>  
                    </Col> 
 

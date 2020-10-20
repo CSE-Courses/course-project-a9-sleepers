@@ -27,7 +27,7 @@ export default function NavBar (){
                 <NavDropdown.Item as={NavLink} to= '/Calculator'>
                   < h3 className={"fontSize3"}>Calculator</h3>
                 </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to= '/Timer'>
+                <NavDropdown.Item as={NavLink} to= '/Countdown'>
                   < h3 className={"fontSize3"}>Countdown</h3>
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Stopwatch'>
