@@ -20,16 +20,16 @@ import NotePad from './components/Widgets/NotePad';
 
 class App extends Component {
 
-    componentDidMount(){
-        store.dispatch(loadUser());
-    }
+    // componentDidMount(){
+    //     store.dispatch(loadUser());
+    // }
 
 
   render(){
   return (
 
   <Fragment>
-    <Provider store = {store}>
+    {/* <Provider store = {store}> */}
      <BrowserRouter>
        <Switch>
 
@@ -52,7 +52,7 @@ class App extends Component {
 
        </Switch>
      </BrowserRouter>
-     </Provider>
+     {/* </Provider> */}
   </Fragment>
   );
 }
