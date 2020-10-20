@@ -1,8 +1,8 @@
 import React, { Component,Fragment } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import {Provider} from 'react-redux';
-//import store from './redux/stores/store';
-//import { loadUser } from './redux/actions/authAction';
+// import {Provider} from 'react-redux';
+// import store from './redux/stores/store';
+// import { loadUser } from './redux/actions/authAction';
 import {
   Switch,
   BrowserRouter,
@@ -29,6 +29,7 @@ class App extends Component {
   return (
 
   <Fragment>
+    {/* <Provider store = {store}> */}
      <BrowserRouter>
        <Switch>
 
@@ -53,6 +54,7 @@ class App extends Component {
 
        </Switch>
      </BrowserRouter>
+     {/* </Provider> */}
   </Fragment>
   );
 }
