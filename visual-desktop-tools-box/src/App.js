@@ -11,12 +11,16 @@ import Countdown from './components/Widgets/Countdown';
 import Stopwatch from './components/Widgets/Stopwatch';
 import ToDoList from './components/Widgets/ToDoList/ToDoList';
 import Login from './components/Login/Login';
+import Cat from './components/Widgets/Cat/Quote';
 
 import NotePad from './components/Widgets/NotePad';
 
 class App extends Component {
+
+
   render(){
   return (
+
   <Fragment>
      <BrowserRouter>
        <Switch>
@@ -34,6 +38,9 @@ class App extends Component {
           <Route path = "/Login" exact component = {Login}/>
 
           <Route path = "/Notepad" exact component = {NotePad}/>
+
+          <Route path = "/Cat" exact component = {Cat}/>
+         
 
        </Switch>
      </BrowserRouter>
