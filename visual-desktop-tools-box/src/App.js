@@ -23,7 +23,7 @@ class App extends Component {
 
           <Route path = "/Calculator" exact component = {Calculator}/> 
         
-          <Route path = "/Timer" exact component = {Countdown}/>
+          <Route path = "/Countdown" exact component = {Countdown}/>
 
           <Route path = "/Stopwatch" exact component = {Stopwatch}/>
 
