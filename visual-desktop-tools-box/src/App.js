@@ -12,7 +12,7 @@ import Stopwatch from './components/Widgets/Stopwatch';
 import ToDoList from './components/Widgets/ToDoList/ToDoList';
 import Login from './components/Login/Login';
 import Cat from './components/Widgets/Cat/Quote';
-
+import Radio from './components/Widgets/Radio/Radio';
 import NotePad from './components/Widgets/NotePad';
 
 class App extends Component {
@@ -40,7 +40,9 @@ class App extends Component {
           <Route path = "/Notepad" exact component = {NotePad}/>
 
           <Route path = "/Cat" exact component = {Cat}/>
-         
+
+          <Route path = "/Radio" exact component = {Radio}/>
+    
 
        </Switch>
      </BrowserRouter>
