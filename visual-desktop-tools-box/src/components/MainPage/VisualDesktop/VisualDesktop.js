@@ -49,7 +49,8 @@ export default function VisualDesktop (){
       { name: "Calculator", shape: "poly", coords: [1520,900,1595,885,1720,960,1630,1000], strokeColor:"yellow", href:'/Calculator'  },
       { name: "Cat", shape: "poly", coords: [1570,350,1730,370,1700,450,1540,450],  href:'/Cat' ,strokeColor:"yellow",   },
       { name: "Radio", shape: "poly", coords: [820,820,585,820,585,930,820,930], strokeColor:"brown", href:'/Radio'},
-      { name: "ToDoList", shape: "poly", coords: [1570,350,1730,370,1700,450,1540,450],  href:'/ToDoList' ,strokeColor:"green", coords: [1200,980,1270,925,1420,1000,1330,1100]  }
+      { name: "ToDoList", shape: "poly", coords: [1570,350,1730,370,1700,450,1540,450],  href:'/ToDoList' ,strokeColor:"green", coords: [1200,980,1270,925,1420,1000,1330,1100]  },
+      // TODO { name: "Calendar", shape: "poly", coords: [500,500,585,500,585,930,820,930], strokeColor:"blue", href:'/Calendar'}
 
       // more to be add: checklist.. calender... ...etc
     ]
