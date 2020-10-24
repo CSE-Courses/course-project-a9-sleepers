@@ -10,6 +10,9 @@ const userSchema = new Schema({
     minlength: 3
   },
   text: { type: String, required: false },
+  dates: [{
+    type: String
+  }]
 }, {
   timestamps: true,
 });
