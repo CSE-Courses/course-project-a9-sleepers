@@ -4,30 +4,39 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import './NavBar.css';
-import ReactWeather from 'react-open-weather';
 import 'react-open-weather/lib/css/ReactWeather.css';
-import axios from 'axios'
 import weather from 'weather-js'
 
-weather.find({degreeType: 'F',search: ''}, function(err, result) {
-  if(err) console.log(err);
- 
-  //console.log(JSON.stringify(result, null, 2));
-  console.log(result[0].current.feelslike)
-  const temp = result[0].current.feelslike
-});
+
+// weather.find({degreeType: 'F',search: ''}, function(err, result) {
+//   if(err) console.log(err);
+//   console.log(result[0].current.feelslike)
+
+//   temp = result[0].current.feelslike
+// });
+
 
 export default function NavBar (){
 
-  const [show, setShow] = useState(false)
+  
+  const [temp,setTemp] = useState('');
 
+  weather.find({degreeType: 'F',search: ''}, function(err, result) {
+    if(err) console.log(err);
+    //console.log(result[0].current.feelslike)
+  
+    var x = result[0].current.feelslike
+    setTemp(x)
+    console.log(x)
+  });
+  
+  console.log(temp)
+
+
+  const [show, setShow] = useState(false)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-
-
     return(
-      
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
          <Navbar.Brand as={NavLink} to= '/' className={"px-3"}>
            <h4 className={"fontSize4"}>Home</h4>
@@ -69,10 +78,10 @@ export default function NavBar (){
                 </NavDropdown.Item>
                </NavDropdown>   
               </Nav>
-      
+              {temp}
               <Nav>
               <Navbar.Text>
-                "$temp"
+                
               </Navbar.Text>
                <Nav.Link  as={NavLink} to= '/Login' className={"px-3"}>
                  <h4 className={"fontSize4"}>Login / Sign Up</h4>
