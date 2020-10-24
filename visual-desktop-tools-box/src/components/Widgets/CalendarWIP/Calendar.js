@@ -17,23 +17,23 @@ export default class CalendarWidget extends Component {
       currentMonth: new Date(),
       selectedDate: new Date(),
       username: '',
+      newUser: '',
       dates: {}, /* "dd": "text" */
       userToDates: {}, /* user: dates */
       users: [],
       ids: []
     };
-
-    // Text for the given date
-    const text = 'ahaha';
-
     for(let i=1;i<32;i++) { this.state.dates[i] = '-'; } // Initialize dates
 
-    this.onDateClick = this.onDateClick.bind(this);
-    this.onChangeUsername = this.onChangeUsername.bind(this);
+
     this.renderCells = this.renderCells.bind(this);
     this.renderInput = this.renderInput.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSaveDates = this.onSaveDates.bind(this);
+    this.onDateClick = this.onDateClick.bind(this);
+    this.onSubmitnewUser = this.onSubmitnewUser.bind(this);
+    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangeNewUsername = this.onChangeNewUsername.bind(this);
   }
 
   componentDidMount() {
@@ -189,6 +189,21 @@ export default class CalendarWidget extends Component {
     })
   }
 
+  onChangeNewUsername(e) {
+    this.setState({
+      newUser: e.target.value
+    });
+  }
+
+  onSubmitnewUser(e){
+    e.preventDefault();
+    const user = { username: this.state.newUser }
+    axios.post('/users/add', user)
+      .then(res => console.log(res.data));
+
+    window.location = '/Calendar';
+  }
+
   onDateClick = day => {
     // console.log(dateFns.format(day, "d"));
     this.setState({
@@ -237,6 +252,17 @@ export default class CalendarWidget extends Component {
     return (
       <div>
         <NavBar/>
+
+        <div class="card card-body">
+          <form onSubmit={this.onSubmitnewUser}>
+            <div class="form-group">
+              <label>New User?</label>
+              <input type="text" className="form-control" value={this.state.newUser} onChange={this.onChangeNewUsername} placeholder="Enter a username"></input>
+            </div>
+            <button type="submit" class="btn btn-secondary">Create User</button>
+          </form>
+        </div>
+
         <div className="calendar">
           {this.renderHeader()}
           {this.renderUserList()}
