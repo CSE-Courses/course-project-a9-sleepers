@@ -1,0 +1,96 @@
+Arguments: 
+  D:\Program Files\nodejs\node.exe D:\Program Files (x86)\Yarn\bin\yarn.js
+
+PATH: 
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\System32\OpenSSH\;d:\Program Files\Git\cmd;D:\Program Files\nodejs\;D:\Program Files (x86)\Calibre2\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\src\flutter\bin;D:\Program Files\Android\Android SDK\tools;D:\Program Files\Android\Android SDK\platfrom-tools;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\src\MinGW\bin;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;D:\Program Files (x86)\Yarn\bin\;D:\Users\shahy\AppData\Local\Programs\Python\Python38-32\Scripts\;D:\Users\shahy\AppData\Local\Programs\Python\Python38-32\;D:\Program Files (x86)\Python\Python38-32\Scripts\;D:\Program Files (x86)\Python\Python38-32\;D:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\shahy\AppData\Local\Microsoft\WindowsApps;d:\Program Files\JetBrains\CLion 2019.2.3\bin;;D:\Program Files\Microsoft VS Code\bin;C:\Users\shahy\AppData\Local\Yarn\bin;D:\Program Files\nodejs-modules;d:\Program Files\heroku\bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  10.14.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.9.1.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (D:\Program Files (x86)\Yarn\lib\cli.js:141375:19)
+      at Object.onceWrapper (events.js:273:13)
+      at ClientRequest.emit (events.js:182:13)
+      at TLSSocket.emitRequestTimeout (_http_client.js:662:40)
+      at Object.onceWrapper (events.js:273:13)
+      at TLSSocket.emit (events.js:182:13)
+      at TLSSocket.Socket._onTimeout (net.js:453:8)
+      at ontimeout (timers.js:436:11)
+      at tryOnTimeout (timers.js:300:5)
+      at listOnTimeout (timers.js:263:5)
+
+npm manifest: 
+  {
+    "name": "visual-desktop-tools-box",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "@emotion/core": "^10.0.35",
+      "@material-ui/core": "^4.11.0",
+      "@material-ui/icons": "^4.9.1",
+      "@testing-library/jest-dom": "^4.2.4",
+      "@testing-library/react": "^9.5.0",
+      "@testing-library/user-event": "^7.2.1",
+      "axios": "^0.20.0",
+      "bootstrap": "^4.5.2",
+      "date-fns": "^2.16.1",
+      "emotion": "^10.0.27",
+      "inquirer": "^7.3.3",
+      "jquery": "^3.5.1",
+      "mathjs": "^7.3.0",
+      "moments": "0.0.2",
+      "mongodb": "^3.6.2",
+      "node-sass": "^4.14.1",
+      "prompt": "^1.0.0",
+      "prompt-sync": "^4.2.0",
+      "react": "^16.13.1",
+      "react-big-scheduler": "^0.2.7",
+      "react-bootstrap": "^1.3.0",
+      "react-contenteditable": "^3.3.5",
+      "react-dom": "^16.13.1",
+      "react-image-mapper": "0.0.15",
+      "react-player": "2.6.2",
+      "react-router-dom": "^5.2.0",
+      "react-scripts": "3.4.3",
+      "react-to-pdf": "0.0.13",
+      "react-youtube": "^7.13.0",
+      "reactstrap": "^8.5.1"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+      "extends": "react-app"
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    },
+    "devDependencies": {
+      "react-player": "^2.6.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

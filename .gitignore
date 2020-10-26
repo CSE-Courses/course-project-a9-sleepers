@@ -1,4 +1,7 @@
 node_modules
+_cacache
+_locks
+index-v5
 .env
 visual-desktop-tools-box/build/
 visual-desktop-tools-box/node_modules/
