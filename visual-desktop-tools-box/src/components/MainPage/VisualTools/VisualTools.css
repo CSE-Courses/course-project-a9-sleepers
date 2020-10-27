@@ -109,7 +109,15 @@
   margin-top: 1em;
 }
 
-
+.settingsButton {
+  margin: 0;
+  margin-top: 15px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
 
 @media (max-width: 575.98px) { 

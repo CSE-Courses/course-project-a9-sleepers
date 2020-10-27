@@ -1,9 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import './NavBar.css';
+// import { dark } from '@material-ui/core/styles/createPalette';
+// import { ThemeProvider, createGlobalStyle } from 'styled-components';
+// import storage from 'local-storage-fallback'
+// import { Global } from '@emotion/core';
+import GlobalStyle from '../Widgets/Settings/ToggleDark'
 
 export default function NavBar (){
 
@@ -54,8 +59,9 @@ export default function NavBar (){
                 </NavDropdown.Item>
                </NavDropdown>   
               </Nav>
-      
+
               <Nav>
+              <GlobalStyle />
                <Nav.Link  as={NavLink} to= '/Login' className={"px-3"}>
                  <h4 className={"fontSize4"}>Login / Sign Up</h4>
                </Nav.Link>

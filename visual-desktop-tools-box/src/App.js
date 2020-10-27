@@ -17,6 +17,8 @@ import ToDoList from './components/Widgets/ToDoList/ToDoList';
 import LoginPage from './components/LoginPage/LoginPage';
 import Cat from './components/Widgets/Cat/Quote';
 import NotePad from './components/Widgets/NotePad';
+import ToggleDark from './components/Widgets/Settings/ToggleDark'
+// import GlobalStyle from './components/Widgets/Settings/toggleDark'
 
 class App extends Component {
 
@@ -48,10 +50,14 @@ class App extends Component {
           <Route path = "/Notepad" exact component = {NotePad}/>
 
           <Route path = "/Cat" exact component = {Cat}/>
+
+          <Route path = "/ToggleDark" exact component = {ToggleDark}/>
+
          
 
        </Switch>
      </BrowserRouter>
+     {/* <GlobalStyle /> */}
      {/* </Provider> */}
   </Fragment>
   );
