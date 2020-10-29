@@ -25,13 +25,13 @@ export default class Stocks extends Component {
     super(props);
   }
 
-  renderLineChart(name, data) {
+  renderLineChart(name, data, variant="dark") {
     return (
       <div>
         <Accordion defaultActiveKey="0">
 
           <Card.Title>
-          <Accordion.Toggle as={Button} variant="dark" size="lg" eventKey="0" block>
+          <Accordion.Toggle as={Button} variant={variant} size="lg" eventKey="0" block>
             {name}
           </Accordion.Toggle>
           </Card.Title>
@@ -70,13 +70,13 @@ export default class Stocks extends Component {
         <Card.Header>Stocks</Card.Header>
 
         <Card.Body>
-          {this.renderLineChart("Microsoft", state)}
+          {this.renderLineChart("Microsoft", state, "success")}
 
-          {this.renderLineChart("Google", state)}
+          {this.renderLineChart("Google", state, "warning")}
 
-          {this.renderLineChart("Apple", state)}
+          {this.renderLineChart("Apple", state, "secondary")}
 
-          {this.renderLineChart("Facebook", state)}
+          {this.renderLineChart("Facebook", state, "primary")}
 
           {this.renderLineChart("IBM", state)}
         </Card.Body>
@@ -84,7 +84,24 @@ export default class Stocks extends Component {
         <Card.Header>Crypto</Card.Header>
 
         <Card.Body>
-            <h3 class="card-title">BTC</h3>
+            <Accordion defaultActiveKey="0">
+              <Card.Title>
+              <Accordion.Toggle as={Button} variant="dark" size="lg" eventKey="0" block>
+                BTC
+              </Accordion.Toggle>
+              </Card.Title>
+
+              <Accordion.Collapse eventKey="0">
+                <Card>
+                  <Card.Body> Current Exchange Rate: <b>$0.00</b> *</Card.Body>
+                  <Card.Body> Bid Price: <b>$0.00</b> *</Card.Body>
+                  <Card.Body> Ask Price: <b>$0.00</b> *</Card.Body>
+                  <Card.Footer>
+                    *As of: <b>YYYY-MM-DD | HH:MM:SS UTC</b>
+                  </Card.Footer>
+                </Card>
+              </Accordion.Collapse>
+            </Accordion>
         </Card.Body>
 
       </div>
