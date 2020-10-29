@@ -47,13 +47,6 @@ router.route('/intrad/ibm').get((req, res) => {
   });
 });
 
-
-router.route('/intrad/ibm').get((req, res) => {
-  alpha.data.intraday(`ibm`).then(data => {
-    res.json(data);
-  });
-});
-
 /* Define all Forex Rates*/
 router.route('/forex/btc').get((req, res) => {
   alpha.forex.rate('btc', 'usd').then(data => {

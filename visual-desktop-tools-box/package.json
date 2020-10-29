@@ -21,7 +21,6 @@
     "mathjs": "^7.3.0",
     "moments": "0.0.2",
     "mongodb": "^3.6.2",
-    "polygon.io": "^1.0.0",
     "prompt": "^1.0.0",
     "prompt-sync": "^4.2.0",
     "react": "^16.13.1",
