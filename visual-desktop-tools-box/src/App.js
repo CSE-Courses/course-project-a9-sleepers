@@ -17,7 +17,8 @@ import LoginPage from './components/LoginPage/LoginPage';
 import Cat from './components/Widgets/Cat/Quote';
 import NotePad from './components/Widgets/NotePad';
 import Radio from './components/Widgets/Radio/Radio';
-import CalendarWidget from './components/Widgets/CalendarWIP/Calendar';
+import CalendarWidget from './components/Widgets/Calendar-Custom/Calendar';
+import Stocks from './components/Widgets/Stocks/Stocks'
 
 class App extends Component {
 
@@ -53,6 +54,8 @@ class App extends Component {
           <Route path = "/Radio" exact component = {Radio}/>
 
           <Route path ="/Calendar" exact component = {CalendarWidget}/>
+
+          <Route path ="/Stocks" exact component = {Stocks}/>
 
        </Switch>
      </BrowserRouter>
