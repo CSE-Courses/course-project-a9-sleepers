@@ -21,7 +21,7 @@ export default function NavBar (){
          <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <NavDropdown title= "Tools" className={"px-3 h3"} id="collasible-nav-dropdown">
-                <NavDropdown.Item as={NavLink} to= '/ToDoList'> 
+                <NavDropdown.Item as={NavLink} to= '/ToDoList'>
                    <h3 className={"fontSize3"}>To-Do List</h3>
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Calculator'>
@@ -48,13 +48,16 @@ export default function NavBar (){
                 <NavDropdown.Item as={NavLink} to= '/Calendar'>
                   <h3 className={"fontSize3"}>Calendar</h3>
                 </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/Stocks'>
+                  <h3 className={"fontSize3"}>Stocks</h3>
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item as={NavLink} to= '/Scheduled'>
                   <h3 className={"fontSize3"}>Scheduled</h3>
                 </NavDropdown.Item>
-               </NavDropdown>   
+               </NavDropdown>
               </Nav>
-      
+
               <Nav>
                <Nav.Link  as={NavLink} to= '/Login' className={"px-3"}>
                  <h4 className={"fontSize4"}>Login / Sign Up</h4>
@@ -68,5 +71,5 @@ export default function NavBar (){
 
 
     );
-  
+
 }

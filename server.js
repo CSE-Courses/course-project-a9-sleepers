@@ -17,8 +17,13 @@ const connection = mongoose.connection;connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 });
 
+// Define routers
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
+
+const stocksAPIRouter = require('./routes/stocks');
+app.use('/api/stocks', stocksAPIRouter);
+//
 
 console.log(path.resolve(__dirname, 'visual-desktop-tools-box', 'build', 'index.html'));
 

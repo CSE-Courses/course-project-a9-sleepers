@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../../NavBar/NavBar';
 import axios from 'axios';
-import ContentEditable from 'react-contenteditable';
 import * as dateFns from 'date-fns';
 import './Calendar.css';
 
@@ -43,7 +42,7 @@ export default class CalendarWidget extends Component {
           // Scuffed
           response.data.map(i => {
             var d = {}
-            if(i.dates.length == 0 ) {
+            if(i.dates.length === 0 ) {
               Array.from("-".repeat(31)).forEach((j, idx) => { d[idx] = j } )
             } else {
               i.dates.forEach((j, idx) => { d[idx] = j })

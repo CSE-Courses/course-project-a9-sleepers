@@ -11,12 +11,13 @@
     "heroku-postbuild": "npm run install-visual-desktop && npm run build"
   },
   "engines": {
-      "node": "10.16.0"
+    "node": "10.16.0"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "alphavantage": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
