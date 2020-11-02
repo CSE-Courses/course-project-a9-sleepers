@@ -12,6 +12,7 @@ import SubCalendar from '../images/Sub-Calendar.png';
 import SubScheduled from '../images/Sub-Scheduled.png';
 import SubTimer from '../images/Sub-Timer.png';
 import SubStopwatch from '../images/Sub-Stopwatch.png';
+import SubUnitConverter from '../images/Sub-UnitConverter.png';
 import   './VisualTools.css';
 
 
@@ -124,6 +125,16 @@ export default function VisualTools (){
                         <h3 class="text-center fontSize3">Stopwatch</h3>
                         <hr className={"HonzontalLine"}/>
                    </Col>
+              </Row>
+
+              <Row>
+                  <Col sm={5} md = {5}>
+                     <Link to ="/UnitConverter">
+                       <Image src ={SubUnitConverter} className={" img-fluid SubUnitConverter"} />
+                     </Link>
+                         <h3 class="text-center fontSize3" >Unit Converter</h3>
+                         <hr className={"HonzontalLine"}/>  
+                   </Col> 
               </Row>
 
               {/* spaces will be replace by footer in the future */}
