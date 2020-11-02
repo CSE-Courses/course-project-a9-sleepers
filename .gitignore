@@ -1,4 +1,4 @@
-/node_modules
+node_modules
 .env
 visual-desktop-tools-box/build/
 visual-desktop-tools-box/node_modules/
