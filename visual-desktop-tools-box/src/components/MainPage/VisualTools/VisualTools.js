@@ -136,6 +136,12 @@ export default function VisualTools (){
                          <h3 class="text-center fontSize3" >Unit Converter</h3>
                          <hr className={"HonzontalLine"}/>  
                    </Col> 
+                   
+                   <Col sm={2} md = {2}>
+                     <div className={"VeriticalLine"}/>
+                   </Col>
+
+
                    <Col sm={5} md = {5}>
                      <Link to ="/Timezone">
                        <Image src ={SubTimezone} className={" img-fluid SubTimezone"} />
