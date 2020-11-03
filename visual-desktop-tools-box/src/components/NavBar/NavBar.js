@@ -16,6 +16,20 @@ import weather from 'weather-js'
 // });
 
 
+
+ var dark = false;
+// console.log("Before button")
+// console.log(dark)
+// function darkMode(){
+  
+//   if(dark === true){dark = false}
+//   if(dark === false){dark = true}
+
+//   console.log("After button")
+//   console.log(dark)
+// }
+
+
 export default function NavBar (){
 
   
@@ -27,10 +41,10 @@ export default function NavBar (){
   
     var x = result[0].current.temperature
     setTemp(x)
-    console.log(x)
+    //console.log(x)
   });
   
-  console.log(temp)
+  //console.log(temp)
 
 
   const [show, setShow] = useState(false)
@@ -79,6 +93,14 @@ export default function NavBar (){
                </NavDropdown>   
               </Nav>
               
+              <nav>
+                <form class="form-inline">
+                <button class="btn btn-sm btn-outline-secondary" type="button">Dark Mode</button>
+                <button onClick={() => {console.log("Before: ",dark);if(dark === true){dark = false}else{dark = true};console.log("After: ",dark);}} class="btn btn-sm btn-outline-secondary" type="button">Dark Mode test</button>
+
+                </form>
+              </nav>
+
               <Nav>
               <Navbar.Text>
               <h3 className={"fontSize0"}>Current Temperature: {temp}°F</h3>

@@ -17,6 +17,7 @@ import LoginPage from './components/LoginPage/LoginPage';
 import Cat from './components/Widgets/Cat/Quote';
 import NotePad from './components/Widgets/NotePad';
 import Radio from './components/Widgets/Radio/Radio'
+import Currency from './components/Widgets/Currency/Currency'
 
 class App extends Component {
 
@@ -50,6 +51,8 @@ class App extends Component {
           <Route path = "/Cat" exact component = {Cat}/>
 
           <Route path = "/Radio" exact component = {Radio}/>
+
+          <Route path = "/Currency" exact component = {Currency}/>
 
 
        </Switch>
