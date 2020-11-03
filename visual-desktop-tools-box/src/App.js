@@ -20,13 +20,13 @@ import Radio from './components/Widgets/Radio/Radio';
 import CalendarWidget from './components/Widgets/Calendar-Custom/Calendar';
 import Stocks from './components/Widgets/Stocks/Stocks';
 import UnitConverter from './components/Widgets/UnitConverter/UnitConverter';
+import Timezone from './components/Widgets/Timezone/Timezone';
 
 class App extends Component {
 
     // componentDidMount(){
     //     store.dispatch(loadUser());
     // }
-
 
   render(){
   return (
@@ -54,11 +54,13 @@ class App extends Component {
 
           <Route path = "/Radio" exact component = {Radio}/>
 
-          <Route path ="/Calendar" exact component = {CalendarWidget}/>
+          <Route path = "/Calendar" exact component = {CalendarWidget}/>
 
-          <Route path ="/Stocks" exact component = {Stocks}/>
+          <Route path = "/Stocks" exact component = {Stocks}/>
 
-          <Route path="/UnitConverter" exact component = {UnitConverter}/>
+          <Route path = "/UnitConverter" exact component = {UnitConverter}/>
+
+          <Route path = "/Timezone" exact component = {Timezone}/>
 
        </Switch>
      </BrowserRouter>

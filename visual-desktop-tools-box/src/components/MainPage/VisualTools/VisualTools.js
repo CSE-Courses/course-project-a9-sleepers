@@ -13,6 +13,7 @@ import SubScheduled from '../images/Sub-Scheduled.png';
 import SubTimer from '../images/Sub-Timer.png';
 import SubStopwatch from '../images/Sub-Stopwatch.png';
 import SubUnitConverter from '../images/Sub-UnitConverter.png';
+import SubTimezone from '../images/Sub-Timezone.png';
 import   './VisualTools.css';
 
 
@@ -133,6 +134,13 @@ export default function VisualTools (){
                        <Image src ={SubUnitConverter} className={" img-fluid SubUnitConverter"} />
                      </Link>
                          <h3 class="text-center fontSize3" >Unit Converter</h3>
+                         <hr className={"HonzontalLine"}/>  
+                   </Col> 
+                   <Col sm={5} md = {5}>
+                     <Link to ="/Timezone">
+                       <Image src ={SubTimezone} className={" img-fluid SubTimezone"} />
+                     </Link>
+                         <h3 class="text-center fontSize3" >Timezone</h3>
                          <hr className={"HonzontalLine"}/>  
                    </Col> 
               </Row>
