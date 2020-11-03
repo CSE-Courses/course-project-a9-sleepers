@@ -18,14 +18,14 @@ import Cat from './components/Widgets/Cat/Quote';
 import NotePad from './components/Widgets/NotePad';
 import Radio from './components/Widgets/Radio/Radio';
 import CalendarWidget from './components/Widgets/Calendar-Custom/Calendar';
-import Stocks from './components/Widgets/Stocks/Stocks'
+import Stocks from './components/Widgets/Stocks/Stocks';
+import Timezone from './components/Widgets/Timezone/Timezone';
 
 class App extends Component {
 
     // componentDidMount(){
     //     store.dispatch(loadUser());
     // }
-
 
   render(){
   return (
@@ -56,6 +56,8 @@ class App extends Component {
           <Route path ="/Calendar" exact component = {CalendarWidget}/>
 
           <Route path ="/Stocks" exact component = {Stocks}/>
+
+          <Route path ="/Timezone" exact component = {Timezone}/>
 
        </Switch>
      </BrowserRouter>
