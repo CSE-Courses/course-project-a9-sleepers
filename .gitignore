@@ -2,3 +2,4 @@ node_modules
 .env
 visual-desktop-tools-box/build/
 visual-desktop-tools-box/node_modules/
+visual-desktop-tools-box/node-sass/
