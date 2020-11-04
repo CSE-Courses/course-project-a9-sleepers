@@ -168,19 +168,19 @@ useEffect(() => { //London
                 </select> */}
                 
                 <h1 className="title">US Time Zones</h1>
-                <h2>Eastern</h2>
+                <h2 className="color">Eastern</h2>
                 <input value={estTime} disabled={true}></input>
 
-                <h2>Central</h2>
+                <h2 className="color">Central</h2>
                 <input value={cstTime} disabled={true}></input>
 
-                <h2>Pacific</h2>
+                <h2 className="color">Pacific</h2>
                 <input value={pstTime} disabled={true}></input>
 
-                <h2>Alaskan</h2>
+                <h2 className="color">Alaskan</h2>
                 <input value={akTime} disabled={true}></input>
 
-                <h2>Mountain</h2>
+                <h2 className="color">Mountain</h2>
                 <input value={mstTime} disabled={true}></input>
 
             </div>
@@ -188,25 +188,25 @@ useEffect(() => { //London
             </Container>
             <Container className="Interface">
                 <h1 className="title">World Clock</h1>
-                <h2>New York</h2>
+                <h2 className="color">New York</h2>
                 <input value={nyTime} disabled={true}></input>
 
-                <h2>Los Angeles</h2>
+                <h2 className="color">Los Angeles</h2>
                 <input value={laTime} disabled={true}></input>
                             
-                <h2>London</h2>
+                <h2 className="color">London</h2>
                 <input value={londonTime} disabled={true}></input>
 
-                <h2>Moscow</h2>
+                <h2 className="color">Moscow</h2>
                 <input value={moscowTime} disabled={true}></input>
 
-                <h2>Hong Kong</h2>
+                <h2 className="color">Hong Kong</h2>
                 <input value={hongkongTime} disabled={true}></input>
 
-                <h2>Tokyo</h2>
+                <h2 className="color">Tokyo</h2>
                 <input value={tokyoTime} disabled={true}></input>
 
-                <h2>Sydney</h2>
+                <h2 className="color">Sydney</h2>
                 <input value={sydneyTime} disabled={true}></input>
 
             </Container>

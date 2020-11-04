@@ -48,7 +48,7 @@ export default function ToDoList() {
             <Container className="Interface">
                 <h1 className="title">Unit Converter</h1>
 
-                    <h2>Mass</h2>
+                    <h2 className="color">Mass</h2>
                     <input type="number" value={fromMassValue|| ''} onChange={e => { setFromMassValue(e.target.value); calculateMass(e.target.value, fromMassUnit, toMassUnit)}}></input>
 
                     <select value={fromMassUnit} onChange={e => { setFromMassUnit(e.target.value); calculateMass(fromMassValue, e.target.value, toMassUnit)}}>
@@ -68,7 +68,7 @@ export default function ToDoList() {
 
 
 
-                    <h2>Length</h2>
+                    <h2 className="color">Length</h2>
                     <input type="number" value={fromLengthValue || ''} onChange={e => { setFromLengthValue(e.target.value); calculateLength(e.target.value, fromLengthUnit, toLengthUnit)}}></input>
 
                     <select value={fromLengthUnit} onChange={e => { setFromLengthUnit(e.target.value);
