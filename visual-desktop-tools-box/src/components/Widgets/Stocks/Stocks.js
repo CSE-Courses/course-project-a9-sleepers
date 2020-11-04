@@ -37,6 +37,7 @@ export default class Stocks extends Component {
     this.parseIntradData = this.parseIntradData.bind(this);
   }
 
+  // TODO: find a way to clean this mess...
   componentDidMount() {
     axios.get('http://localhost:4000/api/stocks/intrad/msft')
       .then(response => {
@@ -55,6 +56,79 @@ export default class Stocks extends Component {
       .catch((error) => {
         console.log(error);
       })
+
+    axios.get('http://localhost:4000/api/stocks/intrad/goog')
+      .then(response => {
+        if(response.data) {
+          this.setState(prevState => ({
+            charts: {
+              msft: prevState.charts.msft,
+              goog: this.parseIntradData(response.data),
+              aapl: prevState.charts.aapl,
+              ibm: prevState.charts.ibm,
+              fb: prevState.charts.fb
+            }
+          }))
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+
+    axios.get('http://localhost:4000/api/stocks/intrad/aapl')
+      .then(response => {
+        if(response.data) {
+          this.setState(prevState => ({
+            charts: {
+              msft: prevState.charts.msft,
+              goog: prevState.charts.goog,
+              aapl: this.parseIntradData(response.data),
+              ibm: prevState.charts.ibm,
+              fb: prevState.charts.fb
+            }
+          }))
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+
+    axios.get('http://localhost:4000/api/stocks/intrad/ibm')
+      .then(response => {
+        if(response.data) {
+          this.setState(prevState => ({
+            charts: {
+              msft: prevState.charts.msft,
+              goog: prevState.charts.goog,
+              aapl: prevState.charts.aapl,
+              ibm: this.parseIntradData(response.data),
+              fb: prevState.charts.fb
+            }
+          }))
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+
+    axios.get('http://localhost:4000/api/stocks/intrad/fb')
+      .then(response => {
+        if(response.data) {
+          this.setState(prevState => ({
+            charts: {
+              msft: prevState.charts.msft,
+              goog: prevState.charts.goog,
+              aapl: prevState.charts.aapl,
+              ibm: prevState.charts.ibm,
+              fb: this.parseIntradData(response.data)
+            }
+          }))
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+
   }
 
   // Takes 'Time Series' object from API and parses data object for graph
@@ -114,12 +188,6 @@ export default class Stocks extends Component {
     );
   }
 
-  // Each element in charts is a 3-tuple (name, data, variant)
-  renderLineCharts(charts) {
-    return charts.map(chart=>this.renderLineChart(chart[0], chart[1], chart[2]))
-  }
-  //{this.renderLineCharts( [["Microsoft", state, "success"]] )}
-
   render() {
     return (
       <div>
@@ -130,13 +198,13 @@ export default class Stocks extends Component {
         <Card.Body>
           {this.renderLineChart("Microsoft", this.state.charts.msft, "success")}
 
-          {this.renderLineChart("Google", state, "warning")}
+          {this.renderLineChart("Google", this.state.charts.goog, "warning")}
 
-          {this.renderLineChart("Apple", state, "secondary")}
+          {this.renderLineChart("Apple", this.state.charts.aapl, "secondary")}
 
-          {this.renderLineChart("Facebook", state, "primary")}
+          {this.renderLineChart("IBM", this.state.charts.ibm)}
 
-          {this.renderLineChart("IBM", state)}
+          {this.renderLineChart("Facebook", this.state.charts.fb, "primary")}
         </Card.Body>
 
         <Card.Header>Crypto</Card.Header>
