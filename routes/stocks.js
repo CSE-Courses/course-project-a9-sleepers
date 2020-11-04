@@ -11,18 +11,14 @@ const apiKey = process.env.alphavantage;
 const alpha = require('alphavantage')({ key: apiKey });
 
 
-console.log('Connection Established with AlphaVantageAPI')
 
-// Metadata printing for MSFT
-// alpha.data.intraday(`msft`).then(data => {
-//   console.log(data['Meta Data'])
-// });
-//
-// router.route('/').get((req, res) => {
-//   alpha.data.intraday(`msft`).then(data => {
-//     res.json(data);
-//   });
-// });
+
+router.route('/').get((req, res) => {
+  alpha.data.intraday(`msft`).then(data => {
+    res.json(data);
+    console.log(data["Time Series (1min)"])
+  });
+});
 
 /* Define all Intraday Routes */
 router.route('/intrad/msft').get((req, res) => {
