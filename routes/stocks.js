@@ -13,12 +13,11 @@ const alpha = require('alphavantage')({ key: apiKey });
 
 
 
-router.route('/').get((req, res) => {
-  alpha.data.intraday(`msft`).then(data => {
-    res.json(data);
-    console.log(data["Time Series (1min)"])
-  });
-});
+// router.route('/').get((req, res) => {
+//   alpha.data.intraday(`msft`).then(data => {
+//     res.json(data);
+//   });
+// });
 
 /* Define all Intraday Routes */
 router.route('/intrad/msft').get((req, res) => {
@@ -33,11 +32,11 @@ router.route('/intrad/goog').get((req, res) => {
   });
 });
 
-router.route('/intrad/fb').get((req, res) => {
-  alpha.data.intraday(`fb`).then(data => {
-    res.json(data);
-  });
-});
+// router.route('/intrad/fb').get((req, res) => {
+//   alpha.data.intraday(`fb`).then(data => {
+//     res.json(data);
+//   });
+// });
 
 router.route('/intrad/aapl').get((req, res) => {
   alpha.data.intraday(`aapl`).then(data => {

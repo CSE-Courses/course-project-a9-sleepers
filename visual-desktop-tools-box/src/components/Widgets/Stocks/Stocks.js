@@ -31,6 +31,13 @@ export default class Stocks extends Component {
         aapl: state,
         ibm: state,
         fb: state
+      },
+      btc: {
+        exchRate: '0.00',
+        bidPrice: '0.00',
+        askPrice: '0.00',
+        date: "YYYY-MM-DD",
+        time: "HH:MM:SS"
       }
     }
 
@@ -39,7 +46,7 @@ export default class Stocks extends Component {
 
   // TODO: find a way to clean this mess...
   componentDidMount() {
-    axios.get('http://localhost:4000/api/stocks/intrad/msft')
+    axios.get('/api/stocks/intrad/msft')
       .then(response => {
         if(response.data) {
           this.setState(prevState => ({
@@ -57,7 +64,7 @@ export default class Stocks extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:4000/api/stocks/intrad/goog')
+    axios.get('/api/stocks/intrad/goog')
       .then(response => {
         if(response.data) {
           this.setState(prevState => ({
@@ -75,7 +82,7 @@ export default class Stocks extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:4000/api/stocks/intrad/aapl')
+    axios.get('/api/stocks/intrad/aapl')
       .then(response => {
         if(response.data) {
           this.setState(prevState => ({
@@ -93,7 +100,7 @@ export default class Stocks extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:4000/api/stocks/intrad/ibm')
+    axios.get('/api/stocks/intrad/ibm')
       .then(response => {
         if(response.data) {
           this.setState(prevState => ({
@@ -111,23 +118,29 @@ export default class Stocks extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:4000/api/stocks/intrad/fb')
+    axios.get('/api/stocks/forex/btc')
       .then(response => {
         if(response.data) {
+          console.log(response.data)
+          const rate = response.data['Realtime Currency Exchange Rate'];
+          const split = rate['6. Last Refreshed'].split(" ");
+
           this.setState(prevState => ({
-            charts: {
-              msft: prevState.charts.msft,
-              goog: prevState.charts.goog,
-              aapl: prevState.charts.aapl,
-              ibm: prevState.charts.ibm,
-              fb: this.parseIntradData(response.data)
+            btc: {
+              exchRate: rate['5. Exchange Rate'].slice(0, 7),
+              bidPrice: rate['8. Bid Price'].slice(0, 7),
+              askPrice: rate['9. Ask Price'].slice(0, 7),
+              date: split[0],
+              time: split[1]
             }
           }))
+          console.log(rate);
         }
       })
       .catch((error) => {
         console.log(error);
       })
+
 
   }
 
@@ -203,8 +216,6 @@ export default class Stocks extends Component {
           {this.renderLineChart("Apple", this.state.charts.aapl, "secondary")}
 
           {this.renderLineChart("IBM", this.state.charts.ibm)}
-
-          {this.renderLineChart("Facebook", this.state.charts.fb, "primary")}
         </Card.Body>
 
         <Card.Header>Crypto</Card.Header>
@@ -219,11 +230,11 @@ export default class Stocks extends Component {
 
               <Accordion.Collapse eventKey="0">
                 <Card>
-                  <Card.Body> Current Exchange Rate: <b>$0.00</b> *</Card.Body>
-                  <Card.Body> Bid Price: <b>$0.00</b> *</Card.Body>
-                  <Card.Body> Ask Price: <b>$0.00</b> *</Card.Body>
+                  <Card.Body> Current Exchange Rate: <b>${this.state.btc.exchRate}</b> *</Card.Body>
+                  <Card.Body> Bid Price: <b>${this.state.btc.bidPrice}</b> *</Card.Body>
+                  <Card.Body> Ask Price: <b>${this.state.btc.askPrice}</b> *</Card.Body>
                   <Card.Footer>
-                    *As of: <b>YYYY-MM-DD | HH:MM:SS UTC</b>
+                    *As of: <b>{this.state.btc.date} | {this.state.btc.time} UTC</b>
                   </Card.Footer>
                 </Card>
               </Accordion.Collapse>
