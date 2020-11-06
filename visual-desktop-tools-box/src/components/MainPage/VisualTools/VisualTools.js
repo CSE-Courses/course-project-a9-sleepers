@@ -12,6 +12,8 @@ import SubCalendar from '../images/Sub-Calendar.png';
 import SubScheduled from '../images/Sub-Scheduled.png';
 import SubTimer from '../images/Sub-Timer.png';
 import SubStopwatch from '../images/Sub-Stopwatch.png';
+import SubStocks from '../images/Sub-Stocks.png';
+import SubNews from '../images/Sub-News.png';
 import   './VisualTools.css';
 
 
@@ -23,7 +25,7 @@ export default function VisualTools (){
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
+
   return(
     <div>
         <h1 class="text-center fontSize1" ><Badge variant="secondary">ToolBox</Badge></h1>
@@ -32,27 +34,27 @@ export default function VisualTools (){
                 <Row>
                   <Col sm={5} md = {5}>
                      <Link to ="/ToDoList">
-                       <Image src ={SubCheckList} 
-                         className={"img-fluid SubCheckList"} 
+                       <Image src ={SubCheckList}
+                         className={"img-fluid SubCheckList"}
                          alt="CheckListIcon"/>
                      </Link>
                          <h3 class="text-center fontSize3" >To-Do List</h3>
-                         <hr className={"HonzontalLine"}/>  
-                   </Col> 
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
 
                    <Col sm={2}  md = {2}>
                      <div className={"VeriticalLine"}/>
                    </Col>
                    <Col sm={5}  md = {5 }>
                      <Link to ="/Calculator">
-                       <Image src ={SubCalculator} className={" img-fluid SubCalculator"} 
-                         alt="CheckListIcon"  /> 
+                       <Image src ={SubCalculator} className={" img-fluid SubCalculator"}
+                         alt="CheckListIcon"  />
                      </Link>
                         <h3 class="text-center fontSize3">Calculator</h3>
                         <hr className={"HonzontalLine"}/>
                    </Col>
               </Row>
-             
+
                <Row>
                   <Col sm={5} md = {5}>
                     <Link to ="/Notepad">
@@ -80,8 +82,8 @@ export default function VisualTools (){
                      <hr className={"HonzontalLine"}/>
                     </Col>
               </Row>
-    
-    
+
+
               <Row>
                  <Col sm={5} md = {5}>
                    <Link to ="/Calendar">
@@ -110,18 +112,39 @@ export default function VisualTools (){
                        <Image src ={SubTimer} className={" img-fluid SubTimer"} />
                      </Link>
                          <h3 class="text-center fontSize3" >Countdown</h3>
-                         <hr className={"HonzontalLine"}/>  
-                   </Col> 
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
 
                    <Col sm={2}  md = {2}>
                      <div className={"VeriticalLine"}/>
                    </Col>
                    <Col sm={5}  md = {5 }>
                      <Link to ="/Stopwatch">
-                       <Image src ={SubStopwatch} className={" img-fluid SubStopwatch"} 
-                         alt="CheckListIcon"  /> 
+                       <Image src ={SubStopwatch} className={" img-fluid SubStopwatch"}
+                         alt="CheckListIcon"  />
                      </Link>
                         <h3 class="text-center fontSize3">Stopwatch</h3>
+                        <hr className={"HonzontalLine"}/>
+                   </Col>
+              </Row>
+              <Row>
+                  <Col sm={5} md = {5}>
+                     <Link to ="/Stocks">
+                       <Image src ={SubStocks} className={" img-fluid SubStocks"} />
+                     </Link>
+                         <h3 class="text-center fontSize3" >Stocks</h3>
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
+
+                   <Col sm={2}  md = {2}>
+                     <div className={"VeriticalLine"}/>
+                   </Col>
+                   <Col sm={5}  md = {5 }>
+                     <Link to ="/News">
+                       <Image src ={SubNews} className={" img-fluid SubNews"}
+                         alt="CheckListIcon"  />
+                     </Link>
+                        <h3 class="text-center fontSize3">News</h3>
                         <hr className={"HonzontalLine"}/>
                    </Col>
               </Row>
