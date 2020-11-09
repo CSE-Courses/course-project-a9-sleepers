@@ -2,8 +2,24 @@ import React, {useState} from 'react';
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import Select from 'react-select';
 import './NavBar.css';
+
+
+const componentOptions = [
+  { value: '/', label: 'Home' },
+  { value: '/ToDoList', label: 'To-Do List' },
+  { value: '/Calculator', label: 'Calculator' },
+  { value: '/Notepad', label: 'Notepad' },
+  { value: '/Calendar', label: 'Calendar' },
+  { value: '/Countdown', label: 'Countdown' },
+  { value: '/Stopwatch', label: 'Stopwatch' },
+  { value: '/Stocks', label: 'Stocks' },
+  { value: '/News', label: 'News' },
+];
 
 export default function NavBar (){
 
@@ -11,6 +27,13 @@ export default function NavBar (){
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [selectedCompOption, setSelectedCompOption] = useState('');
+
+  const selectStyles = {
+    menuPortal: base => ({ ...base, zIndex: 9999 }),
+    menu: provided => ({ ...provided, zIndex: "9999 !important" })
+  };
 
     return(
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -59,7 +82,20 @@ export default function NavBar (){
                   <h3 className={"fontSize3"}>Scheduled</h3>
                 </NavDropdown.Item>
                </NavDropdown>
+               <div className="searchbar">
+                
+              <Select
+                styles={selectStyles}
+                menuPlacement="auto"
+                menuPosition="absolute"
+                defaultValue={selectedCompOption}
+                onChange={setSelectedCompOption}
+                options={componentOptions}/>
+              </div>
+
+              <Link className="search" to={selectedCompOption.value}>Search</Link>
               </Nav>
+              
 
               <Nav>
                <Nav.Link  as={NavLink} to= '/Login' className={"px-3"}>
