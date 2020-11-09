@@ -91,7 +91,7 @@ class Currency extends React.Component {
             ))}
           </select>
           <button onClick={this.convertHandler}>Convert</button>
-          {this.state.result && <h3>{this.state.result}</h3>}
+          {this.state.result && <h3>{ this.state.result}</h3>}
         </div>
       </div>
     );

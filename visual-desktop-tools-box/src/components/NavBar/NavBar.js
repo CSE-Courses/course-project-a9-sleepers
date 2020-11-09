@@ -74,6 +74,13 @@ export default function NavBar (){
                 <NavDropdown.Item as={NavLink} to= '/Notepad'>
                   <h3 className={"fontSize3"}>Notepad</h3>
                 </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/Currency'>
+                  <h3 className={"fontSize3"}>Currency</h3>
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/Tictac'>
+                  <h3 className={"fontSize3"}>Tic-Tac-Toe</h3>
+                </NavDropdown.Item>
+
                 <NavDropdown.Item>
                   <h3 className={"fontSize3"} onClick={handleShow}>Clock</h3>
                     <Modal show={show} centered size="lg" onHide={handleClose}>

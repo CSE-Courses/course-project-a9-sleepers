@@ -18,6 +18,7 @@ import Cat from './components/Widgets/Cat/Quote';
 import NotePad from './components/Widgets/NotePad';
 import Radio from './components/Widgets/Radio/Radio'
 import Currency from './components/Widgets/Currency/Currency'
+import Tictac from './components/Widgets/Tic-Tac/Tictac'
 
 class App extends Component {
 
@@ -54,6 +55,7 @@ class App extends Component {
 
           <Route path = "/Currency" exact component = {Currency}/>
 
+          <Route path = "/Tictac" exact component = {Tictac}/>
 
        </Switch>
      </BrowserRouter>

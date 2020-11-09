@@ -13,6 +13,7 @@ import SubScheduled from '../images/Sub-Scheduled.png';
 import SubTimer from '../images/Sub-Timer.png';
 import SubStopwatch from '../images/Sub-Stopwatch.png';
 import SubCurrency from '../images/Sub-Currency.png';
+import tictac from '../images/tictac.png';
 import   './VisualTools.css';
 
 
@@ -127,15 +128,6 @@ export default function VisualTools (){
                    </Col>
               </Row>
 
-              <Row>
-                  <Col sm={5} md = {5}>
-                     <Link to ="/Currency">
-                       <Image src ={SubCurrency} className={" img-fluid SubCurrency"} />
-                     </Link>
-                         <h3 class="text-center fontSize3" >Currency Converter</h3>
-                         <hr className={"HonzontalLine"}/>  
-                   </Col> 
-              </Row>     
 
 
 
