@@ -4,6 +4,7 @@ import Game from './components/Game';
 
 function Tictac() {
   return (
+    <div>   <Game /></div>
   );
 }
 
