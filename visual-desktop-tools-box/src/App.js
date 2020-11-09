@@ -20,6 +20,8 @@ import Radio from './components/Widgets/Radio/Radio';
 import CalendarWidget from './components/Widgets/Calendar-Custom/Calendar';
 import Stocks from './components/Widgets/Stocks/Stocks';
 import News from './components/Widgets/News/News';
+import Currency from './components/Widgets/Currency/Currency'
+import Tictac from './components/Widgets/Tic-Tac/Tictac'
 
 class App extends Component {
 
@@ -54,11 +56,17 @@ class App extends Component {
 
           <Route path = "/Radio" exact component = {Radio}/>
 
+<<<<<<< HEAD
           <Route path ="/Calendar" exact component = {CalendarWidget}/>
 
           <Route path ="/Stocks" exact component = {Stocks}/>
 
           <Route path ="/News" exact component = {News}/>
+=======
+          <Route path = "/Currency" exact component = {Currency}/>
+
+          <Route path = "/Tictac" exact component = {Tictac}/>
+>>>>>>> #45-Show-Temperature
 
        </Switch>
      </BrowserRouter>

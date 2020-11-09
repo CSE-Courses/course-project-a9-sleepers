@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import image from './animal.png'
 import Button from './button';
 import axios from 'axios'
+import ReactWeather from 'react-open-weather';
 class QuoteBox extends Component{
 constructor(props){
     super(props)
@@ -9,6 +10,7 @@ constructor(props){
     this.state = {quote: ""}
 
  }
+ 
 
 
 componentDidMount(){
@@ -18,11 +20,6 @@ componentDidMount(){
   //this.setState({quote: res.data.text});
   })
   
-//  .then(function(response ){
-//      //console.log(typeof response.data.text)
-//      //console.log(typeof quote)  
-//      //this.setState({quote: response.data.text})  
-//     })
 }
 getNext = (ev) =>{
   ev.preventDefault()
@@ -57,6 +54,7 @@ const content = this.state.quote
     <div className="head text-center">
       <h1>Cat's Facts</h1>      
     <React.Fragment>
+
     <h2>A little inspiration for the day</h2>
       <div className='outerQuoteBox'>
         <div className='innerQuoteBox'>

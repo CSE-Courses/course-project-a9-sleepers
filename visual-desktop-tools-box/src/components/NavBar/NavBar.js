@@ -4,14 +4,52 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import './NavBar.css';
+import 'react-open-weather/lib/css/ReactWeather.css';
+import weather from 'weather-js'
+
+
+// weather.find({degreeType: 'F',search: ''}, function(err, result) {
+//   if(err) console.log(err);
+//   console.log(result[0].current.feelslike)
+
+//   temp = result[0].current.feelslike
+// });
+
+
+
+ var dark = false;
+// console.log("Before button")
+// console.log(dark)
+// function darkMode(){
+  
+//   if(dark === true){dark = false}
+//   if(dark === false){dark = true}
+
+//   console.log("After button")
+//   console.log(dark)
+// }
+
 
 export default function NavBar (){
 
-  const [show, setShow] = useState(false)
+  
+  const [temp,setTemp] = useState('');
 
+  weather.find({degreeType: 'F',search: ''}, function(err, result) {
+    if(err) console.log(err);
+    //console.log(result[0].current.feelslike)
+  
+    var x = result[0].current.temperature
+    setTemp(x)
+    //console.log(x)
+  });
+  
+  //console.log(temp)
+
+
+  const [show, setShow] = useState(false)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
     return(
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
          <Navbar.Brand as={NavLink} to= '/' className={"px-3"}>
@@ -36,6 +74,13 @@ export default function NavBar (){
                 <NavDropdown.Item as={NavLink} to= '/Notepad'>
                   <h3 className={"fontSize3"}>Notepad</h3>
                 </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/Currency'>
+                  <h3 className={"fontSize3"}>Currency</h3>
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/Tictac'>
+                  <h3 className={"fontSize3"}>Tic-Tac-Toe</h3>
+                </NavDropdown.Item>
+
                 <NavDropdown.Item>
                   <h3 className={"fontSize3"} onClick={handleShow}>Clock</h3>
                     <Modal show={show} centered size="lg" onHide={handleClose}>
@@ -60,8 +105,22 @@ export default function NavBar (){
                 </NavDropdown.Item>
                </NavDropdown>
               </Nav>
+<<<<<<< HEAD
+=======
+              
+              <nav>
+                <form class="form-inline">
+                <button class="btn btn-sm btn-outline-secondary" type="button">Dark Mode</button>
+                <button onClick={() => {console.log("Before: ",dark);if(dark === true){dark = false}else{dark = true};console.log("After: ",dark);}} class="btn btn-sm btn-outline-secondary" type="button">Dark Mode test</button>
+
+                </form>
+              </nav>
+>>>>>>> #45-Show-Temperature
 
               <Nav>
+              <Navbar.Text>
+              <h3 className={"fontSize0"}>Current Temperature: {temp}°F</h3>
+              </Navbar.Text>
                <Nav.Link  as={NavLink} to= '/Login' className={"px-3"}>
                  <h4 className={"fontSize4"}>Login / Sign Up</h4>
                </Nav.Link>

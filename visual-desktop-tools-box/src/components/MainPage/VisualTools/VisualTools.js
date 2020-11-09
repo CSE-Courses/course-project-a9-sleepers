@@ -12,8 +12,13 @@ import SubCalendar from '../images/Sub-Calendar.png';
 import SubScheduled from '../images/Sub-Scheduled.png';
 import SubTimer from '../images/Sub-Timer.png';
 import SubStopwatch from '../images/Sub-Stopwatch.png';
+<<<<<<< HEAD
 import SubStocks from '../images/Sub-Stocks.png';
 import SubNews from '../images/Sub-News.png';
+=======
+import SubCurrency from '../images/Sub-Currency.png';
+import tictac from '../images/tictac.png';
+>>>>>>> #45-Show-Temperature
 import   './VisualTools.css';
 
 
@@ -148,6 +153,9 @@ export default function VisualTools (){
                         <hr className={"HonzontalLine"}/>
                    </Col>
               </Row>
+
+
+
 
               {/* spaces will be replace by footer in the future */}
                 <br/>
