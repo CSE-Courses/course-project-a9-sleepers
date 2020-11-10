@@ -2,25 +2,44 @@ import React, {useState} from 'react';
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import Select from 'react-select';
 import './NavBar.css';
 import 'react-open-weather/lib/css/ReactWeather.css';
 import weather from 'weather-js'
 
+
+
+const componentOptions = [
+  { value: '/', label: 'Home' },
+  { value: '/ToDoList', label: 'To-Do List' },
+  { value: '/Calculator', label: 'Calculator' },
+  { value: '/Notepad', label: 'Notepad' },
+  { value: '/Calendar', label: 'Calendar' },
+  { value: '/Countdown', label: 'Countdown' },
+  { value: '/Stopwatch', label: 'Stopwatch' },
+  { value: '/Stocks', label: 'Stocks' },
+  { value: '/News', label: 'News' },
+  { value: '/Timezone', label: 'Timezone' },
+  { value: '/UnitConverter', label: 'Unit Converter' },
+  { value: '/WPMTest', label: 'WPM Test' },
+];
 
 export default function NavBar (){
 
   
   const [temp,setTemp] = useState('');
 
-  // weather.find({degreeType: 'F',search: ''}, function(err, result) {
-  //   if(err) console.log(err);
-  //   //console.log(result[0].current.feelslike)
+  weather.find({degreeType: 'F',search: ''}, function(err, result) {
+    if(err) console.log(err);
+    //console.log(result[0].current.feelslike)
   
-  //   var x = result[0].current.temperature
-  //   setTemp(x)
-  //   //console.log(x)
-  // });
+    var x = result[0].current.temperature
+    setTemp(x)
+    //console.log(x)
+  });
   
   //console.log(temp)
 
@@ -28,6 +47,14 @@ export default function NavBar (){
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [selectedCompOption, setSelectedCompOption] = useState('');
+
+  const selectStyles = {
+    menuPortal: base => ({ ...base, zIndex: 9999 }),
+    menu: provided => ({ ...provided, zIndex: "9999 !important" })
+  };
+
     return(
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
          <Navbar.Brand as={NavLink} to= '/' className={"px-3"}>
@@ -85,6 +112,18 @@ export default function NavBar (){
                   <h3 className={"fontSize3"}>Scheduled</h3>
                 </NavDropdown.Item>
                </NavDropdown>
+               <div className="searchbar">
+                
+              <Select
+                styles={selectStyles}
+                menuPlacement="auto"
+                menuPosition="absolute"
+                defaultValue={selectedCompOption}
+                onChange={setSelectedCompOption}
+                options={componentOptions}/>
+              </div>
+
+              <Link className="search" to={selectedCompOption.value}>Search</Link>
               </Nav>
               
               <Nav>
