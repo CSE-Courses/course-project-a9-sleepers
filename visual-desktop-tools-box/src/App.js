@@ -56,17 +56,14 @@ class App extends Component {
 
           <Route path = "/Radio" exact component = {Radio}/>
 
-<<<<<<< HEAD
           <Route path ="/Calendar" exact component = {CalendarWidget}/>
 
           <Route path ="/Stocks" exact component = {Stocks}/>
 
           <Route path ="/News" exact component = {News}/>
-=======
           <Route path = "/Currency" exact component = {Currency}/>
 
           <Route path = "/Tictac" exact component = {Tictac}/>
->>>>>>> #45-Show-Temperature
 
        </Switch>
      </BrowserRouter>

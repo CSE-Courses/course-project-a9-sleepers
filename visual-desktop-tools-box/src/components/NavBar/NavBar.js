@@ -8,28 +8,6 @@ import 'react-open-weather/lib/css/ReactWeather.css';
 import weather from 'weather-js'
 
 
-// weather.find({degreeType: 'F',search: ''}, function(err, result) {
-//   if(err) console.log(err);
-//   console.log(result[0].current.feelslike)
-
-//   temp = result[0].current.feelslike
-// });
-
-
-
- var dark = false;
-// console.log("Before button")
-// console.log(dark)
-// function darkMode(){
-  
-//   if(dark === true){dark = false}
-//   if(dark === false){dark = true}
-
-//   console.log("After button")
-//   console.log(dark)
-// }
-
-
 export default function NavBar (){
 
   
@@ -105,18 +83,7 @@ export default function NavBar (){
                 </NavDropdown.Item>
                </NavDropdown>
               </Nav>
-<<<<<<< HEAD
-=======
               
-              <nav>
-                <form class="form-inline">
-                <button class="btn btn-sm btn-outline-secondary" type="button">Dark Mode</button>
-                <button onClick={() => {console.log("Before: ",dark);if(dark === true){dark = false}else{dark = true};console.log("After: ",dark);}} class="btn btn-sm btn-outline-secondary" type="button">Dark Mode test</button>
-
-                </form>
-              </nav>
->>>>>>> #45-Show-Temperature
-
               <Nav>
               <Navbar.Text>
               <h3 className={"fontSize0"}>Current Temperature: {temp}°F</h3>
