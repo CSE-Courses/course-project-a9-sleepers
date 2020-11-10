@@ -76,6 +76,9 @@ export default function NavBar (){
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/News'>
                   <h3 className={"fontSize3"}>News</h3>
+                  </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/UnitConverter'>
+                  <h3 className={"fontSize3"}>Unit Converter</h3>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item as={NavLink} to= '/Scheduled'>

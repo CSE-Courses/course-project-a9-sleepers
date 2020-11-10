@@ -23,13 +23,14 @@ import News from './components/Widgets/News/News';
 import Currency from './components/Widgets/Currency/Currency'
 import Tictac from './components/Widgets/Tic-Tac/Tictac'
 import WPMTest from './components/Widgets/WPMTest/WPMTest'
+import UnitConverter from './components/Widgets/UnitConverter/UnitConverter';
+import Timezone from './components/Widgets/Timezone/Timezone';
 
 class App extends Component {
 
     // componentDidMount(){
     //     store.dispatch(loadUser());
     // }
-
 
   render(){
   return (
@@ -57,9 +58,13 @@ class App extends Component {
 
           <Route path = "/Radio" exact component = {Radio}/>
 
-          <Route path ="/Calendar" exact component = {CalendarWidget}/>
+          <Route path = "/Calendar" exact component = {CalendarWidget}/>
 
-          <Route path ="/Stocks" exact component = {Stocks}/>
+          <Route path = "/Stocks" exact component = {Stocks}/>
+
+          <Route path = "/UnitConverter" exact component = {UnitConverter}/>
+
+          <Route path = "/Timezone" exact component = {Timezone}/>
 
           <Route path ="/News" exact component = {News}/>
 

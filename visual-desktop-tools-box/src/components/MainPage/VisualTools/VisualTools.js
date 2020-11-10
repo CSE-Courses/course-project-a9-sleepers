@@ -17,6 +17,8 @@ import SubNews from '../images/Sub-News.png';
 import SubWPM from '../images/Sub-WPM.png';
 import SubCurrency from '../images/Sub-Currency.png';
 import tictac from '../images/tictac.png';
+import SubUnitConverter from '../images/Sub-UnitConverter.png';
+import SubTimezone from '../images/Sub-Timezone.png';
 import   './VisualTools.css';
 
 
@@ -165,6 +167,29 @@ export default function VisualTools (){
 
 
 
+
+              <Row>
+                  <Col sm={5} md = {5}>
+                     <Link to ="/UnitConverter">
+                       <Image src ={SubUnitConverter} className={" img-fluid SubUnitConverter"} />
+                     </Link>
+                         <h3 class="text-center fontSize3" >Unit Converter</h3>
+                         <hr className={"HonzontalLine"}/>  
+                   </Col> 
+                   
+                   <Col sm={2} md = {2}>
+                     <div className={"VeriticalLine"}/>
+                   </Col>
+
+
+                   <Col sm={5} md = {5}>
+                     <Link to ="/Timezone">
+                       <Image src ={SubTimezone} className={" img-fluid SubTimezone"} />
+                     </Link>
+                         <h3 class="text-center fontSize3" >Timezone</h3>
+                         <hr className={"HonzontalLine"}/>  
+                   </Col> 
+              </Row>
 
               {/* spaces will be replace by footer in the future */}
                 <br/>
