@@ -24,6 +24,8 @@
     "ez-local-time": "^1.0.15",
     "inquirer": "^7.3.3",
     "jquery": "^3.5.1",
+    "local-storage-fallback": "^4.1.1",
+    "material-ui-icons": "^1.0.0-beta.36",
     "mathjs": "^7.3.0",
     "moments": "0.0.2",
     "moment": "^2.29.1",
@@ -38,6 +40,7 @@
     "react-calendar": "^3.1.0",
     "react-chartjs-2": "^2.10.0",
     "react-contenteditable": "^3.3.5",
+    "react-disable": "^0.1.0",
     "react-dom": "^16.13.1",
     "react-image-mapper": "0.0.15",
     "react-player": "2.6.2",
@@ -49,7 +52,9 @@
     "react-youtube": "^7.13.0",
     "reactstrap": "^8.5.1",
     "request": "^2.88.2",
-    "weather-js": "^2.0.0"
+    "weather-js": "^2.0.0",
+    "styled-components": "^5.2.0",
+    "styled-theming": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

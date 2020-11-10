@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
@@ -9,7 +9,11 @@ import Select from 'react-select';
 import './NavBar.css';
 import 'react-open-weather/lib/css/ReactWeather.css';
 import weather from 'weather-js'
-
+// import { dark } from '@material-ui/core/styles/createPalette';
+// import { ThemeProvider, createGlobalStyle } from 'styled-components';
+// import storage from 'local-storage-fallback'
+// import { Global } from '@emotion/core';
+import GlobalStyle from '../Widgets/Settings/ToggleDark'
 
 
 const componentOptions = [
@@ -26,6 +30,7 @@ const componentOptions = [
   { value: '/UnitConverter', label: 'Unit Converter' },
   { value: '/WPMTest', label: 'WPM Test' },
 ];
+
 
 export default function NavBar (){
 
@@ -127,6 +132,7 @@ export default function NavBar (){
               </Nav>
               
               <Nav>
+              <GlobalStyle />
               <Navbar.Text>
               <h3 className={"fontSize0"}>Current Temperature: {temp}°F</h3>
               </Navbar.Text>

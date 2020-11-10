@@ -25,6 +25,8 @@ import Tictac from './components/Widgets/Tic-Tac/Tictac'
 import WPMTest from './components/Widgets/WPMTest/WPMTest'
 import UnitConverter from './components/Widgets/UnitConverter/UnitConverter';
 import Timezone from './components/Widgets/Timezone/Timezone';
+import ToggleDark from './components/Widgets/Settings/ToggleDark'
+// import GlobalStyle from './components/Widgets/Settings/toggleDark'
 
 class App extends Component {
 
@@ -73,9 +75,14 @@ class App extends Component {
           <Route path = "/Tictac" exact component = {Tictac}/>
 
           <Route path = "/WPMTest" exact component = {WPMTest}/>
+          
+          <Route path = "/ToggleDark" exact component = {ToggleDark}/>
+
+         
 
        </Switch>
      </BrowserRouter>
+     {/* <GlobalStyle /> */}
      {/* </Provider> */}
   </Fragment>
   );
