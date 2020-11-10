@@ -21,7 +21,7 @@ export default function WPMTest() {
     return (
         <div>
             <NavBar />
-            <Container className="Interface">
+            <Container className="display">
                 <h4 className="quote">{baconQuote}</h4>
                 <textarea type="text" className="userInput" />
             </Container>
