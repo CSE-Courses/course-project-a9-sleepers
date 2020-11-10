@@ -13,14 +13,14 @@ export default function NavBar (){
   
   const [temp,setTemp] = useState('');
 
-  weather.find({degreeType: 'F',search: ''}, function(err, result) {
-    if(err) console.log(err);
-    //console.log(result[0].current.feelslike)
+  // weather.find({degreeType: 'F',search: ''}, function(err, result) {
+  //   if(err) console.log(err);
+  //   //console.log(result[0].current.feelslike)
   
-    var x = result[0].current.temperature
-    setTemp(x)
-    //console.log(x)
-  });
+  //   var x = result[0].current.temperature
+  //   setTemp(x)
+  //   //console.log(x)
+  // });
   
   //console.log(temp)
 
