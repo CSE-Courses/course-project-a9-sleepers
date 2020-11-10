@@ -4,7 +4,7 @@ import Desktop from '../images/Desktop.png';
 import ImageMapper from 'react-image-mapper';
 
 
-
+//console.log("In VD", dark)
 
 //Calculating Current Window width
 const getWidth = () => window.innerWidth
@@ -44,7 +44,7 @@ export default function VisualDesktop (){
 
     name: "my-map",
     areas: [
-      { name: "Google", shape: "poly", coords: [640,350,1290,350,1290,810 ,640,810],  href : '/Google' , strokeColor:"blue",},
+      { name: "Google", shape: "poly", coords: [640,350,1290,350,1290,810 ,640,810],  href : '/Tictac' , strokeColor:"blue",},
       { name: "Timer", shape: "poly", coords: [1425,800,1570,800,1563,890,1433,890],  href:'/Timer' ,strokeColor:"purple",   },
       { name: "Calculator", shape: "poly", coords: [1520,900,1595,885,1720,960,1630,1000], strokeColor:"yellow", href:'/Calculator'  },
       { name: "Cat", shape: "poly", coords: [1570,350,1730,370,1700,450,1540,450],  href:'/Cat' ,strokeColor:"yellow",   },
