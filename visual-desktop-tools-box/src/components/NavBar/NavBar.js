@@ -35,14 +35,14 @@ export default function NavBar (){
   
   const [temp,setTemp] = useState('');
 
-  weather.find({degreeType: 'F',search: ''}, function(err, result) {
-    if(err) console.log(err);
-    //console.log(result[0].current.feelslike)
+  // weather.find({degreeType: 'F',search: ''}, function(err, result) {
+  //   if(err) console.log(err);
+  //   //console.log(result[0].current.feelslike)
   
-    var x = result[0].current.temperature
-    setTemp(x)
-    //console.log(x)
-  });
+  //   var x = result[0].current.temperature
+  //   setTemp(x)
+  //   //console.log(x)
+  // });
   
   //console.log(temp)
 
@@ -105,17 +105,6 @@ export default function NavBar (){
                 </NavDropdown.Item>
                </NavDropdown>
               </Nav>
-<<<<<<< HEAD
-=======
-              
-              <nav>
-                <form class="form-inline">
-                <button class="btn btn-sm btn-outline-secondary" type="button">Dark Mode</button>
-                <button onClick={() => {console.log("Before: ",dark);if(dark === true){dark = false}else{dark = true};console.log("After: ",dark);}} class="btn btn-sm btn-outline-secondary" type="button">Dark Mode test</button>
-
-                </form>
-              </nav>
->>>>>>> #45-Show-Temperature
 
               <Nav>
               <Navbar.Text>

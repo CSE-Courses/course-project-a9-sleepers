@@ -12,13 +12,11 @@ import SubCalendar from '../images/Sub-Calendar.png';
 import SubScheduled from '../images/Sub-Scheduled.png';
 import SubTimer from '../images/Sub-Timer.png';
 import SubStopwatch from '../images/Sub-Stopwatch.png';
-<<<<<<< HEAD
 import SubStocks from '../images/Sub-Stocks.png';
 import SubNews from '../images/Sub-News.png';
-=======
+import SubWPM from '../images/Sub-WPM.png';
 import SubCurrency from '../images/Sub-Currency.png';
 import tictac from '../images/tictac.png';
->>>>>>> #45-Show-Temperature
 import   './VisualTools.css';
 
 
@@ -153,6 +151,17 @@ export default function VisualTools (){
                         <hr className={"HonzontalLine"}/>
                    </Col>
               </Row>
+              <Row>
+              <Col sm={5}  md = {5 }>
+                     <Link to ="/WPMTest">
+                       <Image src ={SubWPM} className={" img-fluid SubWPM"}
+                         alt="CheckListIcon"  />
+                     </Link>
+                        <h3 class="text-center fontSize3">WPM Test</h3>
+                        <hr className={"HonzontalLine"}/>
+                   </Col>
+              </Row>
+              
 
 
 
