@@ -48,4 +48,12 @@ router.route('/update/:id').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+// db.student.find({}, {roll:1, _id:0})
+
+router.route('/user/get:username:password').get((req,res)=>{
+  User.find({}, {username:req.params.username, password:req.req.params.password})
+  .then(user => res.json(user))
+  .catch(err => res.status(400).json('Error:' + err));
+});
+
 module.exports = router;
