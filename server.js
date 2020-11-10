@@ -23,6 +23,9 @@ app.use('/users', usersRouter);
 
 const stocksAPIRouter = require('./routes/stocks');
 app.use('/api/stocks', stocksAPIRouter);
+
+const newsAPIRouter = require('./routes/news');
+app.use('/api/news', newsAPIRouter);
 //
 
 console.log(path.resolve(__dirname, 'visual-desktop-tools-box', 'build', 'index.html'));
