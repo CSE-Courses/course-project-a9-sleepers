@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import Game from './components/Game';
 
 function Tictac() {
