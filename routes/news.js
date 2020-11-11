@@ -9,7 +9,7 @@ const url = 'http://newsapi.org/v2/top-headlines?' +
 
 router.route('/').get((req, res) => {
   axios.get(url).then(response => {
-    console.log(response.data);
+    // console.log(response.data);
     res.json(response.data);
   })
   .catch((error) => {
