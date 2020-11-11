@@ -21,15 +21,15 @@
     "convert-units": "^2.3.4",
     "date-fns": "^2.16.1",
     "emotion": "^10.0.27",
-    "idb-keyval": "^3.2.0",
     "ez-local-time": "^1.0.15",
+    "idb-keyval": "^3.2.0",
     "inquirer": "^7.3.3",
     "jquery": "^3.5.1",
     "local-storage-fallback": "^4.1.1",
     "material-ui-icons": "^1.0.0-beta.36",
     "mathjs": "^7.3.0",
-    "moments": "0.0.2",
     "moment": "^2.29.1",
+    "moments": "0.0.2",
     "mongodb": "^3.6.2",
     "node-sass": "^4.14.1",
     "prompt": "^1.0.0",
@@ -40,12 +40,14 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-calendar": "^3.1.0",
+    "react-canvas-draw": "^1.1.1",
     "react-chartjs-2": "^2.10.0",
     "react-contenteditable": "^3.3.5",
     "react-disable": "^0.1.0",
     "react-dom": "^16.13.1",
     "react-image-mapper": "0.0.15",
     "react-player": "2.6.2",
+    "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-select": "^3.1.0",
@@ -53,10 +55,12 @@
     "react-weather-display": "^1.0.1",
     "react-youtube": "^7.13.0",
     "reactstrap": "^8.5.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "request": "^2.88.2",
-    "weather-js": "^2.0.0",
     "styled-components": "^5.2.0",
-    "styled-theming": "^2.2.0"
+    "styled-theming": "^2.2.0",
+    "weather-js": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -80,7 +84,9 @@
     ]
   },
   "devDependencies": {
+    "html-webpack-plugin": "^4.5.0",
     "react-open-weather": "^0.6.2",
-    "react-player": "^2.6.2"
+    "react-player": "^2.6.2",
+    "webpack-dev-server": "^3.11.0"
   }
 }

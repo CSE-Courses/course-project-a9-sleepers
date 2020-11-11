@@ -81,7 +81,7 @@ class App extends Component {
           <Route path = "/Tictac" exact component = {Tictac}/>
 
           <Route path = "/WPMTest" exact component = {WPMTest}/>
-          
+
           <Route path = "/ToggleDark" exact component = {ToggleDark}/>
 
           <Route path = "/DrawingBoard" exact component = {DrawingBoard}/>
