@@ -8,6 +8,10 @@ import {
   BrowserRouter,
   Route,
 } from "react-router-dom";
+import {Provider} from 'react-redux';
+import store from './redux/stores/store';
+import { loadUser } from './redux/actions/authAction';
+
 import MainPage from './components/MainPage/MainPage';
 import Calculator from './components/Widgets/Calculator/Calculator';
 import Countdown from './components/Widgets/Countdown';
@@ -20,19 +24,27 @@ import Radio from './components/Widgets/Radio/Radio';
 import CalendarWidget from './components/Widgets/Calendar-Custom/Calendar';
 import Stocks from './components/Widgets/Stocks/Stocks';
 import News from './components/Widgets/News/News';
+import Currency from './components/Widgets/Currency/Currency'
+import Tictac from './components/Widgets/Tic-Tac/Tictac'
+import WPMTest from './components/Widgets/WPMTest/WPMTest'
+import UnitConverter from './components/Widgets/UnitConverter/UnitConverter';
+import Timezone from './components/Widgets/Timezone/Timezone';
+import ToggleDark from './components/Widgets/Settings/ToggleDark'
+import SignUpPage from './components/SignUpPage/SignUpPage';
+import DrawingBoard from './components/Widgets/DrawingBoard/DrawingBoard';
+// import GlobalStyle from './components/Widgets/Settings/toggleDark'
 
 class App extends Component {
 
-    // componentDidMount(){
-    //     store.dispatch(loadUser());
-    // }
-
+    componentDidMount(){
+        store.dispatch(loadUser());
+    }
 
   render(){
   return (
 
   <Fragment>
-    {/* <Provider store = {store}> */}
+    <Provider store = {store}>
      <BrowserRouter>
        <Switch>
 
@@ -54,15 +66,32 @@ class App extends Component {
 
           <Route path = "/Radio" exact component = {Radio}/>
 
-          <Route path ="/Calendar" exact component = {CalendarWidget}/>
+          <Route path = "/Calendar" exact component = {CalendarWidget}/>
 
-          <Route path ="/Stocks" exact component = {Stocks}/>
+          <Route path = "/Stocks" exact component = {Stocks}/>
+
+          <Route path = "/UnitConverter" exact component = {UnitConverter}/>
+
+          <Route path = "/Timezone" exact component = {Timezone}/>
 
           <Route path ="/News" exact component = {News}/>
 
+          <Route path = "/Currency" exact component = {Currency}/>
+
+          <Route path = "/Tictac" exact component = {Tictac}/>
+
+          <Route path = "/WPMTest" exact component = {WPMTest}/>
+          
+          <Route path = "/ToggleDark" exact component = {ToggleDark}/>
+
+          <Route path = "/DrawingBoard" exact component = {DrawingBoard}/>
+
+          <Route path = "/SignUp" exact component = {SignUpPage}/>
+
        </Switch>
      </BrowserRouter>
-     {/* </Provider> */}
+     {/* <GlobalStyle /> */}
+     </Provider>
   </Fragment>
   );
 }
