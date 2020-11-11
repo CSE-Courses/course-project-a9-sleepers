@@ -1,18 +1,18 @@
-.desk{  
+.desk{
   width: auto;
   height: auto;
   max-width: 100%;
   max-height: 100%;
 }
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
   .desk{
-  
+
   }
 
  }
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
   .desk{
     width: 100%;
     height: auto;
@@ -20,7 +20,7 @@
  }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .desk{
     width: 100%;
     height: auto;
@@ -32,12 +32,12 @@
   .desk{
     width: 100%;
     height: auto;
-    
+
   }
  }
 
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .desk{
     width: 100%;
     height: auto;
@@ -47,12 +47,12 @@
 
 
  .SubCheckList:hover, .SubCalculator:hover, .SubNotepad:hover, .SubClock:hover, .SubCalendar:hover,
- .SubScheduled:hover, .SubTimer:hover, .SubStopwatch:hover{
+ .SubScheduled:hover, .SubTimer:hover, .SubStopwatch:hover, .SubStocks:hover, .SubNews:hover, .SubWPM:hover, .SubUnitConverter:hover, .SubTimezone:hover {
    box-shadow: 0 0 10px skyblue;
-  
+
 }
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
   .VeriticalLine{
     border-left: 2px dashed  black;
     margin-top: 8rem;
@@ -62,7 +62,7 @@
  }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .VeriticalLine{
     border-left: 2px dashed  black;
     margin-top: 9rem;
@@ -73,7 +73,7 @@
 
 
 @media (min-width: 992px) {
- 
+
   .VeriticalLine{
     border-left: 2px dashed  black;
     margin-top: 8rem;
@@ -83,8 +83,8 @@
  }
 
 
-@media (min-width: 1200px) { 
- 
+@media (min-width: 1200px) {
+
   .VeriticalLine{
     border-left: 2px dashed  black;
     margin-top: 8rem;
@@ -96,11 +96,11 @@
 
 
  .HonzontalLine{
-  border-top: 2px solid #8c8b8b; 
+  border-top: 2px solid #8c8b8b;
   margin-top: 50px;
  }
 
- 
+
 
 
 
@@ -109,42 +109,50 @@
   margin-top: 1em;
 }
 
+.settingsButton {
+  margin: 0;
+  margin-top: 15px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
 
-
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
   .fontSize1{
     letter-spacing: 0.1em;
     font-style: oblique;
     margin-top: 3rem;
     font-size: 2.5em;
-    
+
   }
-  
+
 
  }
- 
 
-@media (min-width: 576px) { 
+
+@media (min-width: 576px) {
   .fontSize1{
     letter-spacing: 0.1em;
     font-style: oblique;
     margin-top: 3rem;
     font-size: 5em;
   }
-  
+
  }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .fontSize1{
     letter-spacing: 0.1em;
     font-style: oblique;
     margin-top: 3rem;
     font-size: 6em;
   }
-  
-  
+
+
 }
 
 
@@ -156,18 +164,18 @@
     margin-top: 3rem;
     font-size: 8em;
   }
-  
+
  }
 
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .fontSize1{
     letter-spacing: 0.1em;
     font-style: oblique;
     margin-top: 3rem;
     font-size: 6em;
   }
-  
+
 }
 
 
@@ -178,10 +186,10 @@
 
 
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
   .SubCheckList{
- 
-    margin-top: 3rem; 
+
+    margin-top: 3rem;
     height: auto;
     display: block;
     margin-left: auto;
@@ -190,9 +198,9 @@
   }
 
  }
- 
 
-@media (min-width: 576px) { 
+
+@media (min-width: 576px) {
   .SubCheckList{
     margin-top: 8em;
     margin-left: 1.8rem;
@@ -202,7 +210,7 @@
  }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
 
   .SubCheckList{
     margin-top: 8em;
@@ -210,7 +218,7 @@
     width: 180px;
     height: auto;
   }
-  
+
 }
 
 
@@ -225,7 +233,7 @@
  }
 
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .SubCheckList{
     margin-top: 8em;
     margin-left: 90px;
@@ -236,9 +244,9 @@
 
 
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
   .SubCalculator{
-    margin-top: 3rem; 
+    margin-top: 3rem;
     height: auto;
     display: block;
     margin-left: auto;
@@ -247,9 +255,9 @@
   }
 
  }
- 
 
-@media (min-width: 576px) { 
+
+@media (min-width: 576px) {
   .SubCalculator{
     margin-top: 8em;
     margin-left: 2rem;
@@ -259,7 +267,7 @@
  }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .SubCalculator{
     margin-top: 8em;
     margin-left: 2.5rem;
@@ -275,27 +283,27 @@
     margin-left: 60px;
     width: 240px;
     height: auto;
-    
+
   }
  }
 
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .SubCalculator{
     margin-top: 8em;
     margin-left: 6rem;
     width: 240px;
     height: auto;
-    
+
   }
 }
 
 
 
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
   .SubNotepad{
-    margin-top: 3rem; 
+    margin-top: 3rem;
     height: auto;
     display: block;
     margin-left: auto;
@@ -306,7 +314,7 @@
  }
 
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
    .SubNotepad{
     margin-top: 9rem;
     margin-left: 2.6rem;
@@ -316,7 +324,7 @@
  }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .SubNotepad{
     margin-top: 9rem;
     margin-left: 2.6rem;
@@ -336,21 +344,21 @@
  }
 
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .SubNotepad{
     margin-top: 9rem;
     margin-left: 6rem;
     width: 240px;
     height: auto;
-    
+
   }
 }
 
 
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
   .SubClock{
-    margin-top: 3rem; 
+    margin-top: 3rem;
     height: auto;
     display: block;
     margin-left: auto;
@@ -361,7 +369,7 @@
 
 
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
   .SubClock{
     margin-top: 9em;
     margin-left: 2.3rem;
@@ -371,7 +379,7 @@
  }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .SubClock{
     margin-top: 9em;
     margin-left: 3rem;
@@ -391,13 +399,13 @@
  }
 
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .SubClock{
     margin-top: 9em;
     margin-left: 6rem;
     width: 240px;
     height: auto;
-    
+
   }
 }
 
@@ -405,9 +413,9 @@
 
 
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
   .SubCalendar{
-    margin-top: 3rem; 
+    margin-top: 3rem;
     height: auto;
     display: block;
     margin-left: auto;
@@ -416,7 +424,7 @@
   }
 }
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
   .SubCalendar{
     margin-top: 9em;
     margin-left: 2rem;
@@ -426,7 +434,7 @@
  }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .SubCalendar{
     margin-top: 9em;
     margin-left: 2rem;
@@ -442,18 +450,18 @@
     margin-left: 3rem;
     width: 280px;
     height: auto;
-    
+
   }
  }
 
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .SubCalendar{
     margin-top: 9em;
     margin-left: 5rem;
     width: 280px;
     height: auto;
-    
+
   }
 }
 
@@ -461,9 +469,9 @@
 
 
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
   .SubScheduled{
-    margin-top: 3rem; 
+    margin-top: 3rem;
     height: auto;
     display: block;
     margin-left: auto;
@@ -473,7 +481,7 @@
 }
 
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
   .SubScheduled{
     margin-top: 9em;
     margin-left: 2.0rem;
@@ -483,7 +491,7 @@
  }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .SubScheduled{
     margin-top: 9em;
     margin-left: 2rem;
@@ -499,125 +507,306 @@
     margin-left: 2.5rem;
     width: 280px;
     height: auto;
-    
-    
+
+
   }
  }
 
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .SubScheduled{
     margin-top: 9em;
     margin-left: 5rem;
     width: 280px;
     height: auto;
+
+  }
+
+}
+
+@media (max-width: 575.98px) {
+  .SubTimer{
+    margin-top: 3rem;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+}
+
+
+
+@media (min-width: 576px) {
+  .SubTimer{
+    margin-top: 9em;
+    margin-left: 2.3rem;
+    width: 120px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 768px) {
+  .SubTimer{
+    margin-top: 9em;
+    margin-left: 3rem;
+    width: 180px;
+    height: auto;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .SubTimer{
+    margin-top: 9em;
+    margin-left: 4rem;
+    width: 240px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 1200px) {
+  .SubTimer{
+    margin-top: 9em;
+    margin-left: 6rem;
+    width: 240px;
+    height: auto;
+
+  }
+}
+
+@media (max-width: 575.98px) {
+  .SubStopwatch{
+    margin-top: 3rem;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+}
+
+
+
+@media (min-width: 576px) {
+  .SubStopwatch{
+    margin-top: 9em;
+    margin-left: 2.3rem;
+    width: 120px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 768px) {
+  .SubStopwatch{
+    margin-top: 9em;
+    margin-left: 3rem;
+    width: 180px;
+    height: auto;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .SubStopwatch{
+    margin-top: 9em;
+    margin-left: 4rem;
+    width: 240px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 1200px) {
+  .SubStopwatch{
+    margin-top: 9em;
+    margin-left: 6rem;
+    width: 240px;
+    height: auto;
+
+  }
+}
+
+@media (min-width: 1200px) {
+  .SubStocks{
+    margin-top: 9em;
+    margin-left: 6rem;
+    width: 240px;
+    height: auto;
+
+  }
+}
+
+@media (min-width: 1200px) {
+  .SubNews{
+    margin-top: 9em;
+    margin-left: 6rem;
+    width: 240px;
+    height: auto;
+
+  }
+}
+
+@media (max-width: 575.98px) {
+  .SubWPM{
+    margin-top: 3rem;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+}
+
+
+
+@media (min-width: 576px) {
+  .SubWPM{
+    margin-top: 9em;
+    margin-left: 2.3rem;
+    width: 120px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 768px) {
+  .SubWPM{
+    margin-top: 9em;
+    margin-left: 3rem;
+    width: 180px;
+    height: auto;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .SubWPM{
+    margin-top: 9em;
+    margin-left: 4rem;
+    width: 240px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 1200px) {
+  .SubWPM{
+    margin-top: 9em;
+    margin-left: 6rem;
+    width: 240px;
+    height: auto;
+
+  }
+}
+
+@media (max-width: 575.98px) { 
+  .SubUnitConverter{
+    margin-top: 3rem; 
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+}
+
+
+
+@media (min-width: 576px) { 
+  .SubUnitConverter{
+    margin-top: 9em;
+    margin-left: 2.3rem;
+    width: 120px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 768px) { 
+  .SubUnitConverter{
+    margin-top: 9em;
+    margin-left: 3rem;
+    width: 180px;
+    height: auto;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .SubUnitConverter{
+    margin-top: 9em;
+    margin-left: 4rem;
+    width: 240px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 1200px) { 
+  .SubUnitConverter{
+    margin-top: 9em;
+    margin-left: 6rem;
+    width: 240px;
+    height: auto;
     
+  }
+
+  @media (max-width: 575.98px) { 
+    .SubTimezone{
+      margin-top: 3rem; 
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 30%;
+    }
   }
   
-}
-
-@media (max-width: 575.98px) { 
-  .SubTimer{
-    margin-top: 3rem; 
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
+  
+  
+  @media (min-width: 576px) { 
+    .SubTimezone{
+      margin-top: 9em;
+      margin-left: 2.3rem;
+      width: 120px;
+      height: auto;
+    }
+   }
+  
+  
+  @media (min-width: 768px) { 
+    .SubTimezone{
+      margin-top: 9em;
+      margin-left: 3rem;
+      width: 180px;
+      height: auto;
+    }
   }
-}
-
-
-
-@media (min-width: 576px) { 
-  .SubTimer{
-    margin-top: 9em;
-    margin-left: 2.3rem;
-    width: 120px;
-    height: auto;
+  
+  
+  @media (min-width: 992px) {
+    .SubTimezone{
+      margin-top: 9em;
+      margin-left: 4rem;
+      width: 240px;
+      height: auto;
+    }
+   }
+  
+  
+  @media (min-width: 1200px) { 
+    .SubTimezone{
+      margin-top: 9em;
+      margin-left: 6rem;
+      width: 240px;
+      height: auto;
+      
+    }
   }
- }
 
 
-@media (min-width: 768px) { 
-  .SubTimer{
-    margin-top: 9em;
-    margin-left: 3rem;
-    width: 180px;
-    height: auto;
-  }
-}
-
-
-@media (min-width: 992px) {
-  .SubTimer{
-    margin-top: 9em;
-    margin-left: 4rem;
-    width: 240px;
-    height: auto;
-  }
- }
-
-
-@media (min-width: 1200px) { 
-  .SubTimer{
-    margin-top: 9em;
-    margin-left: 6rem;
-    width: 240px;
-    height: auto;
-    
-  }
-}
-
-@media (max-width: 575.98px) { 
-  .SubStopwatch{
-    margin-top: 3rem; 
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-  }
-}
-
-
-
-@media (min-width: 576px) { 
-  .SubStopwatch{
-    margin-top: 9em;
-    margin-left: 2.3rem;
-    width: 120px;
-    height: auto;
-  }
- }
-
-
-@media (min-width: 768px) { 
-  .SubStopwatch{
-    margin-top: 9em;
-    margin-left: 3rem;
-    width: 180px;
-    height: auto;
-  }
-}
-
-
-@media (min-width: 992px) {
-  .SubStopwatch{
-    margin-top: 9em;
-    margin-left: 4rem;
-    width: 240px;
-    height: auto;
-  }
- }
-
-
-@media (min-width: 1200px) { 
-  .SubStopwatch{
-    margin-top: 9em;
-    margin-left: 6rem;
-    width: 240px;
-    height: auto;
-    
-  }
 }

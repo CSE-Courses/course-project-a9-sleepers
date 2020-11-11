@@ -99,3 +99,7 @@ button:hover {
   font-size: 36px;
   margin: 5px 0;
 }
+
+.toggle {
+  margin-top: 12px;
+}

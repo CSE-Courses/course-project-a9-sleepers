@@ -12,8 +12,9 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
   const username = req.body.username;
   const text = "";
+  const dates = Array.from("-".repeat(31));
 
-  const newUser = new User({username, text});
+  const newUser = new User({username, text, dates});
 
   newUser.save()
     .then(() => res.json('User added!'))
@@ -40,9 +41,20 @@ router.route('/update/:id').post((req, res) => {
   User.findById(req.params.id)
     .then(user => {
       user.text = req.body.text;
-
       user.save()
         .then(() => res.json('User Text updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+// POST request to /update/dates/:id given ID updates User's custom dates
+router.route('/update/dates/:id').post((req, res) => {
+  User.findById(req.params.id)
+    .then(user => {
+      user.dates = req.body.dates;
+      user.save()
+        .then(() => res.json('User Dates updated!'))
         .catch(err => res.status(400).json('Error: ' + err));
     })
     .catch(err => res.status(400).json('Error: ' + err));

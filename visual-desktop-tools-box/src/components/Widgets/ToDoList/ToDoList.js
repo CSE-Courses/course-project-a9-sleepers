@@ -6,39 +6,76 @@ import "./ToDoList.css"
 import { Container, Row, Col } from 'react-bootstrap';
 import NavBar from '../../NavBar/NavBar';
 import Pdf from 'react-to-pdf';
+import {connect} from 'react-redux';
+import {getTodos, addTodos,deleteTodos} from '../../../redux/actions/todosAction';
+import PropTypes from 'prop-types';
 
-export default function ToDoList() {
+
+const ToDoList = (props) => {
+    
+
     const[toDoList, handleToDoList] = useState([]);
     const[input, setInput] = useState('');
     const [backgroundColor, setBackgroundColor] = useState(['#FFFFFF']);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addToDo(input);
-        setInput('');
+        const {isAuthenticated,user } =  props.auth;
+        if(isAuthenticated == false){
+            return;
+        }
+        //  addToDo(input);
+        const newTodo = {
+            taskName: input,
+            _user:`${user._id}`
+            // status:backgroundColor
+        }
+      
+        props.getTodos();
+        // console.log(input);
+        // console.log(`${user._id}`);
+        
+      props.addTodos(newTodo);
+      console.log(".");
+      props.getTodos();
+    //   handleToDoList('');
+        
     };
+
+  
 
     //adding task operation
-    const addToDo = (text) => {
-        if(text !== ''){
-            const updatedToDoList = [...toDoList, {text}];
-            handleToDoList(updatedToDoList);
-        }
-    };
+    // const addToDo = (text) => {
+    //     if(text !== ''){
+    //         const updatedToDoList = [...toDoList, {text}];
+    //         handleToDoList(updatedToDoList);
+    //     }
+    // };
 
     //delete task operation
-    const deleteToDo = (toDo) => {
-        const filteredList = toDoList.filter(currentElement => (
-             currentElement !== toDo));
-             handleToDoList(filteredList);
+    const deleteToDo = (id) => {
+      
+            props.deleteTodos(id);
+            
     };
 
     //cursor defaults to the form
     const inputRef = useRef(null)
 
+
+//  const {isAuthenticated,user } =  props.auth;
+//  console.log(user._id.toString());
+//  console.log(`${user._id}`);
     useEffect(() => {
-        inputRef.current.focus()
-    })
+        // handleToDoList(props.getTodos());  
+      
+      props.getTodos();
+    //   console.log(user);
+    // props.addTodos();
+    // children.addTodos();                                                                                                             
+        inputRef.current.focus();
+    },[]);
+    
 
     const [show, setShow] = useState(false)
 
@@ -69,6 +106,10 @@ export default function ToDoList() {
         setBackgroundColor(colors);
     }
 
+    const onChangeHandler = e =>{
+        setInput(e.target.value);
+    }
+
     const [currentIndex, setCurrentIndex] = useState();
 
     const editColorHandler = (props) =>{
@@ -81,6 +122,10 @@ export default function ToDoList() {
     }
     const ref = React.createRef();
 
+   
+    const {todos} = props.todos;
+    console.log(todos);
+    // console.log(todos);
     return (
         <div>
             <NavBar/>
@@ -89,9 +134,9 @@ export default function ToDoList() {
                 <Container className="Interface">
                         <h1 className="title">To-Do List</h1>
                     <header>
-                        <form id="todo-form" onSubmit={handleSubmit}>
-                            <input value={input} onChange={textHandler => setInput(textHandler.target.value)} type="text" placeholder="Enter Task" ref={inputRef}/>
-                            <Button type="submit" variant="dark">Add</Button>
+                        <form id="todo-form" >
+                            <input value={input} onChange={onChangeHandler} type="text" placeholder="Enter Task" ref={inputRef}/>
+                            <Button type="submit" variant="dark" onClick={handleSubmit}>Add</Button>
                             <Pdf targetRef={ref} filename="to_do_list.pdf">
                     {({ toPdf }) => <Button className="downloadButton" variant="outline-dark" size="sm" onClick={toPdf}>Convert to PDF</Button>}
                 </Pdf>
@@ -99,43 +144,40 @@ export default function ToDoList() {
                         </form>
                         
                     </header>
-                        
+                      
+                 
                     <Container ref={ref}>
                     {
-                        toDoList.map((toDo, index) => (
-                            <div key={index}>
-                                <span className="task" style={{ background: backgroundColor[index] }}>{toDo.text}</span>
-                                <Button onClick={() => { deleteToDo(toDo); addBackgroundColor(index, "#FDFDFD"); updateBackgroundColor(index)}} variant="danger" size="sm">Delete</Button>
-                                <Button onClick={() => combineHandler(index)}  variant="info" size="sm">Change Status</Button>
-                                <Modal show={show} animation={false} centered size="lg" onHide={handleClose}>
-                                <Modal.Header closeButton>
-                                        <Modal.Title>Assign Priority Status</Modal.Title>
-                                        <Modal.Body>
-                                            <Container>
-                                                <Row>   
-                                                    <Col>
-                                                        <Button onClick={() => addBackgroundColor(currentIndex,"#FF3232")} variant="danger" size="md">High</Button>
-                                                    </Col>
-                                                    <Col>
-                                                        <Button onClick={() => addBackgroundColor(currentIndex,"#FFFF00")} variant="warning" size="md">Medium</Button>
-                                                    </Col>
-                                                    <Col>
-                                                        <Button onClick={() => addBackgroundColor(currentIndex,"#00E572")} variant="success" size="md">Low</Button>
-                                                    </Col>
-                                                    <Col>
-                                                        <Button onClick={() => addBackgroundColor(currentIndex,"#FDFDFD")} variant="secondary" size="md">Neutral</Button>
-                                                    </Col>
-                                                </Row>
-                                            </Container>
-                                        </Modal.Body>
-                                        </Modal.Header>        
-
-                                </Modal>
+                            // taskName
+                            todos.map((todo) => (
+                            <div key={todo._id}>
+                                <span className="task" >{todo.taskName}
+                                </span>
+                            
+                                <Button onClick={() =>  deleteToDo(todo._id) } variant="danger" size="sm">Delete</Button>
+                              
                             </div>
                         ))
-                    }
+                    }   
                     </Container>
                 </Container>
         </div>
     );
 }
+ToDoList.propTypes = {
+    getTodos: PropTypes.func.isRequired,
+    addTodos: PropTypes.func.isRequired,
+    todos: PropTypes.object.isRequired,
+    deleteTodos:PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    // status: PropTypes.object.isRequired,
+}
+ 
+const mapStateToProps = (state) => ({
+    todos: state.todos,
+    auth: state.auth,
+    
+    // status: state.status,
+})
+
+export default connect(mapStateToProps, { getTodos,addTodos,deleteTodos })(ToDoList);

@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import React, { useState , useEffect} from 'react';
+import React, { useState , useEffect,useRef} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,7 +16,13 @@ import Container from '@material-ui/core/Container';
 import { useHistory } from 'react-router'
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-
+import NavBar from '../NavBar/NavBar';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import { LOGIN_SUCCESS, LOGIN_FAIL,} from '../../redux/actions/authAction';
+import { clearErrors } from '../../redux/actions/errorAction';
+import {login} from '../../redux/actions/authAction';
+import {Alert}from 'react-bootstrap';
 
 function Copyright() {
   return (
@@ -52,48 +58,86 @@ const useStyles = makeStyles((theme) => ({
  
 }));
 
-export default function LoginPage() {
+function LoginPage(props) {
 
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [msg,setMsg] = useState(null);
 
 
-    const usernameHandler = (e) =>{
-      e.preventDefault();
-      console.log(e.target.value);
-      setUsername(e.target.value);
-   }
 
-   const pwdHandler = (e) =>{
-    setPassword(e.target.value);
+  //follow is how you use componentDidUpdate(prevProps) in functional component
+  const prevProps = usePrevious(props.error);
+
+  function usePrevious(value) {
+    const ref = useRef();
+  useEffect(() => {
+
+    ref.current = value;
+    const { error,isAuthenticated} = props;
+    if(error !== prevProps){
+      //check for register error
+      if(error.id === 'LOGIN_FAIL'){
+        setMsg(error.msg.msg);
+      }
+      else{
+        setMsg(null);
+      }
+    }
+      //redirect when login successfully.
+    if(isAuthenticated){
+      props.clearErrors();
+      window.location ="http://localhost:3000/";
+    }
+
+
+   
+});
+    return ref.current;
+  }
+
+
+  //second useEffect to redirect when login successfully.
+
+//   useEffect(() => {
+//     const {isAuthenticated} = props;
+//     if(isAuthenticated){
+//       props.clearErrors();
+//     }
+
+// })
+
+  
+
+ const emailHandler = (e) =>{
+  setEmail(e.target.value);
  }
 
-//  const {_id} = this.props.location.state;
-//  axios.get("http://localhost:5000/articles/"+_id)
-//  .then(res => {
-//      this.setState({
-//        articles:res.data
-//      })
-//      console.log("The User Click on this Post of ID =  " + res.data._id);
-//  })
-//    .catch((error)=>{
-//      console.log(error); 
-//    })
+ const passwordHandler = (e) =>{
+    setPassword(e.target.value);
+}
+
 
  const onSubmitHandler = (e) =>{
-  axios.get("http://localhost:4000/user/get/"+username+password)
-   .then(res => {
-       console.log( res.data.username,res.data.password);
-   })
-     .catch((error)=>{
-       console.log(error); 
-     })
+    e.preventDefault();
+
+    const user = {email,password}
+
+    //attempt to login
+    props.login(user);
+
+    // if(props.isAuthenticated){
+    //   props.clearErrors();
+    // }
+    
 }
 
 
   const classes = useStyles();
   const { push } = useHistory();
   return (
+    <div>
+    <NavBar/>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -109,10 +153,10 @@ export default function LoginPage() {
             margin="normal"
             required
             fullWidth
-            id="Username"
-            label="Username"
-            // name="Username"
-            onClick={ usernameHandler}
+            id="email"
+            label="Email"
+            name="email"
+            onChange={ emailHandler}
             autoComplete="Username"
             autoFocus
           />
@@ -121,11 +165,11 @@ export default function LoginPage() {
             margin="normal"
             required
             fullWidth
-            // name="password"
-            onClick={ pwdHandler}
+            name="password"
             label="Password"
             type="password"
             id="password"
+            onChange={ passwordHandler}
             autoComplete="current-password"
           />
           <FormControlLabel
@@ -138,24 +182,30 @@ export default function LoginPage() {
             variant="contained"
             color="secondary"
             className={classes.signIn}
-            onClick={ onSubmitHandler}
+            onClick={onSubmitHandler}
           >
             Sign In
           </Button>
+          {props.isAuthenticated? <Alert className="text-center" variant="primary"> {'Login Successfully!'}</Alert>:null }
+          
+          {console.log(msg)}
+           {msg ?<Alert className="text-center" variant="danger">
+          {"* "+msg} </Alert>:null}
           <h4 className="text-center mt-5 sp"
           style={{letterSpacing:'0.15rem',fontStyle:'oblique'}}
           >No account? Not a problem. Join Today!!
           </h4>
       
+      <Link to = "/SignUp">
           <Button
             fullWidth
             variant="contained"
             color="primary"
-            onClick={()=> push("/register")}
+            // onClick={()=> push("/register")}
           >
             Sign up
           </Button>
-
+      </Link>
         </form>
       </div>
      
@@ -163,5 +213,24 @@ export default function LoginPage() {
         <Copyright />
       </Box>
     </Container>
+    </div>
   );
 }
+
+LoginPage.propTypes = {
+  isAuthenticated: PropTypes.bool,
+  error: PropTypes.object.isRequired,
+  login:PropTypes.func.isRequired,
+  clearErrors:PropTypes.func.isRequired,
+  clearErrors:PropTypes.func.isRequired,
+}
+
+
+
+
+const mapStateToProps = state  =>({
+  isAuthenticated : state.auth.isAuthenticated,
+  error: state.error
+});
+
+export default connect(mapStateToProps,{login,clearErrors})(LoginPage); //,login
