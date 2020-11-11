@@ -20,6 +20,7 @@ import SubCurrency from '../images/Sub-Currency.png';
 import tictac from '../images/tictac.png';
 import SubUnitConverter from '../images/Sub-UnitConverter.png';
 import SubTimezone from '../images/Sub-Timezone.png';
+import DrawingBoard from '../images/drawingboard.png';
 import   './VisualTools.css';
 
 
@@ -415,6 +416,21 @@ export default function VisualTools (){
                         </Disable>
                         <hr className={"HonzontalLine"}/>
                    </Col>
+
+
+		
+                   <Col sm={2}  md = {2}>
+                     <div className={"VeriticalLine"}/>
+                   </Col>
+                   <Col sm={5} md = {5}>
+                     <Link to ="/DrawingBoard">
+                       <Image src ={DrawingBoard} className={" img-fluid SubTimer"} />
+                     </Link>
+                         <h3 class="text-center fontSize3" >DrawingBoard</h3>
+                         <hr className={"HonzontalLine"}/>  
+                   </Col> 
+
+
               </Row>
 
               {/* spaces will be replace by footer in the future */}
