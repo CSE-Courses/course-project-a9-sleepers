@@ -10,9 +10,6 @@ require('dotenv').config();
 const apiKey = process.env.alphavantage;
 const alpha = require('alphavantage')({ key: apiKey });
 
-
-
-
 // router.route('/').get((req, res) => {
 //   alpha.data.intraday(`msft`).then(data => {
 //     res.json(data);
