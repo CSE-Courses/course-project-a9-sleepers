@@ -7,7 +7,6 @@ import {NavLink, Link} from 'react-router-dom';
 // import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import Select from 'react-select';
 import './NavBar.css';
-import 'react-open-weather/lib/css/ReactWeather.css';
 import weather from 'weather-js'
 // import { dark } from '@material-ui/core/styles/createPalette';
 // import { ThemeProvider, createGlobalStyle } from 'styled-components';

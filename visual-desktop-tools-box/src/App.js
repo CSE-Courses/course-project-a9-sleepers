@@ -8,16 +8,11 @@ import {
   BrowserRouter,
   Route,
 } from "react-router-dom";
-import {Provider} from 'react-redux';
-import store from './redux/stores/store';
-import { loadUser } from './redux/actions/authAction';
 
 import MainPage from './components/MainPage/MainPage';
 import Calculator from './components/Widgets/Calculator/Calculator';
 import Countdown from './components/Widgets/Countdown';
 import Stopwatch from './components/Widgets/Stopwatch';
-import ToDoList from './components/Widgets/ToDoList/ToDoList';
-import LoginPage from './components/LoginPage/LoginPage';
 import Cat from './components/Widgets/Cat/Quote';
 import NotePad from './components/Widgets/NotePad';
 import Radio from './components/Widgets/Radio/Radio';
@@ -30,21 +25,17 @@ import WPMTest from './components/Widgets/WPMTest/WPMTest'
 import UnitConverter from './components/Widgets/UnitConverter/UnitConverter';
 import Timezone from './components/Widgets/Timezone/Timezone';
 import ToggleDark from './components/Widgets/Settings/ToggleDark'
-import SignUpPage from './components/SignUpPage/SignUpPage';
 import DrawingBoard from './components/Widgets/DrawingBoard/DrawingBoard';
 // import GlobalStyle from './components/Widgets/Settings/toggleDark'
 
 class App extends Component {
 
-    componentDidMount(){
-        store.dispatch(loadUser());
-    }
+
 
   render(){
   return (
 
   <Fragment>
-    <Provider store = {store}>
      <BrowserRouter>
        <Switch>
 
@@ -56,9 +47,6 @@ class App extends Component {
 
           <Route path = "/Stopwatch" exact component = {Stopwatch}/>
 
-          <Route path = "/ToDoList" exact component = {ToDoList}/>
-
-          <Route path = "/Login" exact component = {LoginPage}/>
 
           <Route path = "/Notepad" exact component = {NotePad}/>
 
@@ -86,12 +74,10 @@ class App extends Component {
 
           <Route path = "/DrawingBoard" exact component = {DrawingBoard}/>
 
-          <Route path = "/SignUp" exact component = {SignUpPage}/>
 
        </Switch>
      </BrowserRouter>
      {/* <GlobalStyle /> */}
-     </Provider>
   </Fragment>
   );
 }
