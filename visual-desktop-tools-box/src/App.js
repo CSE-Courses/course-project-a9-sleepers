@@ -27,6 +27,7 @@ import Timezone from './components/Widgets/Timezone/Timezone';
 import ToggleDark from './components/Widgets/Settings/ToggleDark'
 import DrawingBoard from './components/Widgets/DrawingBoard/DrawingBoard';
 // import GlobalStyle from './components/Widgets/Settings/toggleDark'
+import Weather from './components/Widgets/Weather/Weather';
 
 class App extends Component {
 
@@ -67,6 +68,8 @@ class App extends Component {
           <Route path = "/Currency" exact component = {Currency}/>
 
           <Route path = "/Tictac" exact component = {Tictac}/>
+
+          <Route path = "/Weather" exact component = {Weather}/>
 
           <Route path = "/WPMTest" exact component = {WPMTest}/>
 
