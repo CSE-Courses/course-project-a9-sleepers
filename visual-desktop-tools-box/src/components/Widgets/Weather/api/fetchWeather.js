@@ -10,6 +10,7 @@ export const fetchWeather = async (query) => {
             units: 'metric',
             APPID: API_KEY,
         }
+        
     });
 
     return data;
