@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import image from './animal.png'
 import Button from './button';
 import axios from 'axios'
-import ReactWeather from 'react-open-weather';
+// import ReactWeather from 'react-open-weather';
 class QuoteBox extends Component{
 constructor(props){
     super(props)

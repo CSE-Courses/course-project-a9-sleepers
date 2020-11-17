@@ -6,14 +6,16 @@ import {NavLink, Link} from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import Select from 'react-select';
+import storage from 'local-storage-fallback'
 import './NavBar.css';
-import 'react-open-weather/lib/css/ReactWeather.css';
+// import 'react-open-weather/lib/css/ReactWeather.css';
 import weather from 'weather-js'
 // import { dark } from '@material-ui/core/styles/createPalette';
 // import { ThemeProvider, createGlobalStyle } from 'styled-components';
 // import storage from 'local-storage-fallback'
 // import { Global } from '@emotion/core';
 import GlobalStyle from '../Widgets/Settings/ToggleDark'
+import { Timer } from 'react-countdown-clock-timer';
 
 
 const componentOptions = [
@@ -31,10 +33,14 @@ const componentOptions = [
   { value: '/WPMTest', label: 'WPM Test' },
 ];
 
+function loadSavedTime() {
+  const savedTime = storage.getItem('time')
+  return savedTime ? JSON.parse(savedTime) : 2700;
+}
+
 
 export default function NavBar (){
 
-  
   const [temp,setTemp] = useState('');
 
   weather.find({degreeType: 'F',search: ''}, function(err, result) {
@@ -48,6 +54,20 @@ export default function NavBar (){
   
   //console.log(temp)
 
+  const [time, setTime] = useState(loadSavedTime);
+  useEffect(
+    () => {
+        storage.setItem('time', JSON.stringify(time));
+    },
+    [time]
+  );
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(time => time - 1)
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false);
@@ -59,6 +79,9 @@ export default function NavBar (){
     menuPortal: base => ({ ...base, zIndex: 9999 }),
     menu: provided => ({ ...provided, zIndex: "9999 !important" })
   };
+
+  const [userNumber, setUserNumber] = useState(0);
+
 
     return(
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -139,9 +162,22 @@ export default function NavBar (){
                <Nav.Link  as={NavLink} to= '/Login' className={"px-3"}>
                  <h4 className={"fontSize4"}>Login / Sign Up</h4>
                </Nav.Link>
-              <Nav.Link as={NavLink} to= '/AboutUs' className={"px-3"} >
+              {/* <Nav.Link as={NavLink} to= '/AboutUs' className={"px-3"} >
                  <h4 className={"fontSize4"}>About us</h4>
-              </Nav.Link>
+              </Nav.Link> */}
+              <Navbar.Text>
+
+              <h3 className={"fontSize0"}><Timer
+                durationInSeconds={time}
+                formatted={true}
+                onFinish = {()=> {
+                  alert('Time is up!');
+                  setTime(2700);
+                }}
+                /></h3>
+                <input type="number" min="0" placeholder="Seconds" value={userNumber} onChange={e => setUserNumber(e.target.value)}/>
+                <button onClick={() => setTime(parseInt(userNumber, 10))}>Reset</button>
+              </Navbar.Text>
               </Nav>
            </Navbar.Collapse>
          </Navbar>
