@@ -1,4 +1,4 @@
-.Interface{
+.display{
     background-color: gray;
     position: fixed;
     padding-top: 20px;
@@ -8,13 +8,15 @@
 }
 
 .quote {
+    text-align: center;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .userInput {
     border: 0;
-    width: 730px;
+    width: 96%;
+    position: relative;
     height: 200px;
     margin: 20px;
     padding: 0 10px;
@@ -23,4 +25,10 @@
 
 .userInput:focus{
     outline: none;
+}
+
+.refresh{
+    display: flex;
+    margin-bottom: 20px;
+    
 }
