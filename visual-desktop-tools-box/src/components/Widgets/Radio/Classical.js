@@ -14,7 +14,7 @@ class Radio extends React.Component {
       
       <div className='player-wrapper'>
       <ReactPlayer
-        url='https://www.youtube.com/watch?v=thP5XYhnbCs'
+        url='https://www.youtube.com/watch?v=_TbiwH9nWUY'
         className='react-player'
         playing={true}
         width='100%'
