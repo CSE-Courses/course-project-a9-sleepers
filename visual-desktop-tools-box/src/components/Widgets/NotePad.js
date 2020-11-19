@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
+import { Button, ToggleButtonGroup, ToggleButton, ButtonGroup } from 'react-bootstrap';
 import axios from 'axios';
 
 export default class NotePad extends Component {
@@ -14,6 +15,15 @@ export default class NotePad extends Component {
       texts: [],
       ids:[]
     }
+
+    this.colors = [
+      {name: 'white',       value: '#FFFFFF'},
+      {name: 'mint',        value: '#98ff98'},
+      {name: 'watermelon',  value: '#fc6c85'},
+      {name: 'banana',      value: '#ffe65f'}
+    ];
+
+    this.color = this.colors[0].value;
 
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeNewUsername = this.onChangeNewUsername.bind(this);
@@ -89,6 +99,26 @@ export default class NotePad extends Component {
     window.location = '/Notepad';
   }
 
+  renderColorOptions() {
+    const [value, setValue] = useState([1, 3]);
+
+    /*
+     * The second argument that will be passed to
+     * `handleChange` from `ToggleButtonGroup`
+     * is the SyntheticEvent object, but we are
+     * not using it in this example so we will omit it.
+     */
+    const handleChange = (val) => setValue(val);
+
+    return (
+      <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
+        <ToggleButton value={1}>Option 1</ToggleButton>
+        <ToggleButton value={2}>Option 2</ToggleButton>
+        <ToggleButton value={3}>Option 3</ToggleButton>
+      </ToggleButtonGroup>
+    );
+  }
+
   render() {
     return (
       <div>
@@ -124,6 +154,7 @@ export default class NotePad extends Component {
             </select>
           </div>
 
+          {this.renderColorOptions()}
 
           <form onSubmit={this.onSubmitNote}>
             <div className="form-group">
@@ -134,7 +165,10 @@ export default class NotePad extends Component {
                 rows="10"
                 value={this.state.text}
                 onChange={this.onChangeText}
-                placeholder="Enter something.">
+                placeholder="Enter something."
+                style={{
+                  backgroundColor: this.color
+                }}>
               </textarea>
             </div>
             <div className="form-group">
