@@ -23,13 +23,17 @@ export default class NotePad extends Component {
       {name: 'banana',      value: '#ffe65f'}
     ];
 
-    this.color = this.colors[0].value;
+    this.color = this.colors[1].value;
 
+    // Changing backend states
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeNewUsername = this.onChangeNewUsername.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
     this.onSubmitnewUser = this.onSubmitnewUser.bind(this);
     this.onSubmitNote = this.onSubmitNote.bind(this);
+
+    // Changing color states
+    this.onChangeColor = this.onChangeColor.bind(this);
   }
 
   componentDidMount() {
@@ -99,23 +103,24 @@ export default class NotePad extends Component {
     window.location = '/Notepad';
   }
 
+  onChangeColor(color) {
+    this.color = color;
+    this.setState({}); // I do not like how this works
+  }
+
   renderColorOptions() {
-    const [value, setValue] = useState([1, 3]);
-
-    /*
-     * The second argument that will be passed to
-     * `handleChange` from `ToggleButtonGroup`
-     * is the SyntheticEvent object, but we are
-     * not using it in this example so we will omit it.
-     */
-    const handleChange = (val) => setValue(val);
-
+    let res = [];
+    this.colors.map((color, idx) => {
+      res.push(
+        <Button variant="outline-dark"
+        style={{
+          backgroundColor: color.value
+        }}
+        onClick={() => this.onChangeColor(color.value)}>{color.name}</Button>
+      )
+    })
     return (
-      <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
-        <ToggleButton value={1}>Option 1</ToggleButton>
-        <ToggleButton value={2}>Option 2</ToggleButton>
-        <ToggleButton value={3}>Option 3</ToggleButton>
-      </ToggleButtonGroup>
+      res
     );
   }
 

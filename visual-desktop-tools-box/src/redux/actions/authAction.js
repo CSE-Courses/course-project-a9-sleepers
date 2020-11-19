@@ -28,7 +28,7 @@ export const loadUser = () => (dispatch,getState) => {
       payload: res.data
     }))
     .catch(err => {
-      dispatch(returnErrors(err.response.data, err.response.status));
+      // dispatch(returnErrors(err.response.data, err.response.status));
       dispatch({
         type: AUTH_ERROR
       })
@@ -41,7 +41,7 @@ export const loadUser = () => (dispatch,getState) => {
 //Register User
 export const register = ({username,email,password,passwordCheck}) => dispatch =>{
 
- 
+
   //Headers
   const config = {
     headers:{
@@ -56,7 +56,7 @@ export const register = ({username,email,password,passwordCheck}) => dispatch =>
   axios.post('http://localhost:4000/user1/register',body,config)
   .then(res => dispatch({
     type: REGISTER_SUCCESS,
-    payload: res.data 
+    payload: res.data
   }))
   .catch(err => {
     dispatch(returnErrors(err.response.data, err.response.status,'REGISTER_FAIL'));
@@ -66,11 +66,11 @@ export const register = ({username,email,password,passwordCheck}) => dispatch =>
   });
 }
 
-//Login User 
+//Login User
 
 export const login = ({email,password}) => dispatch =>{
 
- 
+
   //Headers
   const config = {
     headers:{
@@ -85,7 +85,7 @@ export const login = ({email,password}) => dispatch =>{
   axios.post('http://localhost:4000/auth/login',body,config)//<--
   .then(res => dispatch({
     type: LOGIN_SUCCESS,
-    payload: res.data 
+    payload: res.data
   }))
   .catch(err => {
     dispatch(returnErrors(err.response.data, err.response.status,'LOGIN_FAIL'));
@@ -109,7 +109,7 @@ export const tokenConfig = getState =>{
     const token = getState().auth.token;
 
     //headers
-    
+
     const config = {
       headers:{
         'Content-type': 'application/json'
