@@ -14,6 +14,7 @@ import weather from 'weather-js'
 // import storage from 'local-storage-fallback'
 // import { Global } from '@emotion/core';
 import GlobalStyle from '../Widgets/Settings/ToggleDark'
+import Clock from '../Widgets/Clock-NavBar/Clock'
 
 
 const componentOptions = [
@@ -34,18 +35,18 @@ const componentOptions = [
 
 export default function NavBar (){
 
-  
+
   const [temp,setTemp] = useState('');
 
   weather.find({degreeType: 'F',search: ''}, function(err, result) {
     if(err) console.log(err);
     //console.log(result[0].current.feelslike)
-  
+
     var x = result[0].current.temperature
     setTemp(x)
     //console.log(x)
   });
-  
+
   //console.log(temp)
 
 
@@ -97,8 +98,8 @@ export default function NavBar (){
                       <Modal.Header closeButton>
                         <Modal.Title>Time</Modal.Title>
                       </Modal.Header>
-                    <h1>It is currently {new Date().toLocaleTimeString()}.</h1>
-                  </Modal>
+                      <Clock/>
+                    </Modal>
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Calendar'>
                   <h3 className={"fontSize3"}>Calendar</h3>
@@ -118,7 +119,7 @@ export default function NavBar (){
                 </NavDropdown.Item>
                </NavDropdown>
                <div className="searchbar">
-                
+
               <Select
                 styles={selectStyles}
                 menuPlacement="auto"
@@ -130,7 +131,7 @@ export default function NavBar (){
 
               <Link className="search" to={selectedCompOption.value}>Search</Link>
               </Nav>
-              
+
               <Nav>
               <GlobalStyle />
               <Navbar.Text>
