@@ -17,13 +17,15 @@ export default class NotePad extends Component {
     }
 
     this.colors = [
-      {name: 'white',       value: '#FFFFFF'},
+      {name: 'plain',       value: '#FFFFFF'},
+      {name: 'vanilla',       value: '#f3e5ab'},
       {name: 'mint',        value: '#98ff98'},
       {name: 'watermelon',  value: '#fc6c85'},
       {name: 'banana',      value: '#ffe65f'}
     ];
 
-    this.color = this.colors[1].value;
+    this.color = this.colors[0].value;
+    this.fontSize = 16;
 
     // Changing backend states
     this.onChangeUsername = this.onChangeUsername.bind(this);
@@ -34,6 +36,10 @@ export default class NotePad extends Component {
 
     // Changing color states
     this.onChangeColor = this.onChangeColor.bind(this);
+
+    // Changing font states
+    this.onDecreaseFont = this.onDecreaseFont.bind(this);
+    this.onIncreaseFont = this.onIncreaseFont.bind(this);
   }
 
   componentDidMount() {
@@ -108,11 +114,21 @@ export default class NotePad extends Component {
     this.setState({}); // I do not like how this works
   }
 
+  onIncreaseFont() {
+    if(this.fontSize <= 64) this.fontSize++;
+    this.setState({});
+  }
+
+  onDecreaseFont() {
+    if(this.fontSize > 11) this.fontSize--;
+    this.setState({});
+  }
+
   renderColorOptions() {
     let res = [];
     this.colors.map((color, idx) => {
       res.push(
-        <Button variant="outline-dark"
+        <Button variant="light"
         style={{
           backgroundColor: color.value
         }}
@@ -121,6 +137,22 @@ export default class NotePad extends Component {
     })
     return (
       res
+    );
+  }
+
+  renderFontUI() {
+    return (
+      <div>
+
+        <div class="col-lg-1 row-centered">Font Size:</div>
+        
+        <div class="row">
+        <Button onClick={ this.onDecreaseFont }>-</Button>
+          <input type="text" value={this.fontSize}></input>
+        <Button onClick={ this.onIncreaseFont }>+</Button>
+        </div>
+
+      </div>
     );
   }
 
@@ -160,6 +192,7 @@ export default class NotePad extends Component {
           </div>
 
           {this.renderColorOptions()}
+          {this.renderFontUI()}
 
           <form onSubmit={this.onSubmitNote}>
             <div className="form-group">
@@ -172,7 +205,8 @@ export default class NotePad extends Component {
                 onChange={this.onChangeText}
                 placeholder="Enter something."
                 style={{
-                  backgroundColor: this.color
+                  backgroundColor: this.color,
+                  fontSize: this.fontSize
                 }}>
               </textarea>
             </div>
