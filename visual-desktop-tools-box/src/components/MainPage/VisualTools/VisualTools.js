@@ -86,8 +86,13 @@ function loadSavedWPMTest() {
   return savedWPMTest ? JSON.parse(savedWPMTest) : { disableWPMTest: false }
 }
 
+function loadSavedDrawingBoard() {
+  const savedDrawingBoard = storage.getItem('disableDrawingBoard')
+  return savedDrawingBoard ? JSON.parse(savedDrawingBoard) : { disableDrawingBoard: false }
+}
+
 export default function VisualTools (){
-  
+
 
   const [show, setShow] = useState(false)
   const [show1, setShow1] = useState(false)
@@ -102,119 +107,127 @@ export default function VisualTools (){
   const toggleList = () => setDisableList(d => !d);
   useEffect(
     () => {
-        storage.setItem("disableList", JSON.stringify(disableList));
+      storage.setItem("disableList", JSON.stringify(disableList));
     },
     [disableList]
-    );
-  
+  );
+
   const [disableCalc, setDisableCalc] = React.useState(loadSavedCalc);
   const toggleCalc = () => setDisableCalc(d => !d);
   useEffect(
     () => {
-        storage.setItem("disableCalc", JSON.stringify(disableCalc));
+      storage.setItem("disableCalc", JSON.stringify(disableCalc));
     },
     [disableCalc]
-    );
+  );
 
   const [disablePad, setDisablePad] = React.useState(loadSavedPad);
   const togglePad = () => setDisablePad(d => !d);
   useEffect(
     () => {
-        storage.setItem("disablePad", JSON.stringify(disablePad));
+      storage.setItem("disablePad", JSON.stringify(disablePad));
     },
     [disablePad]
-    );
-  
+  );
+
   const [disableClock, setDisableClock] = React.useState(loadSavedClock);
   const toggleClock = () => setDisableClock(d => !d);
   useEffect(
     () => {
-        storage.setItem("disableClock", JSON.stringify(disableClock));
+      storage.setItem("disableClock", JSON.stringify(disableClock));
     },
     [disableClock]
-    );
-
+  );
 
   const [disableCalender, setDisableCalender] = React.useState(loadSavedCalender);
   const toggleCalender = () => setDisableCalender(d => !d);
   useEffect(
     () => {
-        storage.setItem("disableCalender", JSON.stringify(disableCalender));
+      storage.setItem("disableCalender", JSON.stringify(disableCalender));
     },
     [disableCalender]
-    );
-  
+  );
+
   const [disableSchedule, setDisableSchedule] = React.useState(loadSavedSchedule);
   const toggleSchedule = () => setDisableSchedule(d => !d);
   useEffect(
     () => {
-        storage.setItem("disableSchedule", JSON.stringify(disableSchedule));
+      storage.setItem("disableSchedule", JSON.stringify(disableSchedule));
     },
     [disableSchedule]
-    );
+  );
 
   const [disableCount, setDisableCount] = React.useState(loadSavedCount);
   const toggleCount = () => setDisableCount(d => !d);
   useEffect(
     () => {
-        storage.setItem("disableCount", JSON.stringify(disableCount));
+      storage.setItem("disableCount", JSON.stringify(disableCount));
     },
     [disableCount]
-    );
-  
+  );
+
   const [disableWatch, setDisableWatch] = React.useState(loadSavedWatch);
   const toggleWatch = () => setDisableWatch(d => !d);
   useEffect(
     () => {
-        storage.setItem("disableWatch", JSON.stringify(disableWatch));
+      storage.setItem("disableWatch", JSON.stringify(disableWatch));
     },
     [disableWatch]
-    );
+  );
 
   const [disableStocks, setDisableStocks] = React.useState(loadSavedStocks);
   const toggleStocks = () => setDisableStocks(d => !d);
   useEffect(
     () => {
-        storage.setItem("disableStocks", JSON.stringify(disableStocks));
+      storage.setItem("disableStocks", JSON.stringify(disableStocks));
     },
     [disableStocks]
-    );  
+  );
 
-    const [disableNews, setDisableNews] = React.useState(loadSavedNews);
-    const toggleNews = () => setDisableNews(d => !d);
-    useEffect(
-      () => {
-          storage.setItem("disableNews", JSON.stringify(disableNews));
-      },
-      [disableNews]
-      );
+  const [disableNews, setDisableNews] = React.useState(loadSavedNews);
+  const toggleNews = () => setDisableNews(d => !d);
+  useEffect(
+    () => {
+      storage.setItem("disableNews", JSON.stringify(disableNews));
+    },
+    [disableNews]
+  );
 
-      const [disableUnitConverter, setDisableUnitConverter] = React.useState(loadSavedUnitConverter);
-      const toggleUnitConverter = () => setDisableUnitConverter(d => !d);
-      useEffect(
-        () => {
-            storage.setItem("disableUnitConverter", JSON.stringify(disableUnitConverter));
-        },
-        [disableUnitConverter]
-        );
-        
-        const [disableTimezone, setDisableTimezone] = React.useState(loadSavedTimezone);
-        const toggleTimezone = () => setDisableTimezone(d => !d);
-        useEffect(
-          () => {
-              storage.setItem("disableTimezone", JSON.stringify(disableTimezone));
-          },
-          [disableTimezone]
-          );
-      
-        const [disableWPMTest, setDisableWPMTest] = React.useState(loadSavedWPMTest);
-        const toggleWPMTest = () => setDisableWPMTest(d => !d);
-        useEffect(
-          () => {
-              storage.setItem("disableWPMTest", JSON.stringify(disableWPMTest));
-          },
-          [disableWPMTest]
-          );
+  const [disableUnitConverter, setDisableUnitConverter] = React.useState(loadSavedUnitConverter);
+  const toggleUnitConverter = () => setDisableUnitConverter(d => !d);
+  useEffect(
+    () => {
+      storage.setItem("disableUnitConverter", JSON.stringify(disableUnitConverter));
+    },
+    [disableUnitConverter]
+  );
+
+  const [disableTimezone, setDisableTimezone] = React.useState(loadSavedTimezone);
+  const toggleTimezone = () => setDisableTimezone(d => !d);
+  useEffect(
+    () => {
+      storage.setItem("disableTimezone", JSON.stringify(disableTimezone));
+    },
+    [disableTimezone]
+  );
+
+  const [disableWPMTest, setDisableWPMTest] = React.useState(loadSavedWPMTest);
+  const toggleWPMTest = () => setDisableWPMTest(d => !d);
+  useEffect(
+    () => {
+      storage.setItem("disableWPMTest", JSON.stringify(disableWPMTest));
+    },
+    [disableWPMTest]
+  );
+
+  const [disableDrawingBoard, setDisableDrawingBoard] = React.useState(loadSavedDrawingBoard);
+  const toggleDrawingBoard = () => setDisableDrawingBoard(d => !d);
+  useEffect(
+    () => {
+        storage.setItem("disableDrawingBoard", JSON.stringify(disableDrawingBoard));
+    },
+    [disableDrawingBoard]
+  );
 
   return(
     <div>
@@ -238,6 +251,7 @@ export default function VisualTools (){
                       <button onClick={toggleUnitConverter}>Toggle Unit Converter</button>
                       <button onClick={toggleTimezone}>Toggle Timezone</button>
                       <button onClick={toggleWPMTest}>Toggle WPM Test</button>
+                      <button onClick={toggleDrawingBoard}>Toggle DrawingBoard</button>
                   </Modal>
                   </div>
           <hr style={{borderBottom:"3px solid", marginTop:"3em"}}/>
@@ -246,14 +260,14 @@ export default function VisualTools (){
                   <Col sm={5} md = {5}>
                   <Disable disabled={disableList}>
                      <Link to ="/ToDoList">
-                       <Image src ={SubCheckList} 
-                         className={"img-fluid SubCheckList"} 
+                       <Image src ={SubCheckList}
+                         className={"img-fluid SubCheckList"}
                          alt="CheckListIcon" />
                      </Link>
                          <h3 class="text-center fontSize3" >To-Do List</h3>
                     </Disable>
-                         <hr className={"HonzontalLine"}/>  
-                   </Col> 
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
 
                    <Col sm={2}  md = {2}>
                      <div className={"VeriticalLine"}/>
@@ -301,7 +315,7 @@ export default function VisualTools (){
                      <hr className={"HonzontalLine"}/>
                     </Col>
               </Row>
-  
+
               <Row>
                  <Col sm={5} md = {5}>
                  <Disable disabled={disableCalender}>
@@ -336,8 +350,8 @@ export default function VisualTools (){
                      </Link>
                          <h3 class="text-center fontSize3" >Countdown</h3>
                          </Disable>
-                         <hr className={"HonzontalLine"}/>  
-                   </Col> 
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
 
                    <Col sm={2}  md = {2}>
                      <div className={"VeriticalLine"}/>
@@ -386,9 +400,9 @@ export default function VisualTools (){
                      </Link>
                          <h3 class="text-center fontSize3" >Unit Converter</h3>
                          </Disable>
-                         <hr className={"HonzontalLine"}/>  
-                   </Col> 
-                   
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
+
                    <Col sm={2} md = {2}>
                      <div className={"VeriticalLine"}/>
                    </Col>
@@ -401,8 +415,8 @@ export default function VisualTools (){
                      </Link>
                          <h3 class="text-center fontSize3" >Timezone</h3>
                          </Disable>
-                         <hr className={"HonzontalLine"}/>  
-                   </Col> 
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
               </Row>
 
               <Row>
@@ -418,17 +432,19 @@ export default function VisualTools (){
                    </Col>
 
 
-		
                    <Col sm={2}  md = {2}>
                      <div className={"VeriticalLine"}/>
                    </Col>
+
                    <Col sm={5} md = {5}>
+                   <Disable disabled={disableDrawingBoard}>
                      <Link to ="/DrawingBoard">
                        <Image src ={DrawingBoard} className={" img-fluid SubTimer"} />
                      </Link>
                          <h3 class="text-center fontSize3" >DrawingBoard</h3>
-                         <hr className={"HonzontalLine"}/>  
-                   </Col> 
+                    </Disable>
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
 
 
               </Row>
