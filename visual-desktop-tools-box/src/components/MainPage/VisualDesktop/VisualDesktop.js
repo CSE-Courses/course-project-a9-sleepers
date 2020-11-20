@@ -50,7 +50,11 @@ export default function VisualDesktop (){
       { name: "Cat", shape: "poly", coords: [1570,350,1730,370,1700,450,1540,450],  href:'/Cat' ,strokeColor:"yellow",   },
       { name: "Radio", shape: "poly", coords: [820,820,585,820,585,930,820,930], strokeColor:"brown", href:'/Radio'},
       { name: "ToDoList", shape: "poly", coords: [1570,350,1730,370,1700,450,1540,450],  href:'/ToDoList' ,strokeColor:"green", coords: [1200,980,1270,925,1420,1000,1330,1100]  },
-      { name: "Calendar", shape: "poly", coords: [190,500,430,500,430,800,190,800], strokeColor:"blue", href:'/Calendar'}
+      { name: "Calendar", shape: "poly", coords: [190,500,430,500,430,800,190,800], strokeColor:"blue", href:'/Calendar'},
+      { name: "Stocks", shape: "poly", coords: [475,742,570,742,570,900,475,900], strokeColor:"green", href:'/Stocks'},
+      { name: "Stocks", shape: "poly", coords: [0,1100,275,1120,350,1400,0,1400], strokeColor:"grey", href:'/News'},
+      { name: "WPMTest", shape: "poly", coords: [785,925,1150,925,1150,980,785,980], strokeColor:"blue", href:'/WPMTest'},
+      { name: "DrawingBoard", shape: "poly", coords: [1260,850,1430,870,1350,920,1200,885], strokeColor:"red", href:'/DrawingBoard'}
 
       // more to be add: checklist.. calender... ...etc
     ]

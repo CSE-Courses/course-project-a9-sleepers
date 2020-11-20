@@ -145,7 +145,7 @@ export default class NotePad extends Component {
       <div>
 
         <div class="col-lg-1 row-centered">Font Size:</div>
-        
+
         <div class="row">
         <Button onClick={ this.onDecreaseFont }>-</Button>
           <input type="text" value={this.fontSize}></input>

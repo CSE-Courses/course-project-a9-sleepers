@@ -62,6 +62,17 @@ export default function NavBar (){
   };
 
     return(
+      <div>
+
+      <style type="text/css">
+        {`
+          .mr-auto h3{
+            font-size: .85em;
+            margin: .5em;
+          }
+        `}
+      </style>
+
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
          <Navbar.Brand as={NavLink} to= '/' className={"px-3"}>
            <h4 className={"fontSize4"}>Home</h4>
@@ -69,7 +80,7 @@ export default function NavBar (){
          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
          <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <NavDropdown title= "Tools" className={"px-3 h3"} id="collasible-nav-dropdown">
+              <NavDropdown title="Tools" className={"px-3 h3"} id="collasible-nav-dropdown">
                 <NavDropdown.Item as={NavLink} to= '/ToDoList'>
                    <h3 className={"fontSize3"}>To-Do List</h3>
                 </NavDropdown.Item>
@@ -85,12 +96,6 @@ export default function NavBar (){
                 <NavDropdown.Item as={NavLink} to= '/Notepad'>
                   <h3 className={"fontSize3"}>Notepad</h3>
                 </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to= '/Currency'>
-                  <h3 className={"fontSize3"}>Currency</h3>
-                </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to= '/Tictac'>
-                  <h3 className={"fontSize3"}>Tic-Tac-Toe</h3>
-                </NavDropdown.Item>
 
                 <NavDropdown.Item>
                   <h3 className={"fontSize3"} onClick={handleShow}>Clock</h3>
@@ -104,6 +109,9 @@ export default function NavBar (){
                 <NavDropdown.Item as={NavLink} to= '/Calendar'>
                   <h3 className={"fontSize3"}>Calendar</h3>
                 </NavDropdown.Item>
+
+                <NavDropdown.Divider />
+
                 <NavDropdown.Item as={NavLink} to= '/Stocks'>
                   <h3 className={"fontSize3"}>Stocks</h3>
                 </NavDropdown.Item>
@@ -113,10 +121,19 @@ export default function NavBar (){
                 <NavDropdown.Item as={NavLink} to= '/UnitConverter'>
                   <h3 className={"fontSize3"}>Unit Converter</h3>
                 </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item as={NavLink} to= '/Scheduled'>
-                  <h3 className={"fontSize3"}>Scheduled</h3>
+                <NavDropdown.Item as={NavLink} to= '/Currency'>
+                  <h3 className={"fontSize3"}>Currency</h3>
                 </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/Tictac'>
+                  <h3 className={"fontSize3"}>Tic-Tac-Toe</h3>
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/WPMTest'>
+                  <h3 className={"fontSize3"}>WPMTest</h3>
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/DrawingBoard'>
+                  <h3 className={"fontSize3"}>DrawingBoard</h3>
+                </NavDropdown.Item>
+
                </NavDropdown>
                <div className="searchbar">
 
@@ -147,7 +164,7 @@ export default function NavBar (){
            </Navbar.Collapse>
          </Navbar>
 
-
+      </div>
     );
 
 }

@@ -1,45 +1,45 @@
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
   .fontSize4{
     font-size: 1.4em;
       margin-top: 0.2em;
   }
-  
+
 
  }
- 
 
-@media (min-width: 576px) { 
+
+@media (min-width: 576px) {
   .fontSize4{
 
   }
-  
+
  }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .fontSize4{
     font-size: 1.8em;
   }
-  
-  
+
+
 }
 
 
 
 @media (min-width: 992px) {
   .fontSize4{
-  
+
   }
-  
+
  }
 
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .fontSize4{
 
   }
-  
+
 }
 
 
@@ -53,7 +53,7 @@
 
   width: 300px;
   margin-top: 10px;
-  
+
 }
 
 .search{
