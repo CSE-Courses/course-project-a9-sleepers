@@ -6,7 +6,7 @@ import {
 import './Radio.css'
 
 
-class Radio extends React.Component {
+class Jazz extends React.Component {
   
   render ()
    {
@@ -14,7 +14,7 @@ class Radio extends React.Component {
       
       <div className='player-wrapper'>
       <ReactPlayer
-        url='https://www.youtube.com/watch?v=YUhb5v1cPzE'
+        url='https://www.youtube.com/watch?v=S-gxNYXogKU'
         className='react-player'
         playing={true}
         width='100%'
@@ -27,7 +27,7 @@ class Radio extends React.Component {
      </button>
  </Link>
 
- <Link to="Lofi">
+ <Link to="Classical">
      <button class="button" type="button">
           Previous
      </button>
@@ -36,7 +36,7 @@ class Radio extends React.Component {
     </div>
     )
   }
-}export default Radio;
+}export default Jazz;
 
 
 

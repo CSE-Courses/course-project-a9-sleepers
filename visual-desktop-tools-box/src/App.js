@@ -16,8 +16,10 @@ import Stopwatch from './components/Widgets/Stopwatch';
 import Cat from './components/Widgets/Cat/Quote';
 import NotePad from './components/Widgets/NotePad';
 import Radio from './components/Widgets/Radio/Radio';
+import Classical from './components/Widgets/Radio/Classical';
+import Jazz from './components/Widgets/Radio/Jazz';
+import Piano from './components/Widgets/Radio/Piano';
 import Lofi from './components/Widgets/Radio/Lofi';
-import Clasic from './components/Widgets/Radio/Classical';
 import CalendarWidget from './components/Widgets/Calendar-Custom/Calendar';
 import Stocks from './components/Widgets/Stocks/Stocks';
 import News from './components/Widgets/News/News';
@@ -57,9 +59,13 @@ class App extends Component {
 
           <Route path = "/Radio" exact component = {Radio}/>
 
+          <Route path = "/Classical" exact component = {Classical}/>
+
+          <Route path = "/Jazz" exact component = {Jazz}/>
+
           <Route path = "/Lofi" exact component = {Lofi}/>
 
-          <Route path = "/Clasic" exact component = {Clasic}/>
+          <Route path = "/Piano" exact component = {Piano}/>
 
           <Route path = "/Calendar" exact component = {CalendarWidget}/>
 

@@ -6,7 +6,7 @@ import {
 import './Radio.css'
 
 
-class Radio extends React.Component {
+class Piano extends React.Component {
   
   render ()
    {
@@ -21,7 +21,7 @@ class Radio extends React.Component {
         height='90%'
       />
 
-<Link to="Lofi">
+<Link to="Radio">
      <button class="button" type="button">
           Next
      </button>
@@ -36,7 +36,7 @@ class Radio extends React.Component {
     </div>
     )
   }
-}export default Radio;
+}export default Piano;
 
 
 

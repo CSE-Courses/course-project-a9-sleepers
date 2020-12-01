@@ -21,13 +21,13 @@ class Radio extends React.Component {
         height='90%'
       />
 
-<Link to="Lofi">
+<Link to="Classical">
      <button class="button" type="button">
           Next
      </button>
  </Link>
 
- <Link to="Lofi">
+ <Link to="Piano">
      <button class="button" type="button">
           Previous
      </button>
