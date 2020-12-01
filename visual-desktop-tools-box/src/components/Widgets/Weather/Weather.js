@@ -18,6 +18,7 @@ const Weather = () => {
 
     return (
         <div className="main-container">
+            <h2>Input any city (e.g. Paris)</h2>
             <input type="text"className="search"placeholder="Search..."value={query}onChange={(e) => setQuery(e.target.value)}onKeyPress={search}/>
             {weather.main && (
                 <div className="city">
