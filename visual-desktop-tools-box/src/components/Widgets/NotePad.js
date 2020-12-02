@@ -13,6 +13,7 @@ export default class NotePad extends Component {
       newUser: '',
       users: [],
       texts: [],
+      chosenColors: [],
       ids:[]
     }
 
@@ -23,6 +24,14 @@ export default class NotePad extends Component {
       {name: 'watermelon',  value: '#fc6c85'},
       {name: 'banana',      value: '#ffe65f'}
     ];
+
+    this.colormap = {
+      'plain': '#FFFFFF',
+      'vanilla': '#f3e5ab',
+      'mint': '#98ff98',
+      'watermelon': '#fc6c85',
+      'banana': '#ffe65f'
+    };
 
     this.color = this.colors[0].value;
     this.fontSize = 16;
@@ -51,7 +60,8 @@ export default class NotePad extends Component {
             texts: response.data.map(text=>text.text),
             ids: response.data.map(id=>id._id),
             username: response.data[0].username,
-            text: response.data[0].text
+            text: response.data[0].text,
+            chosenColors: response.data.map(color=>color.color)
           })
         }
       })
@@ -62,10 +72,12 @@ export default class NotePad extends Component {
 
   // When user changes via. user drop-down, the notepad text also changes.
   onChangeUsername(e) {
-    const textIdx = this.state.users.indexOf(e.target.value);
+    const userIdx = this.state.users.indexOf(e.target.value);
+    this.color = this.state.chosenColors[userIdx];
+    // console.log(this.color);
     this.setState({
       username: e.target.value,
-      text: this.state.texts[textIdx]
+      text: this.state.texts[userIdx]
     });
   }
 
@@ -96,11 +108,15 @@ export default class NotePad extends Component {
   onSubmitNote(e) {
     e.preventDefault();
     if(this.state.username !== '[None]') {
-      const user = {
-        text: this.state.text
-      }
       const idIdx = this.state.users.indexOf(this.state.username);
       const id = this.state.ids[idIdx];
+
+      const user = {
+        text: this.state.text,
+        color: this.color
+      }
+
+      // console.log('Saved color ' + this.color);
 
       axios.post('/users/update/' + id, user)
         .then(res => console.log(res.data));
