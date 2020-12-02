@@ -14,8 +14,9 @@ router.route('/add').post((req, res) => {
   const text = '';
   const dates = Array.from("-".repeat(31));
   const color = 'plain';
+  const fontSize = 16;
 
-  const newUser = new User({username, text, dates, color});
+  const newUser = new User({username, text, dates, color, fontSize});
 
   newUser.save()
     .then(() => res.json('User added!'))
@@ -43,8 +44,9 @@ router.route('/update/:id').post((req, res) => {
     .then(user => {
       user.text = req.body.text;
       user.color = req.body.color;
+      user.fontSize = req.body.fontSize;
       user.save()
-        .then(() => res.json('User Text updated! ' + req.body.color))
+        .then(() => res.json('User Text updated!'))
         .catch(err => res.status(400).json('Error: ' + err));
     })
     .catch(err => res.status(400).json('Error: ' + err));

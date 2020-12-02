@@ -14,6 +14,7 @@ export default class NotePad extends Component {
       users: [],
       texts: [],
       chosenColors: [],
+      fontSizes: [],
       ids:[]
     }
 
@@ -24,14 +25,6 @@ export default class NotePad extends Component {
       {name: 'watermelon',  value: '#fc6c85'},
       {name: 'banana',      value: '#ffe65f'}
     ];
-
-    this.colormap = {
-      'plain': '#FFFFFF',
-      'vanilla': '#f3e5ab',
-      'mint': '#98ff98',
-      'watermelon': '#fc6c85',
-      'banana': '#ffe65f'
-    };
 
     this.color = this.colors[0].value;
     this.fontSize = 16;
@@ -61,7 +54,8 @@ export default class NotePad extends Component {
             ids: response.data.map(id=>id._id),
             username: response.data[0].username,
             text: response.data[0].text,
-            chosenColors: response.data.map(color=>color.color)
+            chosenColors: response.data.map(color=>color.color),
+            fontSizes: response.data.map(fontSize=>fontSize.fontSize)
           })
         }
       })
@@ -74,7 +68,8 @@ export default class NotePad extends Component {
   onChangeUsername(e) {
     const userIdx = this.state.users.indexOf(e.target.value);
     this.color = this.state.chosenColors[userIdx];
-    // console.log(this.color);
+    this.fontSize = this.state.fontSizes[userIdx];
+    console.log(this.fontSize);
     this.setState({
       username: e.target.value,
       text: this.state.texts[userIdx]
@@ -113,10 +108,9 @@ export default class NotePad extends Component {
 
       const user = {
         text: this.state.text,
-        color: this.color
+        color: this.color,
+        fontSize: this.fontSize
       }
-
-      // console.log('Saved color ' + this.color);
 
       axios.post('/users/update/' + id, user)
         .then(res => console.log(res.data));
