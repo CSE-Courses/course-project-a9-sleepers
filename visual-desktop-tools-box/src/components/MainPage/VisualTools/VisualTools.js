@@ -257,15 +257,14 @@ export default function VisualTools (){
           <hr style={{borderBottom:"3px solid", marginTop:"3em"}}/>
             <Container >
                 <Row>
-                  <Col sm={5} md = {5}>
-                  <Disable disabled={disableList}>
-                     <Link to ="/ToDoList">
-                       <Image src ={SubCheckList}
-                         className={"img-fluid SubCheckList"}
-                         alt="CheckListIcon" />
+
+                <Col sm={5} md = {5}>
+                  <Disable disabled={disableStocks}>
+                     <Link to ="/Stocks">
+                       <Image src ={SubStocks} className={" img-fluid SubStocks"} />
                      </Link>
-                         <h3 class="text-center fontSize3" >To-Do List</h3>
-                    </Disable>
+                         <h3 class="text-center fontSize3" >Stocks</h3>
+                         </Disable>
                          <hr className={"HonzontalLine"}/>
                    </Col>
 
@@ -331,15 +330,20 @@ export default function VisualTools (){
                      <div className={"VeriticalLine"}/>
                    </Col>
 
+
                    <Col sm={5} md = {5}>
-                   <Disable disabled={disableSchedule}>
-                     <Link to ="/Scheduled">
-                       <Image src ={SubScheduled} className={" img-fluid SubScheduled"}  />
+                  <Disable disabled={disableList}>
+                     <Link to ="/ToDoList">
+                       <Image src ={SubCheckList}
+                         className={"img-fluid SubCheckList"}
+                         alt="CheckListIcon" />
                      </Link>
-                     <h3 class="text-center fontSize3"> Scheduled</h3>
-                     </Disable>
-                     <hr className={"HonzontalLine"}/>
-                  </Col>
+                         <h3 class="text-center fontSize3" >To-Do List</h3>
+                    </Disable>
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
+
+
               </Row>
 
               <Row>
@@ -368,15 +372,16 @@ export default function VisualTools (){
                    </Col>
               </Row>
               <Row>
-                  <Col sm={5} md = {5}>
-                  <Disable disabled={disableStocks}>
-                     <Link to ="/Stocks">
-                       <Image src ={SubStocks} className={" img-fluid SubStocks"} />
+
+              <Col sm={5} md = {5}>
+                   <Disable disabled={disableSchedule}>
+                     <Link to ="/Scheduled">
+                       <Image src ={SubScheduled} className={" img-fluid SubScheduled"}  />
                      </Link>
-                         <h3 class="text-center fontSize3" >Stocks</h3>
-                         </Disable>
-                         <hr className={"HonzontalLine"}/>
-                   </Col>
+                     <h3 class="text-center fontSize3"> Scheduled</h3>
+                     </Disable>
+                     <hr className={"HonzontalLine"}/>
+                  </Col>
 
                    <Col sm={2}  md = {2}>
                      <div className={"VeriticalLine"}/>

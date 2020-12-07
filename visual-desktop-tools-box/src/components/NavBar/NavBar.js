@@ -107,9 +107,6 @@ function  NavBar (props){
          <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <NavDropdown title="Tools" className={"px-3 h3"} id="collasible-nav-dropdown">
-                <NavDropdown.Item as={NavLink} to= '/ToDoList'>
-                   <h3 className={"fontSize3"}>To-Do List</h3>
-                </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Calculator'>
                   < h3 className={"fontSize3"}>Calculator</h3>
                 </NavDropdown.Item>
@@ -134,6 +131,10 @@ function  NavBar (props){
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Calendar'>
                   <h3 className={"fontSize3"}>Calendar</h3>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item as={NavLink} to= '/ToDoList'>
+                   <h3 className={"fontSize3"}>To-Do List</h3>
                 </NavDropdown.Item>
 
                 <NavDropdown.Divider />

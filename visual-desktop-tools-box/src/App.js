@@ -35,6 +35,11 @@ import Weather from './components/Widgets/Weather/Weather';
 import {Provider} from 'react-redux';
 import store from './redux/stores/store';
 import { loadUser } from './redux/actions/authAction';
+import ToDoList from './components/Widgets/ToDoList/ToDoList';
+import LoginPage from './components/LoginPage/LoginPage';
+import SignUpPage from './components/SignUpPage/SignUpPage';
+import NavBar from './components/NavBar/NavBar';
+
 class App extends Component {
 
   componentDidMount(){
@@ -95,7 +100,12 @@ class App extends Component {
 
           <Route path = "/DrawingBoard" exact component = {DrawingBoard}/>
 
+          <Route path = "/Login" exact component = {LoginPage}/>
 
+          <Route path = "/SignUp" exact component = {SignUpPage}/>
+
+          <Route path = "/ToDoList" exact component = {ToDoList}/>
+          
        </Switch>
      </BrowserRouter>
      {/* <GlobalStyle /> */}
