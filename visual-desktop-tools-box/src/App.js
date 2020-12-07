@@ -39,6 +39,7 @@ import ToDoList from './components/Widgets/ToDoList/ToDoList';
 import LoginPage from './components/LoginPage/LoginPage';
 import SignUpPage from './components/SignUpPage/SignUpPage';
 import NavBar from './components/NavBar/NavBar';
+import AboutUs from './components/AboutUs/AboutUs';
 
 class App extends Component {
 
@@ -106,6 +107,12 @@ class App extends Component {
 
           <Route path = "/ToDoList" exact component = {ToDoList}/>
           
+          <Route path = "/AboutUs" > 
+                 <NavBar/>  
+                 <AboutUs/>
+           </Route>
+         
+         
        </Switch>
      </BrowserRouter>
      {/* <GlobalStyle /> */}
