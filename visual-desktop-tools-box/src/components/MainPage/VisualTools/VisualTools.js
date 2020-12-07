@@ -16,7 +16,10 @@ import SubStopwatch from '../images/Sub-Stopwatch.png';
 import SubStocks from '../images/Sub-Stocks.png';
 import SubNews from '../images/Sub-News.png';
 import SubWPM from '../images/Sub-WPM.png';
+import SubCat from '../images/Sub-Cat.png';
 import SubCurrency from '../images/Sub-Currency.png';
+import SubWeather from '../images/Sub-Weather.png';
+import SubRadio from '../images/Sub-Radio.png';
 import tictac from '../images/tictac.png';
 import SubUnitConverter from '../images/Sub-UnitConverter.png';
 import SubTimezone from '../images/Sub-Timezone.png';
@@ -48,9 +51,9 @@ function loadSavedCalender() {
   const savedCalender = storage.getItem('disableCalender')
   return savedCalender ? JSON.parse(savedCalender) : { disableCalender: false }
 }
-function loadSavedSchedule() {
-  const savedSchedule = storage.getItem('disableSchedule')
-  return savedSchedule ? JSON.parse(savedSchedule) : { disableSchedule: false }
+function loadSavedWeather() {
+  const savedWeather = storage.getItem('disableWeather')
+  return savedWeather ? JSON.parse(savedWeather) : { disableWeather: false }
 }
 function loadSavedCount() {
   const savedCount = storage.getItem('disableCount')
@@ -89,6 +92,26 @@ function loadSavedWPMTest() {
 function loadSavedDrawingBoard() {
   const savedDrawingBoard = storage.getItem('disableDrawingBoard')
   return savedDrawingBoard ? JSON.parse(savedDrawingBoard) : { disableDrawingBoard: false }
+}
+
+function loadSavedCat() {
+  const savedCat = storage.getItem('disableCat')
+  return savedCat ? JSON.parse(savedCat) : { disableCat: false }
+}
+
+function loadSavedRadio() {
+  const savedRadio = storage.getItem('disableRadio')
+  return savedRadio ? JSON.parse(savedRadio) : { disableRadio: false }
+}
+
+function loadSavedTictac() {
+  const savedTictac = storage.getItem('disableTictac')
+  return savedTictac ? JSON.parse(savedTictac) : { disableTictac: false }
+}
+
+function loadSavedCurrency() {
+  const savedCurrency = storage.getItem('disableCurrency')
+  return savedCurrency ? JSON.parse(savedCurrency) : { disableCurrency: false }
 }
 
 export default function VisualTools (){
@@ -148,13 +171,13 @@ export default function VisualTools (){
     [disableCalender]
   );
 
-  const [disableSchedule, setDisableSchedule] = React.useState(loadSavedSchedule);
-  const toggleSchedule = () => setDisableSchedule(d => !d);
+  const [disableWeather, setDisableWeather] = React.useState(loadSavedWeather);
+  const toggleWeather = () => setDisableWeather(d => !d);
   useEffect(
     () => {
-      storage.setItem("disableSchedule", JSON.stringify(disableSchedule));
+      storage.setItem("disableWeather", JSON.stringify(disableWeather));
     },
-    [disableSchedule]
+    [disableWeather]
   );
 
   const [disableCount, setDisableCount] = React.useState(loadSavedCount);
@@ -229,6 +252,42 @@ export default function VisualTools (){
     [disableDrawingBoard]
   );
 
+  const [disableCat, setDisableCat] = React.useState(loadSavedCat);
+  const toggleCat = () => setDisableCat(d => !d);
+  useEffect(
+    () => {
+        storage.setItem("disableCat", JSON.stringify(disableCat));
+    },
+    [disableCat]
+  );
+
+  const [disableRadio, setDisableRadio] = React.useState(loadSavedRadio);
+  const toggleRadio = () => setDisableRadio(d => !d);
+  useEffect(
+    () => {
+        storage.setItem("disableRadio", JSON.stringify(disableRadio));
+    },
+    [disableRadio]
+  );
+
+  const [disableTictac, setDisableTictac] = React.useState(loadSavedTictac);
+  const toggleTictac = () => setDisableTictac(d => !d);
+  useEffect(
+    () => {
+        storage.setItem("disableTictac", JSON.stringify(disableTictac));
+    },
+    [disableTictac]
+  );
+
+  const [disableCurrency, setDisableCurrency] = React.useState(loadSavedCurrency);
+  const toggleCurrency = () => setDisableCurrency(d => !d);
+  useEffect(
+    () => {
+        storage.setItem("disableCurrency", JSON.stringify(disableCurrency));
+    },
+    [disableCurrency]
+  );
+
   return(
     <div>
         <h1 class="text-center fontSize1" ><Badge variant="secondary">ToolBox</Badge></h1>
@@ -238,20 +297,25 @@ export default function VisualTools (){
                       <Modal.Header closeButton>
                         <Modal.Title>Settings</Modal.Title>
                       </Modal.Header>
-                      <button onClick={toggleList}>Toggle To-Do List</button>
-                      <button onClick={toggleCalc}>Toggle Calculator</button>
-                      <button onClick={togglePad}>Toggle Notepad</button>
-                      <button onClick={toggleClock}>Toggle Clock</button>
-                      <button onClick={toggleCalender}>Toggle Calender</button>
-                      <button onClick={toggleSchedule}>Toggle Schedule</button>
-                      <button onClick={toggleCount}>Toggle Countdown</button>
-                      <button onClick={toggleWatch}>Toggle Stopwatch</button>
-                      <button onClick={toggleStocks}>Toggle Stocks</button>
-                      <button onClick={toggleNews}>Toggle News</button>
-                      <button onClick={toggleUnitConverter}>Toggle Unit Converter</button>
-                      <button onClick={toggleTimezone}>Toggle Timezone</button>
-                      <button onClick={toggleWPMTest}>Toggle WPM Test</button>
-                      <button onClick={toggleDrawingBoard}>Toggle DrawingBoard</button>
+                      <button className="btnSpace" onClick={toggleList}>Toggle To-Do List</button>
+                      <button className="btnSpace" onClick={toggleCalc}>Toggle Calculator</button>
+                      <button className="btnSpace" onClick={togglePad}>Toggle Notepad</button>
+                      <button className="btnSpace" onClick={toggleClock}>Toggle Clock</button>
+                      <button className="btnSpace" onClick={toggleCalender}>Toggle Calender</button>
+                      <button className="btnSpace" onClick={toggleWeather}>Toggle Weather</button>
+                      <button className="btnSpace" onClick={toggleCount}>Toggle Countdown</button>
+                      <button className="btnSpace" onClick={toggleWatch}>Toggle Stopwatch</button>
+                      <button className="btnSpace" onClick={toggleStocks}>Toggle Stocks</button>
+                      <button className="btnSpace" onClick={toggleCurrency}>Toggle Currency Converter</button>
+                      <button className="btnSpace" onClick={toggleUnitConverter}>Toggle Unit Converter</button>
+                      <button className="btnSpace" onClick={toggleTimezone}>Toggle Timezone</button>
+                      <button className="btnSpace0" onClick={() => {toggleNews(); toggleCat(); toggleDrawingBoard(); toggleWPMTest(); toggleRadio(); toggleTictac()}}>Toggle Take-A-Break Apps</button>
+                      <button className="btnSpace1" onClick={toggleWPMTest}>Toggle WPM Test</button>
+                      <button className="btnSpace1" onClick={toggleDrawingBoard}>Toggle DrawingBoard</button>
+                      <button className="btnSpace1" onClick={toggleNews}>Toggle News</button>
+                      <button className="btnSpace1" onClick={toggleCat}>Toggle Cat</button>
+                      <button className="btnSpace1" onClick={toggleRadio}>Toggle Radio</button>
+                      <button className="btnSpace1" onClick={toggleTictac}>Toggle Tic-Tac-Toe</button>
                   </Modal>
                   </div>
           <hr style={{borderBottom:"3px solid", marginTop:"3em"}}/>
@@ -342,8 +406,6 @@ export default function VisualTools (){
                     </Disable>
                          <hr className={"HonzontalLine"}/>
                    </Col>
-
-
               </Row>
 
               <Row>
@@ -374,11 +436,11 @@ export default function VisualTools (){
               <Row>
 
               <Col sm={5} md = {5}>
-                   <Disable disabled={disableSchedule}>
-                     <Link to ="/Scheduled">
-                       <Image src ={SubScheduled} className={" img-fluid SubScheduled"}  />
+              <Disable disabled={disableWeather}>
+                     <Link to ="/Weather">
+                       <Image src ={SubWeather} className={" img-fluid SubWeather"}  />
                      </Link>
-                     <h3 class="text-center fontSize3"> Scheduled</h3>
+                     <h3 class="text-center fontSize3">Weather</h3>
                      </Disable>
                      <hr className={"HonzontalLine"}/>
                   </Col>
@@ -387,16 +449,17 @@ export default function VisualTools (){
                      <div className={"VeriticalLine"}/>
                    </Col>
                    <Col sm={5}  md = {5 }>
-                   <Disable disabled={disableNews}>
-                     <Link to ="/News">
-                       <Image src ={SubNews} className={" img-fluid SubNews"}
-                         alt="CheckListIcon"  />
+                   <Disable disabled={disableCurrency}>
+                     <Link to ="/Currency">
+                       <Image src ={SubCurrency} className={" img-fluid SubCurrency"} />
                      </Link>
-                        <h3 class="text-center fontSize3">News</h3>
-                        </Disable>
+                         <h3 class="text-center fontSize3" >Currency Converter</h3>
+                         </Disable>
+                   
                         <hr className={"HonzontalLine"}/>
                    </Col>
               </Row>
+
               <Row>
                   <Col sm={5} md = {5}>
                   <Disable disabled={disableUnitConverter}>
@@ -423,7 +486,32 @@ export default function VisualTools (){
                          <hr className={"HonzontalLine"}/>
                    </Col>
               </Row>
+              <Row>
+                  <Col sm={5} md = {5}>
+                  <Disable disabled={disableTictac}>
+                    <Link to ="/Tictac">
+                      <Image src ={tictac} className={" img-fluid tictac"}  />
+                    </Link>
+                    <h3 class="text-center fontSize3">Tic-Tac-Toe</h3>
+                    </Disable>
+                    <hr className={"HonzontalLine"}/>
+                  </Col>
 
+                  <Col sm={2} md = {2}>
+                    <div className={"VeriticalLine"}/>
+                   </Col>
+
+                   <Col sm={5} md = {5}>
+                   <Disable disabled={disableNews}>
+                     <Link to ="/News">
+                       <Image src ={SubNews} className={" img-fluid SubNews"}
+                         alt="CheckListIcon"  />
+                     </Link>
+                        <h3 class="text-center fontSize3">News</h3>
+                        </Disable>
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
+              </Row>
               <Row>
               <Col sm={5}  md = {5 }>
               <Disable disabled={disableWPMTest}>
@@ -446,13 +534,39 @@ export default function VisualTools (){
                      <Link to ="/DrawingBoard">
                        <Image src ={DrawingBoard} className={" img-fluid SubTimer"} />
                      </Link>
-                         <h3 class="text-center fontSize3" >DrawingBoard</h3>
+                         <h3 class="text-center fontSize3" >Drawing Board</h3>
                     </Disable>
                          <hr className={"HonzontalLine"}/>
                    </Col>
-
-
               </Row>
+              <Row>
+              <Col sm={5}  md = {5 }>
+              <Disable disabled={disableCat}>
+                     <Link to ="/Cat">
+                       <Image src ={SubCat} className={" img-fluid SubCat"}
+                         alt="CheckListIcon"  />
+                     </Link>
+                        <h3 class="text-center fontSize3">Cat</h3>
+                        </Disable>
+                        <hr className={"HonzontalLine"}/>
+                   </Col>
+
+
+                   <Col sm={2}  md = {2}>
+                     <div className={"VeriticalLine"}/>
+                   </Col>
+
+                   <Col sm={5} md = {5}>
+                   <Disable disabled={disableRadio}>
+                     <Link to ="/Radio">
+                       <Image src ={SubRadio} className={" img-fluid SubRadio"} />
+                     </Link>
+                         <h3 class="text-center fontSize3" >Radio</h3>
+                    </Disable>
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
+              </Row>
+              
 
               {/* spaces will be replace by footer in the future */}
                 <br/>

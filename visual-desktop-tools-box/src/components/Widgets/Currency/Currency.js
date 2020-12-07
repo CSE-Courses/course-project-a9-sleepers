@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import converter from "./Currency.css";
+import NavBar from '../../NavBar/NavBar';
 
 class Currency extends React.Component {
   constructor(props) {
@@ -58,7 +59,11 @@ class Currency extends React.Component {
   };
   render() {
     return (
+      <div>
+        <NavBar />
+      
       <div className="Converter">
+        
         <h2>
           <span>Currency</span>Converter
           <span role="img" aria-label="money">
@@ -93,6 +98,7 @@ class Currency extends React.Component {
           <button onClick={this.convertHandler}>Convert</button>
           {this.state.result && <h3>{ this.state.result}</h3>}
         </div>
+      </div>
       </div>
     );
   }

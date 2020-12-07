@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavBar from '../../NavBar/NavBar';
 
 import { fetchWeather } from './api/fetchWeather';
 import './Weather.css';
@@ -17,6 +18,8 @@ const Weather = () => {
     }
 
     return (
+        <div>
+            <NavBar />
         <div className="main-container">
             <h2>Input any city (e.g. Paris)</h2>
             <input type="text"className="search-weather"placeholder="Search..."value={query}onChange={(e) => setQuery(e.target.value)}onKeyPress={search}/>
@@ -37,6 +40,7 @@ const Weather = () => {
                 </div>
             )}
         </div>
+    </div>
     );
 }
 

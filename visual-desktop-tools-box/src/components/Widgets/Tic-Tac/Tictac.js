@@ -1,10 +1,14 @@
 import React from 'react';
 import '../App.css';
 import Game from './components/Game';
+import NavBar from '../../NavBar/NavBar';
 
 function Tictac() {
   return (
-    <div>   <Game /></div>
+    <div>
+      <NavBar />
+      <Game />
+      </div>
   );
 }
 
