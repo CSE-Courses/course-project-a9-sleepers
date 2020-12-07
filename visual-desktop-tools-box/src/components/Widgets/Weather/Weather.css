@@ -1,4 +1,4 @@
-html, body, #root {
+/* html, body, #root {
     font: 0.9rem sans-serif;
     background: #0a1f44;
     color: #1e2432;
@@ -10,6 +10,17 @@ html, body, #root {
     background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.418) ), url('Desktop.png');
     background-size: cover;
     background-position: center;
+} */
+
+/* Added this and commented out above so it plays nice with the main page -- Charles */
+.main-container {
+    background-position: center;
+    font: 0.9rem sans-serif;
+
+    background: #0a1f44;
+    color: white;
+    height: 100%;
+    margin: 0;
 }
 
 .main-container {
@@ -20,7 +31,8 @@ html, body, #root {
     flex-direction: column;
 }
 
-.search {
+/* Also changed from search to search-weather to prevent conflicts with navbar's search */
+.search-weather {
     outline: none;
     padding: 20px 7%;
     border-radius: 20px;
