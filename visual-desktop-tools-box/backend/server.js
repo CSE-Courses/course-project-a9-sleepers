@@ -16,12 +16,12 @@ const connection = mongoose.connection;connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
-const usersRouter = require('./routes/users');
+//const usersRouter = require('./routes/users');
 const user1Router = require('./routes/user1');
 const todosRouter = require('./routes/todos');
 const authRouter = require('./routes/auth');
 
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
 app.use('/user1', user1Router);
 app.use('/todos', todosRouter);
 app.use('/auth', authRouter);

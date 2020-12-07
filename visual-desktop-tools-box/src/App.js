@@ -32,17 +32,23 @@ import ToggleDark from './components/Widgets/Settings/ToggleDark'
 import DrawingBoard from './components/Widgets/DrawingBoard/DrawingBoard';
 // import GlobalStyle from './components/Widgets/Settings/toggleDark'
 import Weather from './components/Widgets/Weather/Weather';
-
+import {Provider} from 'react-redux';
+import store from './redux/stores/store';
+import { loadUser } from './redux/actions/authAction';
 class App extends Component {
 
-
+  componentDidMount(){
+    store.dispatch(loadUser());
+    
+}
 
   render(){
   return (
 
   <Fragment>
-     <BrowserRouter>
-       <Switch>
+     <Provider store = {store}>
+       <BrowserRouter>
+         <Switch>
 
           <Route path = "/" exact component = {MainPage}/>
 
@@ -93,6 +99,7 @@ class App extends Component {
        </Switch>
      </BrowserRouter>
      {/* <GlobalStyle /> */}
+     </Provider>
   </Fragment>
   );
 }

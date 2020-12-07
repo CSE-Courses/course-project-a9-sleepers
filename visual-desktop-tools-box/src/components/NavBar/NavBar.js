@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,Fragment } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
+import {Navbar,Nav,NavDropdown,NavItem} from 'react-bootstrap';
 import {NavLink, Link} from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faSearch } from '@fortawesome/free-solid-svg-icons'
@@ -14,6 +14,9 @@ import weather from 'weather-js'
 // import { Global } from '@emotion/core';
 import GlobalStyle from '../Widgets/Settings/ToggleDark'
 import Clock from '../Widgets/Clock-NavBar/Clock'
+import Logout from '../Logout/Logout';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 
 const componentOptions = [
@@ -32,7 +35,7 @@ const componentOptions = [
 ];
 
 
-export default function NavBar (){
+function  NavBar (props){
 
 
   const [temp,setTemp] = useState('');
@@ -55,6 +58,30 @@ export default function NavBar (){
 
   const [selectedCompOption, setSelectedCompOption] = useState('');
 
+  const {isAuthenticated,user } =  props.auth;
+
+
+  // const {username} = user;
+  
+  const authLinks = (
+    <Fragment>
+      <NavItem className="px-3 " style={{marginTop:"0.4em"} }>
+        <strong className="fontSize4" >{user?`Welcome, ${user.username}`: '' }</strong>
+      </NavItem>
+      <Nav.Item>
+         <Logout/>
+       </Nav.Item>
+    </Fragment>
+  )
+  // {user?`Welcome, ${user.username}`: '' }
+  const guestLinks = (
+    <Fragment>
+      <Nav.Link  as={NavLink} to= '/Login' className={"px-3"}>
+         <h4 className={"fontSize4"}>Login / Sign Up</h4>
+      </Nav.Link>
+    </Fragment>
+  )
+  
   const selectStyles = {
     menuPortal: base => ({ ...base, zIndex: 9999 }),
     menu: provided => ({ ...provided, zIndex: "9999 !important" })
@@ -150,10 +177,7 @@ export default function NavBar (){
 
               <Nav>
               <GlobalStyle />
-
-               <Nav.Link  as={NavLink} to= '/Login' className={"px-3"}>
-                 <h4 className={"fontSize4"}>Login / Sign Up</h4>
-               </Nav.Link>
+                {isAuthenticated ? authLinks : guestLinks}
               <Nav.Link as={NavLink} to= '/AboutUs' className={"px-3"} >
                  <h4 className={"fontSize4"}>About us</h4>
               </Nav.Link>
@@ -165,3 +189,15 @@ export default function NavBar (){
     );
 
 }
+
+
+NavBar.propTypes = {
+  auth: PropTypes.object.isRequired
+
+}
+
+const mapStateToProps = state  =>({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps,null)(NavBar);
