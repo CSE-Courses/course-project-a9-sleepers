@@ -8,6 +8,9 @@ import {NavLink, Link} from 'react-router-dom';
 import Select from 'react-select';
 import storage from 'local-storage-fallback'
 import './NavBar.css';
+import guitar1 from './tones/guitar1.mp3'
+import guitar2 from './tones/guitar2.mp3'
+import Parasite from './tones/Parasite_Ringtone_Jessica.mp3'
 // import 'react-open-weather/lib/css/ReactWeather.css';
 import weather from 'weather-js'
 // import { dark } from '@material-ui/core/styles/createPalette';
@@ -16,6 +19,8 @@ import weather from 'weather-js'
 // import { Global } from '@emotion/core';
 import GlobalStyle from '../Widgets/Settings/ToggleDark'
 import { Timer } from 'react-countdown-clock-timer';
+import useSound from 'use-sound';
+import { Disable } from 'react-disable';
 
 
 const componentOptions = [
@@ -33,10 +38,28 @@ const componentOptions = [
   { value: '/WPMTest', label: 'WPM Test' },
 ];
 
+
+
 function loadSavedTime() {
   const savedTime = storage.getItem('time')
   return savedTime ? JSON.parse(savedTime) : 2700;
 }
+
+function loadChime() {
+  const savedChime = storage.getItem('chime')
+  return savedChime ? JSON.parse(savedChime) : guitar1;
+}
+
+function loadSavedAlarm() {
+  const savedAlarm = storage.getItem("disableAlarm")
+  return savedAlarm ? JSON.parse(savedAlarm) : { disableAlarm: true }
+}
+
+function loadPauseStatus() {
+  const savedPauseStatus = storage.getItem("pauseStatus")
+  return savedPauseStatus ? JSON.parse(savedPauseStatus) : { pauseStatus: false }
+}
+
 
 
 export default function NavBar (){
@@ -54,6 +77,24 @@ export default function NavBar (){
   
   //console.log(temp)
 
+  const [disableAlarm, setDisableAlarm] = React.useState(loadSavedAlarm);
+  const toggleAlarm = () => setDisableAlarm(d => !d);
+  useEffect(
+    () => {
+        storage.setItem("disableAlarm", JSON.stringify(disableAlarm));
+    },
+    [disableAlarm]
+    );
+
+    const [pauseStatus, setPauseStatus] = React.useState(loadPauseStatus);
+    useEffect(
+      () => {
+          storage.setItem("pauseStatus", JSON.stringify(pauseStatus));
+      },
+      [pauseStatus]
+      );
+    
+
   const [time, setTime] = useState(loadSavedTime);
   useEffect(
     () => {
@@ -62,11 +103,30 @@ export default function NavBar (){
     [time]
   );
   
+  const [chime, setChime] = useState(loadChime);
+  useEffect(
+    () => {
+        storage.setItem('chime', JSON.stringify(chime));
+    },
+    [chime]
+  );
+
+
+  const [show1, setShow1] = useState(false)
+  const handleClose1 = () => setShow1(false);
+  const handleShow1 = () => setShow1(true);
+  
   useEffect(() => {
     const interval = setInterval(() => {
+      if(pauseStatus === false){
       setTime(time => time - 1)
+      return () => clearInterval(interval);
+      }
+      else {
+        return;
+      }
     }, 1000);
-    return () => clearInterval(interval);
+    // return () => clearInterval(interval);
   }, []);
 
   const [show, setShow] = useState(false)
@@ -81,6 +141,23 @@ export default function NavBar (){
   };
 
   const [userNumber, setUserNumber] = useState(0);
+
+  const operatePause = () => {
+    setPauseStatus(!pauseStatus);
+    console.log(pauseStatus);
+  }
+
+  const [play] = useSound(
+    chime,
+    { volume: 0.5 }
+  );
+
+  
+  const handleReset = () => {
+    if(userNumber !== ""){
+      setTime(parseInt(userNumber, 10))
+    }
+  }
 
 
     return(
@@ -152,10 +229,11 @@ export default function NavBar (){
               </div>
 
               <Link className="search" to={selectedCompOption.value}>Search</Link>
+              <GlobalStyle />
               </Nav>
               
               <Nav>
-              <GlobalStyle />
+              
               <Navbar.Text>
               <h3 className={"fontSize0"}>Current Temperature: {temp}°F</h3>
               </Navbar.Text>
@@ -166,17 +244,32 @@ export default function NavBar (){
                  <h4 className={"fontSize4"}>About us</h4>
               </Nav.Link> */}
               <Navbar.Text>
-
+              <Disable disabled={disableAlarm}>
               <h3 className={"fontSize0"}><Timer
                 durationInSeconds={time}
                 formatted={true}
+                isPaused={pauseStatus}
                 onFinish = {()=> {
+                  play();
                   alert('Time is up!');
-                  setTime(2700);
+                  setTime(2700);  
                 }}
                 /></h3>
+                </Disable>
                 <input type="number" min="0" placeholder="Seconds" value={userNumber} onChange={e => setUserNumber(e.target.value)}/>
-                <button onClick={() => setTime(parseInt(userNumber, 10))}>Reset</button>
+                <button className="btn" onClick={() => handleReset()}>Reset</button>
+                <button className="btn" onClick={() => {toggleAlarm(); operatePause(); window.location.reload(false)} }>Toggle Timer</button>
+
+                <button className="btn" onClick={handleShow1}>Chime Settings</button>
+                  <Modal show={show1} centered size="lg" onHide={handleClose1}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Chime Settings</Modal.Title>
+                      </Modal.Header>
+                      <button className="btnSpace" onClick={() => { setChime(guitar1); handleClose1() }}>Guitar 1</button>
+                      <button className="btnSpace" onClick={() => { setChime(guitar2); handleClose1() }}>Guitar 2</button>
+                      <button className="btnSpace" onClick={() => { setChime(Parasite); handleClose1() }}>Parasite</button>
+                  </Modal>
+                  
               </Navbar.Text>
               </Nav>
            </Navbar.Collapse>

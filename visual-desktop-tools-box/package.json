@@ -61,6 +61,7 @@
     "request": "^2.88.2",
     "styled-components": "^5.2.0",
     "styled-theming": "^2.2.0",
+    "use-sound": "^2.0.1",
     "weather-js": "^2.0.0"
   },
   "scripts": {
@@ -86,7 +87,7 @@
   },
   "devDependencies": {
     "html-webpack-plugin": "^4.5.0",
-    "react-open-weather": "^0.6.3",
+    "react-open-weather": "^0.6.7",
     "react-player": "^2.6.2",
     "webpack-dev-server": "^3.11.0"
   }

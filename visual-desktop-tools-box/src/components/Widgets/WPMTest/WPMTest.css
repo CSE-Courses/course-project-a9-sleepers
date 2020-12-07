@@ -1,14 +1,20 @@
 .display{
     background-color: gray;
-    position: fixed;
     margin: 20px;
     padding-top: 20px;
+    padding-bottom: 5px;
     border-radius: 5px;
 }
 
 .quote {
     text-align: center;
     color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.redQuote {
+    text-align: center;
+    color: #FF4D4D;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
