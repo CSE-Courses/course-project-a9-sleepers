@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import image from './animal.png'
 import Button from './button';
+import NavBar from '../../NavBar/NavBar';
 import axios from 'axios'
 class QuoteBox extends Component{
 constructor(props){
@@ -43,6 +44,8 @@ const content = this.state.quote
 };
 
  return(
+   <div>
+   <NavBar/>
   <div style={ background}>
 
     <meta charSet="UTF-8" />
@@ -62,6 +65,7 @@ const content = this.state.quote
         <Button  getNext={this.getNext} />
     </div>
  </React.Fragment>        </div>
+</div>
 </div>
 
 

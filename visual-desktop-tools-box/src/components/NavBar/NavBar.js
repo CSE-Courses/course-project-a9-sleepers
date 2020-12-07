@@ -29,6 +29,12 @@ const componentOptions = [
   { value: '/Timezone', label: 'Timezone' },
   { value: '/UnitConverter', label: 'Unit Converter' },
   { value: '/WPMTest', label: 'WPM Test' },
+  { value: '/Cat', label: 'Cat' },
+  { value: '/DrawingBoard', label: 'Drawing Board' },
+  { value: '/Currency', label: 'Currency' },
+  { value: '/Tictac', label: 'Tic-Tac-Toe' },
+  { value: '/Radio', label: 'Radio' },
+  { value: '/Weather', label: 'Weather' },
 ];
 
 
@@ -108,29 +114,37 @@ export default function NavBar (){
                 <NavDropdown.Item as={NavLink} to= '/Calendar'>
                   <h3 className={"fontSize3"}>Calendar</h3>
                 </NavDropdown.Item>
-
-                <NavDropdown.Divider />
-
+                <NavDropdown.Item as={NavLink} to= '/Weather'>
+                  <h3 className={"fontSize3"}>Weather</h3>
+                </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Stocks'>
                   <h3 className={"fontSize3"}>Stocks</h3>
                 </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to= '/News'>
-                  <h3 className={"fontSize3"}>News</h3>
-                  </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/UnitConverter'>
                   <h3 className={"fontSize3"}>Unit Converter</h3>
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Currency'>
                   <h3 className={"fontSize3"}>Currency</h3>
                 </NavDropdown.Item>
+
+                <NavDropdown.Divider />
+                <NavDropdown.Item as={NavLink} to= '/News'>
+                  <h3 className={"fontSize3"}>News</h3>
+                  </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Tictac'>
                   <h3 className={"fontSize3"}>Tic-Tac-Toe</h3>
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/WPMTest'>
-                  <h3 className={"fontSize3"}>WPMTest</h3>
+                  <h3 className={"fontSize3"}>WPM Test</h3>
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/DrawingBoard'>
-                  <h3 className={"fontSize3"}>DrawingBoard</h3>
+                  <h3 className={"fontSize3"}>Drawing Board</h3>
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/Radio'>
+                  <h3 className={"fontSize3"}>Radio</h3>
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/Cat'>
+                  <h3 className={"fontSize3"}>Cat</h3>
                 </NavDropdown.Item>
 
                </NavDropdown>
@@ -145,7 +159,7 @@ export default function NavBar (){
                 options={componentOptions}/>
               </div>
 
-              <Link className="search" to={selectedCompOption.value}>Search</Link>
+              <Link className="searchBtn" to={selectedCompOption.value}>Search</Link>
               </Nav>
 
               <Nav>

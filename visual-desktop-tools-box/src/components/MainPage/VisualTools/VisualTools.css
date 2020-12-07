@@ -47,7 +47,7 @@
 
 
  .SubCheckList:hover, .SubCalculator:hover, .SubNotepad:hover, .SubClock:hover, .SubCalendar:hover,
- .SubScheduled:hover, .SubTimer:hover, .SubStopwatch:hover, .SubStocks:hover, .SubNews:hover, .SubWPM:hover, .SubUnitConverter:hover, .SubTimezone:hover {
+ .SubWeather:hover, .SubTimer:hover, .SubStopwatch:hover, .SubStocks:hover, .SubNews:hover, .SubWPM:hover, .SubUnitConverter:hover, .SubTimezone:hover, .SubCat:hover, .SubRadio:hover, .tictac:hover, .SubCurrency:hover {
    box-shadow: 0 0 10px skyblue;
 
 }
@@ -470,7 +470,7 @@
 
 
 @media (max-width: 575.98px) {
-  .SubScheduled{
+  .SubWeather{
     margin-top: 3rem;
     height: auto;
     display: block;
@@ -482,7 +482,7 @@
 
 
 @media (min-width: 576px) {
-  .SubScheduled{
+  .SubWeather{
     margin-top: 9em;
     margin-left: 2.0rem;
     width: 130px;
@@ -492,7 +492,7 @@
 
 
 @media (min-width: 768px) {
-  .SubScheduled{
+  .SubWeather{
     margin-top: 9em;
     margin-left: 2rem;
     width: 200px;
@@ -502,7 +502,7 @@
 
 
 @media (min-width: 992px) {
-  .SubScheduled{
+  .SubWeather{
     margin-top: 9em;
     margin-left: 2.5rem;
     width: 280px;
@@ -514,7 +514,7 @@
 
 
 @media (min-width: 1200px) {
-  .SubScheduled{
+  .SubWeather{
     margin-top: 9em;
     margin-left: 5rem;
     width: 280px;
@@ -704,6 +704,165 @@
 }
 
 @media (max-width: 575.98px) { 
+  .SubRadio{
+    margin-top: 3rem; 
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+}
+
+
+
+@media (min-width: 576px) { 
+  .SubRadio{
+    margin-top: 9em;
+    margin-left: 2.3rem;
+    width: 120px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 768px) { 
+  .SubRadio{
+    margin-top: 9em;
+    margin-left: 3rem;
+    width: 180px;
+    height: auto;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .SubRadio{
+    margin-top: 9em;
+    margin-left: 4rem;
+    width: 240px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 1200px) { 
+  .SubRadio{
+    margin-top: 9em;
+    margin-left: 6rem;
+    width: 240px;
+    height: auto;
+    
+  }
+}
+
+@media (max-width: 575.98px) { 
+  .tictac{
+    margin-top: 3rem; 
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+}
+
+
+
+@media (min-width: 576px) { 
+  .tictac{
+    margin-top: 9em;
+    margin-left: 2.3rem;
+    width: 120px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 768px) { 
+  .tictac{
+    margin-top: 9em;
+    margin-left: 3rem;
+    width: 180px;
+    height: auto;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .tictac{
+    margin-top: 9em;
+    margin-left: 4rem;
+    width: 240px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 1200px) { 
+  .tictac{
+    margin-top: 9em;
+    margin-left: 6rem;
+    width: 240px;
+    height: auto;
+    
+  }
+}
+
+@media (max-width: 575.98px) { 
+  .SubCurrency{
+    margin-top: 3rem; 
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+}
+
+
+
+@media (min-width: 576px) { 
+  .SubCurrency{
+    margin-top: 9em;
+    margin-left: 2.3rem;
+    width: 120px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 768px) { 
+  .SubCurrency{
+    margin-top: 9em;
+    margin-left: 3rem;
+    width: 180px;
+    height: auto;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .SubCurrency{
+    margin-top: 9em;
+    margin-left: 4rem;
+    width: 240px;
+    height: auto;
+  }
+ }
+
+
+@media (min-width: 1200px) { 
+  .SubCurrency{
+    margin-top: 9em;
+    margin-left: 6rem;
+    width: 240px;
+    height: auto;
+    
+  }
+}
+
+@media (max-width: 575.98px) { 
   .SubUnitConverter{
     margin-top: 3rem; 
     height: auto;
@@ -807,6 +966,76 @@
       
     }
   }
+
+  .btnSpace {
+    margin-bottom: 10px;
+    background-color: #323232;
+  }
+
+  .btnSpace0 {
+    margin-bottom: 10px;
+    background-color: #838383;
+  }
+
+  .btnSpace1 {
+    margin-bottom: 10px;
+    background-color: #4f4f4f;
+  }
+
+  @media (max-width: 575.98px) { 
+    .SubCat{
+      margin-top: 3rem; 
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 30%;
+    }
+  }
+  
+  
+  
+  @media (min-width: 576px) { 
+    .SubCat{
+      margin-top: 9em;
+      margin-left: 2.3rem;
+      width: 120px;
+      height: auto;
+    }
+   }
+  
+  
+  @media (min-width: 768px) { 
+    .SubCat{
+      margin-top: 9em;
+      margin-left: 3rem;
+      width: 180px;
+      height: auto;
+    }
+  }
+  
+  
+  @media (min-width: 992px) {
+    .SubCat{
+      margin-top: 9em;
+      margin-left: 4rem;
+      width: 240px;
+      height: auto;
+    }
+   }
+  
+  
+  @media (min-width: 1200px) { 
+    .SubCat{
+      margin-top: 9em;
+      margin-left: 6rem;
+      width: 240px;
+      height: auto;
+      
+    }
+  }
+
+  
 
 
 }
