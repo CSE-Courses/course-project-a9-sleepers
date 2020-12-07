@@ -1,19 +1,27 @@
 .display{
     background-color: gray;
-    position: fixed;
     margin: 20px;
     padding-top: 20px;
+    padding-bottom: 5px;
     border-radius: 5px;
 }
 
 .quote {
+    text-align: center;
     color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.redQuote {
+    text-align: center;
+    color: #FF4D4D;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .userInput {
     border: 0;
-    width: 900px;
+    width: 96%;
+    position: relative;
     height: 200px;
     margin: 20px;
     padding: 0 10px;
@@ -22,4 +30,10 @@
 
 .userInput:focus{
     outline: none;
+}
+
+.refresh{
+    display: flex;
+    margin-bottom: 20px;
+    
 }

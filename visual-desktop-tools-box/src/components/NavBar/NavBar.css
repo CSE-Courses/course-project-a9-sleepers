@@ -77,3 +77,19 @@
   text-decoration: none;
   color: white;
 }
+
+.btn {
+  font-size: 10px;
+  background-color: gray;
+  color: white;
+}
+
+.btn:hover{
+  background-color: #989ea1;
+  text-decoration: none;
+  color: white;
+}
+
+.btnSpace {
+  margin-bottom: 20px;
+}
