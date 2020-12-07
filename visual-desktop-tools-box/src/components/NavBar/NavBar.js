@@ -7,7 +7,6 @@ import {NavLink, Link} from 'react-router-dom';
 // import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import Select from 'react-select';
 import './NavBar.css';
-import 'react-open-weather/lib/css/ReactWeather.css';
 import weather from 'weather-js'
 // import { dark } from '@material-ui/core/styles/createPalette';
 // import { ThemeProvider, createGlobalStyle } from 'styled-components';
@@ -38,15 +37,15 @@ export default function NavBar (){
 
   const [temp,setTemp] = useState('');
 
-  weather.find({degreeType: 'F',search: ''}, function(err, result) {
-    if(err) console.log(err);
-    //console.log(result[0].current.feelslike)
-
-    var x = result[0].current.temperature
-    setTemp(x)
-    //console.log(x)
-  });
-
+  // weather.find({degreeType: 'F',search: ''}, function(err, result) {
+  //   if(err) console.log(err);
+  //   //console.log(result[0].current.feelslike)
+  
+  //   var x = result[0].current.temperature
+  //   setTemp(x)
+  //   //console.log(x)
+  // });
+  
   //console.log(temp)
 
 
@@ -151,9 +150,7 @@ export default function NavBar (){
 
               <Nav>
               <GlobalStyle />
-              <Navbar.Text>
-              <h3 className={"fontSize0"}>Current Temperature: {temp}°F</h3>
-              </Navbar.Text>
+
                <Nav.Link  as={NavLink} to= '/Login' className={"px-3"}>
                  <h4 className={"fontSize4"}>Login / Sign Up</h4>
                </Nav.Link>

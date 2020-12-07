@@ -85,7 +85,7 @@
   },
   "devDependencies": {
     "html-webpack-plugin": "^4.5.0",
-    "react-open-weather": "^0.6.2",
+    "react-open-weather": "^0.6.3",
     "react-player": "^2.6.2",
     "webpack-dev-server": "^3.11.0"
   }
