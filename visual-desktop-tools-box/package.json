@@ -64,7 +64,8 @@
     "styled-components": "^5.2.0",
     "styled-theming": "^2.2.0",
     "use-sound": "^2.0.1",
-    "weather-js": "^2.0.0"
+    "weather-js": "^2.0.0",
+    "react-moment": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
