@@ -3,3 +3,5 @@ node_modules
 visual-desktop-tools-box/build/
 visual-desktop-tools-box/node_modules/
 visual-desktop-tools-box/node-sass/
+visual-desktop-tools-box/yarn-error.log
+visual-desktop-tools-box/package-lock.json

@@ -137,9 +137,9 @@ const ToDoList = (props) => {
                         <form id="todo-form" >
                             <input value={input} onChange={onChangeHandler} type="text" placeholder="Enter Task" ref={inputRef}/>
                             <Button type="submit" variant="dark" onClick={handleSubmit}>Add</Button>
-                            <Pdf targetRef={ref} filename="to_do_list.pdf">
-                    {({ toPdf }) => <Button className="downloadButton" variant="outline-dark" size="sm" onClick={toPdf}>Convert to PDF</Button>}
-                </Pdf>
+                            {/* <Pdf targetRef={ref} filename="to_do_list.pdf">
+                    {({ toPdf }) => <Button className="downloadButton" variant="outline-dark" size="sm" onClick={toPdf}>Convert to PDF</Button>} */}
+                {/* </Pdf> */}
 
                         </form>
                         

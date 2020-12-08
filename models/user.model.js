@@ -12,7 +12,9 @@ const userSchema = new Schema({
   text: { type: String, required: false },
   dates: [{
     type: String
-  }]
+  }],
+  color: { type: String, required: false },
+  fontSize: { type: Number, required: false}
 }, {
   timestamps: true,
 });

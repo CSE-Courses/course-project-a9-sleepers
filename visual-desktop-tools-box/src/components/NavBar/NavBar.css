@@ -1,45 +1,45 @@
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
   .fontSize4{
     font-size: 1.4em;
       margin-top: 0.2em;
   }
-  
+
 
  }
- 
 
-@media (min-width: 576px) { 
+
+@media (min-width: 576px) {
   .fontSize4{
 
   }
-  
+
  }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .fontSize4{
     font-size: 1.8em;
   }
-  
-  
+
+
 }
 
 
 
 @media (min-width: 992px) {
   .fontSize4{
-  
+
   }
-  
+
  }
 
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .fontSize4{
 
   }
-  
+
 }
 
 
@@ -53,10 +53,10 @@
 
   width: 300px;
   margin-top: 10px;
-  
+
 }
 
-.search{
+.searchBtn{
   height: 30px;
   background-color: #6c757e;
   margin-top: 14px;
@@ -72,8 +72,24 @@
   border-radius: 4px;
 }
 
-.search:hover, .search:active {
+.searchBtn:hover, .searchBtn:active {
   background-color: #989ea1;
   text-decoration: none;
   color: white;
+}
+
+.btn {
+  font-size: 10px;
+  background-color: gray;
+  color: white;
+}
+
+.btn:hover{
+  background-color: #989ea1;
+  text-decoration: none;
+  color: white;
+}
+
+.btnSpace {
+  margin-bottom: 20px;
 }

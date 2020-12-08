@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
+import { Button, ToggleButtonGroup, ToggleButton, ButtonGroup } from 'react-bootstrap';
 import axios from 'axios';
 
 export default class NotePad extends Component {
@@ -12,14 +13,35 @@ export default class NotePad extends Component {
       newUser: '',
       users: [],
       texts: [],
+      chosenColors: [],
+      fontSizes: [],
       ids:[]
     }
 
+    this.colors = [
+      {name: 'plain',       value: '#FFFFFF'},
+      {name: 'vanilla',       value: '#f3e5ab'},
+      {name: 'mint',        value: '#98ff98'},
+      {name: 'watermelon',  value: '#fc6c85'},
+      {name: 'banana',      value: '#ffe65f'}
+    ];
+
+    this.color = this.colors[0].value;
+    this.fontSize = 16;
+
+    // Changing backend states
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeNewUsername = this.onChangeNewUsername.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
     this.onSubmitnewUser = this.onSubmitnewUser.bind(this);
     this.onSubmitNote = this.onSubmitNote.bind(this);
+
+    // Changing color states
+    this.onChangeColor = this.onChangeColor.bind(this);
+
+    // Changing font states
+    this.onDecreaseFont = this.onDecreaseFont.bind(this);
+    this.onIncreaseFont = this.onIncreaseFont.bind(this);
   }
 
   componentDidMount() {
@@ -31,7 +53,9 @@ export default class NotePad extends Component {
             texts: response.data.map(text=>text.text),
             ids: response.data.map(id=>id._id),
             username: response.data[0].username,
-            text: response.data[0].text
+            text: response.data[0].text,
+            chosenColors: response.data.map(color=>color.color),
+            fontSizes: response.data.map(fontSize=>fontSize.fontSize)
           })
         }
       })
@@ -42,10 +66,13 @@ export default class NotePad extends Component {
 
   // When user changes via. user drop-down, the notepad text also changes.
   onChangeUsername(e) {
-    const textIdx = this.state.users.indexOf(e.target.value);
+    const userIdx = this.state.users.indexOf(e.target.value);
+    this.color = this.state.chosenColors[userIdx];
+    this.fontSize = this.state.fontSizes[userIdx];
+    console.log(this.fontSize);
     this.setState({
       username: e.target.value,
-      text: this.state.texts[textIdx]
+      text: this.state.texts[userIdx]
     });
   }
 
@@ -76,17 +103,67 @@ export default class NotePad extends Component {
   onSubmitNote(e) {
     e.preventDefault();
     if(this.state.username !== '[None]') {
-      const user = {
-        text: this.state.text
-      }
       const idIdx = this.state.users.indexOf(this.state.username);
       const id = this.state.ids[idIdx];
+
+      const user = {
+        text: this.state.text,
+        color: this.color,
+        fontSize: this.fontSize
+      }
 
       axios.post('/users/update/' + id, user)
         .then(res => console.log(res.data));
     }
 
     window.location = '/Notepad';
+  }
+
+  onChangeColor(color) {
+    this.color = color;
+    this.setState({}); // I do not like how this works
+  }
+
+  onIncreaseFont() {
+    if(this.fontSize <= 64) this.fontSize++;
+    this.setState({});
+  }
+
+  onDecreaseFont() {
+    if(this.fontSize > 11) this.fontSize--;
+    this.setState({});
+  }
+
+  renderColorOptions() {
+    let res = [];
+    this.colors.map((color, idx) => {
+      res.push(
+        <Button variant="light"
+        style={{
+          backgroundColor: color.value
+        }}
+        onClick={() => this.onChangeColor(color.value)}>{color.name}</Button>
+      )
+    })
+    return (
+      res
+    );
+  }
+
+  renderFontUI() {
+    return (
+      <div>
+
+        <div class="col-lg-1 row-centered">Font Size:</div>
+
+        <div class="row">
+        <Button onClick={ this.onDecreaseFont }>-</Button>
+          <input type="text" value={this.fontSize}></input>
+        <Button onClick={ this.onIncreaseFont }>+</Button>
+        </div>
+
+      </div>
+    );
   }
 
   render() {
@@ -124,6 +201,8 @@ export default class NotePad extends Component {
             </select>
           </div>
 
+          {this.renderColorOptions()}
+          {this.renderFontUI()}
 
           <form onSubmit={this.onSubmitNote}>
             <div className="form-group">
@@ -134,7 +213,11 @@ export default class NotePad extends Component {
                 rows="10"
                 value={this.state.text}
                 onChange={this.onChangeText}
-                placeholder="Enter something.">
+                placeholder="Enter something."
+                style={{
+                  backgroundColor: this.color,
+                  fontSize: this.fontSize
+                }}>
               </textarea>
             </div>
             <div className="form-group">
