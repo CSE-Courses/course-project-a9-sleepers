@@ -609,7 +609,7 @@ export default function AboutUs() {
 
 
 <Grid className={classes.SocialMediaButtons}>
-             <Button href="https://github.com/sushi-trash" target="_blank" >
+             <Button href="https://github.com/kepler42" target="_blank" >
                 <GitHubIcon className={classes.ResizeIconButton}/>         
              </Button>
 
@@ -647,7 +647,7 @@ export default function AboutUs() {
       <Typography variant="body1" noWrap className={classes.iconsNamesAdjust}>Richard Wu</Typography>
       </MuiThemeProvider>
 <Grid className={classes.SocialMediaButtons}>
-             <Button href="https://github.com/smalbec" target="_blank" >
+             <Button href="https://github.com/sushi-trash" target="_blank" >
                 <GitHubIcon className={classes.ResizeIconButton}/>         
              </Button>
 
@@ -665,7 +665,7 @@ export default function AboutUs() {
       <Typography variant="body1" noWrap className={classes.iconsNamesAdjust}>Sebastian Malbec</Typography>
       </MuiThemeProvider>
 <Grid className={classes.SocialMediaButtons}>
-             <Button href="https://github.com/kepler42" target="_blank" >
+             <Button href="https://github.com/smalbec" target="_blank" >
                 <GitHubIcon className={classes.ResizeIconButton}/>         
              </Button>
 
