@@ -16,6 +16,7 @@ import SubStopwatch from '../images/Sub-Stopwatch.png';
 import SubStocks from '../images/Sub-Stocks.png';
 import SubNews from '../images/Sub-News.png';
 import SubWPM from '../images/Sub-WPM.png';
+import SubLyrics from '../images/Sub-Lyrics.png'
 import SubCat from '../images/Sub-Cat.png';
 import SubCurrency from '../images/Sub-Currency.png';
 import SubWeather from '../images/Sub-Weather.png';
@@ -112,6 +113,11 @@ function loadSavedTictac() {
 function loadSavedCurrency() {
   const savedCurrency = storage.getItem('disableCurrency')
   return savedCurrency ? JSON.parse(savedCurrency) : { disableCurrency: false }
+}
+
+function loadSavedLyric() {
+  const savedLyric = storage.getItem('disableLyric')
+  return savedLyric ? JSON.parse(savedLyric) : { disableLyric: false }
 }
 
 export default function VisualTools (){
@@ -288,6 +294,15 @@ export default function VisualTools (){
     [disableCurrency]
   );
 
+  const [disableLyric, setDisableLyric] = React.useState(loadSavedLyric);
+  const toggleLyric = () => setDisableLyric(d => !d);
+  useEffect(
+    () => {
+        storage.setItem("disableLyric", JSON.stringify(disableLyric));
+    },
+    [disableLyric]
+  );
+
   return(
     <div>
         <h1 class="text-center fontSize1" ><Badge variant="secondary">ToolBox</Badge></h1>
@@ -309,13 +324,14 @@ export default function VisualTools (){
                       <button className="btnSpace" onClick={toggleCurrency}>Toggle Currency Converter</button>
                       <button className="btnSpace" onClick={toggleUnitConverter}>Toggle Unit Converter</button>
                       <button className="btnSpace" onClick={toggleTimezone}>Toggle Timezone</button>
-                      <button className="btnSpace0" onClick={() => {toggleNews(); toggleCat(); toggleDrawingBoard(); toggleWPMTest(); toggleRadio(); toggleTictac()}}>Toggle Take-A-Break Apps</button>
+                      <button className="btnSpace0" onClick={() => {toggleNews(); toggleCat(); toggleDrawingBoard(); toggleWPMTest(); toggleRadio(); toggleTictac(); toggleLyric();}}>Toggle Take-A-Break Apps</button>
                       <button className="btnSpace1" onClick={toggleWPMTest}>Toggle WPM Test</button>
                       <button className="btnSpace1" onClick={toggleDrawingBoard}>Toggle DrawingBoard</button>
                       <button className="btnSpace1" onClick={toggleNews}>Toggle News</button>
                       <button className="btnSpace1" onClick={toggleCat}>Toggle Cat</button>
                       <button className="btnSpace1" onClick={toggleRadio}>Toggle Radio</button>
                       <button className="btnSpace1" onClick={toggleTictac}>Toggle Tic-Tac-Toe</button>
+                      <button className="btnSpace1" onClick={toggleLyric}>Toggle Lyric Finder</button>
                   </Modal>
                   </div>
           <hr style={{borderBottom:"3px solid", marginTop:"3em"}}/>
@@ -562,6 +578,17 @@ export default function VisualTools (){
                        <Image src ={SubRadio} className={" img-fluid SubRadio"} />
                      </Link>
                          <h3 class="text-center fontSize3" >Radio</h3>
+                    </Disable>
+                         <hr className={"HonzontalLine"}/>
+                   </Col>
+              </Row>
+              <Row>
+              <Col sm={5} md = {5}>
+                   <Disable disabled={disableLyric}>
+                     <Link to ="/LyricFinder">
+                       <Image src ={SubLyrics} className={" img-fluid SubLyric"} />
+                     </Link>
+                         <h3 class="text-center fontSize3" >Lyric Finder</h3>
                     </Disable>
                          <hr className={"HonzontalLine"}/>
                    </Col>

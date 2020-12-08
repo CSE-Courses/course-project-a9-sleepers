@@ -46,6 +46,7 @@ const componentOptions = [
   { value: '/Tictac', label: 'Tic-Tac-Toe' },
   { value: '/Radio', label: 'Radio' },
   { value: '/Weather', label: 'Weather' },
+  { value: '/LyricFinder', label: 'Lyric Finder'},
 ];
 
 function loadSavedTime() {
@@ -274,6 +275,9 @@ function  NavBar (props){
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to= '/Cat'>
                   <h3 className={"fontSize3"}>Cat</h3>
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to= '/LyricFinder'>
+                  <h3 className={"fontSize3"}>Lyric Finder</h3>
                 </NavDropdown.Item>
 
                </NavDropdown>
