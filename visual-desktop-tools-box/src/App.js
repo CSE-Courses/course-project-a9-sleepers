@@ -24,7 +24,7 @@ import CalendarWidget from './components/Widgets/Calendar-Custom/Calendar';
 import Stocks from './components/Widgets/Stocks/Stocks';
 import News from './components/Widgets/News/News';
 import Currency from './components/Widgets/Currency/Currency'
-import Tictac from './components/Widgets/Tic-Tac/Tictac'
+import Tictac from './components/Widgets/Tic-Tac/App';
 import WPMTest from './components/Widgets/WPMTest/WPMTest'
 import UnitConverter from './components/Widgets/UnitConverter/UnitConverter';
 import Timezone from './components/Widgets/Timezone/Timezone';
@@ -39,6 +39,7 @@ import ToDoList from './components/Widgets/ToDoList/ToDoList';
 import LoginPage from './components/LoginPage/LoginPage';
 import SignUpPage from './components/SignUpPage/SignUpPage';
 import NavBar from './components/NavBar/NavBar';
+import LyricFinder from './components/Widgets/LyricFinder/src/App';
 import AboutUs from './components/AboutUs/AboutUs';
 
 class App extends Component {
@@ -106,6 +107,8 @@ class App extends Component {
           <Route path = "/SignUp" exact component = {SignUpPage}/>
 
           <Route path = "/ToDoList" exact component = {ToDoList}/>
+          
+          <Route path="/LyricFinder" exact component={LyricFinder} />
           
           <Route path = "/AboutUs" > 
                  <NavBar/>  

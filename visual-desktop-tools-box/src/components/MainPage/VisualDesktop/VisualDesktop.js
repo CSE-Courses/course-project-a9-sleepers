@@ -56,7 +56,7 @@ export default function VisualDesktop (){
       { name: "WPMTest", shape: "poly", coords: [785,925,1150,925,1150,980,785,980], strokeColor:"blue", href:'/WPMTest'},
       { name: "DrawingBoard", shape: "poly", coords: [1260,850,1430,870,1350,920,1200,885], strokeColor:"red", href:'/DrawingBoard'},
       { name: "Weather", shape: "poly", coords: [1650,25,1870,25,1860,200,1640,200],  href : '/Weather' , strokeColor:"yellow",},
-      
+      { name: 'Lyrics', shape: 'poly', coords: [90, 400, 330, 400, 330, 700, 90, 700], href: '/LyricFinder', strokeColor: 'yellow' },
 
       // more to be add: checklist.. calender... ...etc
     ]

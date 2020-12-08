@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import Game from './components/Game';
+import Board from './Board'
 
-function App() {
-  return (
-   <Game />
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header" style={{ textAlign: "center" }}>
+          <h2>Tic Tac Toe</h2>
+          <Board></Board>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
